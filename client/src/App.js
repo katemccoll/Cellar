@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {
   ApolloClient,
   InMemoryCache,
@@ -8,7 +8,10 @@ import {
 import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-// import Signup from './pages/Signup';
+// import Header from './components/Header';
+// import Home from './pages/Home';
+import Signup from './components/Signup';
+import Login from './components/Login'
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -34,28 +37,46 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
-class App extends Component {
+class App extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
 
     this.state = {
-      isLoading: true
-    }
+      isLoginOpen: true,
+      isSignupOpen: false
+    };
+  }
+
+  showSignup() {
+    this.setState({ isSignupOpen: true, isLoginOpen: false });
+  }
+
+  showLogin() {
+    this.setState({ isSignupOpen: false, isLoginOpen: true });
   }
 
   render() {
-    const { message } = this.props
+
     return (
         <ApolloProvider client={client}>
-          <Router>
-            <div className={`app-main__${message}`}>
-              <div className="container">
-                <Route exact path="/signup">
-                  { message }
-                </Route>
-              </div>
+          <div className="controller-container">
+            <div className={"controller" + (this.state.isLoginOpen ? "selected-controller" : "")}
+            onClick={this
+                .showLogin
+                .bind(this)}>
+              Login
             </div>
-          </Router>
+            <div className={"controller" + (this.state.isSignupOpen ? "selected-controller" : "")}
+                 onClick={this
+                     .showSignup
+                     .bind(this)}>
+              Sign Up
+            </div>
+          </div>
+          <div>
+            { this.state.isLoginOpen && <Login/> }
+            { this.state.isSignupOpen && <Signup/> }
+          </div>
         </ApolloProvider>
     );
   }
