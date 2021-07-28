@@ -10,11 +10,11 @@ const resolvers = {
         user: async (parent, { username }) => {
             return User.findOne({ username }).populate('wines');
         },
-        thoughts: async (parent, { username }) => {
+        wines: async (parent, { username }) => {
             const params = username ? { username } : {};
             return Wine.find(params).sort({ createdAt: -1 });
         },
-        thought: async (parent, { wineId }) => {
+        wine: async (parent, { wineId }) => {
             return Wine.findOne({ _id: wineId });
         },
         me: async (parent, args, context) => {
@@ -89,7 +89,7 @@ const resolvers = {
 
                 await User.findOneAndUpdate(
                     { _id: context.user._id },
-                    { $pull: { thoughts: wine._id } }
+                    { $pull: { wines: wine._id } }
                 );
 
                 return wine;
