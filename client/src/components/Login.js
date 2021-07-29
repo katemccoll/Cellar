@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 
+import "./assets/css/Login.css";
+import logo from "./assets/images/cellar-logo.png";
+
 const Login = (props) => {
     const [formState, setFormState] = useState({ email: '', password: '' });
 
@@ -21,10 +24,10 @@ const Login = (props) => {
     }
 
         return (
-            <div>
+            <div className="card-h">
+                <div className="t-a-center"><img src={logo} alt="cellar-logo" className="logo" /></div>
                 <div className="input-group">
                     <form onSubmit={handleFormSubmit}>
-                        <label htmlFor="email">Email</label>
                         <input
                             type="email"
                             name="email"
@@ -33,7 +36,6 @@ const Login = (props) => {
                             value={formState.email}
                             onChange={handleChange}
                         />
-                        <label htmlFor="password">Password</label>
                         <input
                             type="password"
                             name="password"
