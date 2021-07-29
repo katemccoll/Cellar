@@ -1,38 +1,56 @@
-.App {
-  text-align: center;
+html {
+  background: url(./assets/images/marvin-l-61sZcZl3Mlk-unsplash.jpg) no-repeat center center fixed;
+  background-size: cover;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.block {
+  height: 20px;
+  background-color: black;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.controller-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  text-align: center;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.controller- {
+  width: 50%;
+  font-size: 24px;
+  padding: 10px;
+  background-color: black;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.controller-selected-controller {
+  width: 50%;
+  font-size: 24px;
+  padding: 10px;
+}
+
+@media screen and (min-width: 500px) {
+
+  #background-cellar {
+    text-align: -webkit-center;
   }
-  to {
-    transform: rotate(360deg);
+  .block {
+    background: none;
   }
+
+  .controller-container {
+    width: 60%;
+  }
+
+  .controller- {
+    background: none;
+  }
+  .controller-selected-controller {
+    background-color: black;
+  }
+
+  .card-h {
+    width: 60%;
+    background-color: black;
+  }
+
+
 }
