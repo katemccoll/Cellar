@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+import "./assets/css/Signup.css";
+import logo from "./assets/images/cellar-logo-small.png";
 
 const Signup = () => {
     const [formState, setFormState] = useState({
@@ -23,10 +25,10 @@ const Signup = () => {
     }
 
     return (
-        <div>
+        <div className="card-h">
+            <div className="t-a-center"><img src={logo} alt="cellar-logo" className="logo" /></div>
             <div className="input-group">
                 <form onSubmit={handleFormSubmit}>
-                    <label htmlFor="firstName">First Name</label>
                     <input
                         type="text"
                         name="firstName"
@@ -35,7 +37,6 @@ const Signup = () => {
                         value={formState.firstName}
                         onChange={handleChange}
                     />
-                    <label htmlFor="lastName">Last Name</label>
                     <input
                         type="text"
                         name="lastName"
@@ -44,16 +45,14 @@ const Signup = () => {
                         value={formState.lastName}
                         onChange={handleChange}
                     />
-                    <label htmlFor="email">Email</label>
                     <input
                         type="email"
                         name="email"
-                        className="register-input"
+                        className="signup-input"
                         placeholder="Email"
                         value={formState.email}
                         onChange={handleChange}
                     />
-                    <label htmlFor="password">Password</label>
                     <input
                         type="password"
                         name="password"
@@ -64,9 +63,9 @@ const Signup = () => {
                     />
                     <button
                         type="submit"
-                        className="signup-input"
+                        className="signup-btn"
                         style={{ cursor: 'pointer '}}
-                    >signup</button>
+                    >Sign Up</button>
                 </form>
             </div>
         </div>
