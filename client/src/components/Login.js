@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import "./assets/css/Login.css";
 import logo from "./assets/images/cellar-logo.png";
+import { Button } from "./Button/Button";
 
 const Login = (props) => {
     const [formState, setFormState] = useState({ email: '', password: '' });
@@ -44,11 +45,7 @@ const Login = (props) => {
                             value={formState.password}
                             onChange={handleChange}
                         />
-                        <button
-                            type="submit"
-                            className="login-btn"
-                            style={{ cursor: 'pointer '}}
-                        >Login</button>
+                        <Button className="btn" type="submit" buttonSize="btn--large" buttonStyle="btn--outline">Login</Button>
                     </form>
                 </div>
 

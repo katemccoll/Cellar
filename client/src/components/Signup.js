@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 
+
 import "./assets/css/Signup.css";
 import logo from "./assets/images/cellar-logo-small.png";
+import {Button} from "./Button/Button";
 
 const Signup = () => {
     const [formState, setFormState] = useState({
@@ -9,8 +11,7 @@ const Signup = () => {
         email: '',
         password: '',
     });
-
-
+    
     const handleChange = (e) => {
         const { name, value } = e.target;
 
@@ -61,11 +62,7 @@ const Signup = () => {
                         value={formState.password}
                         onChange={handleChange}
                     />
-                    <button
-                        type="submit"
-                        className="signup-btn"
-                        style={{ cursor: 'pointer '}}
-                    >Sign Up</button>
+                    <Button className="btn" type="submit" buttonSize="btn--large" buttonStyle="btn--outline">Sign Up</Button>
                 </form>
             </div>
         </div>

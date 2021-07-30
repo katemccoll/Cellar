@@ -10,6 +10,9 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Home from './pages/Home';
 import SignIn from "./pages/SignIn";
+import AddWine from "./pages/AddWine";
+import ViewWine from "./pages/ViewWine";
+import Search from "./pages/Search";
 
 import Navbar from "./components/Navbar/Navbar";
 
@@ -47,10 +50,12 @@ function App() {
           <Navbar />
           <Switch>
             <Route path='/' exact component={Home}></Route>
+            <Route path='/add-wine' component={AddWine}></Route>
+            <Route path='/view-wine'  component={ViewWine}></Route>
+            <Route path='/search' component={Search}></Route>
+            <Route path='/sign-in' component={SignIn}></Route>
           </Switch>
-          <Switch>
-            <Route path='/sign-in' exact component={SignIn}></Route>
-          </Switch>
+
         </Router>
 
       </ApolloProvider>

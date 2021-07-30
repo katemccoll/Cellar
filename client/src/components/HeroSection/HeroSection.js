@@ -10,7 +10,7 @@ function HeroSection() {
             <p>Your Wine Bank</p>
             <div className="hero-btns">
                 <Button className="btn" buttonSize="btn--large" buttonStyle="btn--outline">Add Wine</Button>
-                <Button className="btn" buttonSize="btn--large" buttonStyle="btn--outline">View Your Wines</Button>
+                <Button className="btn" buttonSize="btn--large" buttonStyle="btn--outline">View Wines</Button>
             </div>
         </div>
     );

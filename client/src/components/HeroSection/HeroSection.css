@@ -21,6 +21,28 @@ video {
     font-size: 30px;
 }
 
+.hero-btns {
+    display: grid;
+}
+
 .hero-btns .btn {
     margin: 10px;
+}
+
+@media screen and (min-width: 500px) {
+    .hero-btns {
+        display: block;
+    }
+
+    video {
+        top: 0;
+    }
+
+    .hero-container h1 {
+        padding-top: 150px;
+    }
+
+    .hero-btns .btn {
+        margin: 20px;
+    }
 }
