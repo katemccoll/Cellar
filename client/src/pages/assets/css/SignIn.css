@@ -1,0 +1,64 @@
+.background-cellar {
+    text-align: -webkit-center;
+    background: url(../images/marvin-l-61sZcZl3Mlk-unsplash.jpg) no-repeat center center;
+    background-size: cover;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+
+.block {
+    height: 50px;
+    background-color: black;
+}
+
+.controller-container {
+    display: flex;
+    text-align: center;
+    color: white;
+}
+
+.controller- {
+    width: 50%;
+    font-size: 24px;
+    padding: 10px;
+    background-color: black;
+}
+
+.controller-selected-controller {
+    width: 50%;
+    font-size: 24px;
+    padding: 10px;
+}
+
+.card-h {
+    margin-bottom: 50px;
+}
+
+@media screen and (min-width: 500px) {
+
+    #background-cellar {
+        text-align: -webkit-center;
+    }
+    .block {
+        background: none;
+    }
+
+    .controller-container {
+        width: 60%;
+    }
+
+    .controller- {
+        background: none;
+    }
+    .controller-selected-controller {
+        background-color: black;
+    }
+
+    .card-h {
+        width: 60%;
+        background-color: black;
+    }
+
+
+}
