@@ -6,14 +6,15 @@ import {
   createHttpLink,
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-// import Header from './components/Header';
 import Home from './pages/Home';
-import Signup from './components/Signup';
-import Login from './components/Login'
+import SignIn from "./pages/SignIn";
+
+import Navbar from "./components/Navbar/Navbar";
 
 import './App.css';
+
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -39,59 +40,21 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
+function App() {
+  return (
+      <ApolloProvider client={client}>
+        <Router>
+          <Navbar />
+          <Switch>
+            <Route path='/' exact component={Home}></Route>
+          </Switch>
+          <Switch>
+            <Route path='/sign-in' exact component={SignIn}></Route>
+          </Switch>
+        </Router>
 
-    this.state = {
-      isLoginOpen: true,
-      isSignupOpen: false
-    };
-  }
-
-  showSignup() {
-    this.setState({ isSignupOpen: true, isLoginOpen: false });
-  }
-
-  showLogin() {
-    this.setState({ isSignupOpen: false, isLoginOpen: true });
-  }
-
-  render() {
-
-    return (
-        <ApolloProvider client={client}>
-          <Router>
-            <Route exact path="/">
-              <Home />
-            </Route>
-            <div id="background-cellar">
-              <div className="block"></div>
-              <div className="controller-container">
-                <div className={"controller-" + (this.state.isLoginOpen ? "selected-controller" : "")}
-                     onClick={this
-                         .showLogin
-                         .bind(this)}>
-                  Login
-                </div>
-                <div className={"controller-" + (this.state.isSignupOpen ? "selected-controller" : "")}
-                     onClick={this
-                         .showSignup
-                         .bind(this)}>
-                  Sign Up
-                </div>
-              </div>
-              <div>
-                { this.state.isLoginOpen && <Login/> }
-                { this.state.isSignupOpen && <Signup/> }
-              </div>
-            </div>
-          </Router>
-
-
-        </ApolloProvider>
-    );
-  }
+      </ApolloProvider>
+  );
 }
 
 export default App;
