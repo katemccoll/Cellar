@@ -5,11 +5,12 @@
 }
 
 :root {
-    --white-wine: #FFDAB9;
-    --dark-white-wine: #E09F3E;
+    --white-wine: #eedac0;
+    --dark-white-wine: #c49254;
     --red-wine: #9E2A2B;
     --dark-red-wine: #540B0E;
     --white: #FFF;
-    --black: #000;
+    --black: #01040e;
+    --dark-grey: #22262a;
     --deep-green: #081C15;
 }

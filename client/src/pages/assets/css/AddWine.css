@@ -1,0 +1,71 @@
+.background-bottles {
+    background: linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6) ), url(../images/biljana-martinic-IGJ_21drT3g-unsplash.jpg) no-repeat center center;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    padding: 40px;
+}
+
+.card-add-wine {
+    border: 1px solid var(--dark-white-wine);
+    padding: 40px;
+    color: var(--white-wine);
+}
+
+.card-add-wine h1 {
+    color: var(--dark-white-wine);
+    padding-bottom: 40px;
+}
+
+.upload-image {
+    width: 150px;
+    margin: 0 auto 20px;
+    height: 150px;
+    background-color: grey;
+    text-align: center;
+    border-radius: 100%;
+}
+
+.background-white-wine {
+    background-color: var(--white);
+    padding: 40px;
+}
+
+.card-add-wine-black {
+    border: 1px solid var(--dark-red-wine);
+    padding: 40px;
+    color: var(--black);
+}
+
+.card-add-wine-black h1 {
+    color: var(--dark-red-wine);
+    padding-bottom: 40px;
+}
+
+.input-add-wine {
+    font-size: 18px;
+    padding: 6px;
+    width: 100%;
+    margin: 16px 0;
+    border: 1px solid black;
+}
+
+.textarea-add-wine {
+    font-size: 18px;
+    padding: 6px;
+    width: 100%;
+    margin: 16px 0;
+    border: 1px solid black;
+}
+
+.select-add-wine {
+    font-size: 18px;
+    padding: 6px;
+    width: 100%;
+    margin: 16px 0;
+    border: 1px solid black;
+}
+
+.text-align-center {
+    text-align-last: center;
+}

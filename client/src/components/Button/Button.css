@@ -19,12 +19,18 @@
     border: 1px solid var(--white);
 }
 
+.btn--dark-red-wine {
+    background-color: var(--dark-red-wine);
+    color: var(--white);
+    border: 1px solid var(--dark-red-wine);
+}
+
 .btn--outline {
     background: rgba(0, 0, 0, 0.5);
     color: var(--white);
     padding: 8px 20px;
     border-radius: 4px;
-    border: 2px solid var(--white);
+    border: 1px solid var(--white);
     transition: all 0.2s ease-out;
 }
 
