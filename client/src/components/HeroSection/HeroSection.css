@@ -36,6 +36,8 @@ video {
 
     video {
         top: 0;
+        background-color: var(--black);
+        object-fit: none;
     }
 
     .hero-container h1 {
