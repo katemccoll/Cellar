@@ -23,15 +23,18 @@ video {
 
 .hero-btns {
     display: grid;
+    width: 80%;
+    margin: auto;
 }
 
 .hero-btns .btn {
     margin: 10px;
 }
 
-@media screen and (min-width: 500px) {
+@media screen and (min-width: 600px) {
     .hero-btns {
         display: block;
+        margin: 40px auto;
     }
 
     video {
@@ -46,5 +49,13 @@ video {
 
     .hero-btns .btn {
         margin: 20px;
+    }
+
+    .hero-container h1 {
+        font-size: 110px;
+    }
+
+    .hero-container p {
+        font-size: 46px;
     }
 }
