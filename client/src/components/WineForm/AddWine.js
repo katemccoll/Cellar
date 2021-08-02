@@ -1,28 +1,15 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 
 import "./assets/css/AddWine.css";
 import {Button} from "../components/Button/Button";
+import {useMutation} from "@apollo/client";
+import {ADD_WINE} from "../utils/mutations";
 
-class AddWine extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {value: ""};
-
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-    }
-
-    handleChange(e) {
-        this.setState(() => {
-            [e.target.name]: e.target.value
-        });
-    }
-
-    handleSubmit(e) {
-        e.preventDefault();
-    }
-
-    render() {
+const AddWine = () => {
+    const [formState, setFormState] = useState({ wineName: '', wineType: '', wineText: '' });
+    const [addWine, { error }] = useMutation(ADD_WINE, {
+        update(cache, )
+    })
         return (
             <div>
                 <div className="background-bottles">

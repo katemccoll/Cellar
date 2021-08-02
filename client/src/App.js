@@ -10,7 +10,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Home from './pages/Home';
 import SignIn from "./pages/SignIn";
-import AddWine from "./pages/AddWine";
+import AddWine from "./components/WineForm/AddWine";
 import ViewWine from "./pages/ViewWine";
 import Search from "./pages/Search";
 import Navbar from "./components/Navbar/Navbar";
