@@ -3,6 +3,7 @@ import logo from "../assets/images/cellar-logo-small.png"
 import "./Navbar.css"
 import { Button } from "../Button/Button";
 import { Link } from "react-router-dom";
+import Auth from "../../utils/auth";
 
 function Navbar() {
     const [click, setClick] = useState(false);
@@ -24,42 +25,85 @@ function Navbar() {
 
     window.addEventListener("resize", showButton);
 
+    function showNav() {
+        if (Auth.loggedIn()) {
+            return (
+                <div className="flex">
+                    <ul className={click ? 'navbar-menu active' : 'navbar-menu'}>
+                        <li className="navbar-item">
+                            <Link className="navbar-links" to="/" onClick={closeMobileMenu}>
+                                Home
+                            </Link>
+                        </li>
+                        <li className="navbar-item">
+                            <Link className="navbar-links" to="/add-wine" onClick={closeMobileMenu}>
+                                Add Wine
+                            </Link>
+                        </li>
+                        <li className="navbar-item">
+                            <Link className="navbar-links" to="/view-wine" onClick={closeMobileMenu}>
+                                Collection
+                            </Link>
+                        </li>
+                        <li className="navbar-item">
+                            <Link className="navbar-links" to="/search" onClick={closeMobileMenu}>
+                                Search
+                            </Link>
+                        </li>
+                        <li className="navbar-item">
+                            <Link className="navbar-links-mobile" to="/" onClick={() => Auth.logout()} buttonStyle="btn--outline">
+                                Logout
+                            </Link>
+                        </li>
+                    </ul>
+                    {button && <Button buttonStyle="btn--outline"  onClick={() => Auth.logout()}><a href="/">Logout</a></Button>}
+                </div>
+            );
+        } else {
+            return (
+                <div className="flex">
+                    <ul className={click ? 'navbar-menu active' : 'navbar-menu'}>
+                        <li className="navbar-item">
+                            <Link className="navbar-links" to="/" onClick={closeMobileMenu}>
+                                Home
+                            </Link>
+                        </li>
+                        <li className="navbar-item">
+                            <Link className="navbar-links" to="/add-wine" onClick={closeMobileMenu}>
+                                Add Wine
+                            </Link>
+                        </li>
+                        <li className="navbar-item">
+                            <Link className="navbar-links" to="/view-wine" onClick={closeMobileMenu}>
+                                Collection
+                            </Link>
+                        </li>
+                        <li className="navbar-item">
+                            <Link className="navbar-links" to="/search" onClick={closeMobileMenu}>
+                                Search
+                            </Link>
+                        </li>
+                        <li className="navbar-item">
+                            <Link className="navbar-links-mobile" to="/sign-in" onClick={closeMobileMenu} buttonStyle="btn--outline">
+                                Sign in
+                            </Link>
+                        </li>
+                    </ul>
+                    {button && <Button buttonStyle="btn--outline">Sign In</Button>}
+                </div>
+            )
+        }
+    }
+
     return(
         <nav className="navbar">
             <Link to="/"><img src={logo} alt="cellar-logo" className="navbar-logo" /></Link>
             <div className="menu-icon" onClick={handleClick}>
                 <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
             </div>
-                <ul className={click ? 'navbar-menu active' : 'navbar-menu'}>
-                    <li className="navbar-item">
-                        <Link className="navbar-links" to="/" onClick={closeMobileMenu}>
-                            Home
-                        </Link>
-                    </li>
-                    <li className="navbar-item">
-                        <Link className="navbar-links" to="/add-wine" onClick={closeMobileMenu}>
-                            Add Wine
-                        </Link>
-                    </li>
-                    <li className="navbar-item">
-                        <Link className="navbar-links" to="/view-wine" onClick={closeMobileMenu}>
-                            Collection
-                        </Link>
-                    </li>
-                    <li className="navbar-item">
-                        <Link className="navbar-links" to="/search" onClick={closeMobileMenu}>
-                            Search
-                        </Link>
-                    </li>
-                    <li className="navbar-item">
-                        <Link className="navbar-links-mobile" to="/sign-in" onClick={closeMobileMenu} buttonStyle="btn--outline">
-                            Sign in
-                        </Link>
-                    </li>
-                </ul>
-            {button && <Button buttonStyle="btn--outline">Sign In</Button>}
+            {showNav()}
         </nav>
-    )
+    );
 }
 
 export default Navbar;

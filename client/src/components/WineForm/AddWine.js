@@ -1,26 +1,15 @@
-import React, { Component, useState} from "react";
+import React, { useState } from "react";
 
 import "./assets/css/AddWine.css";
 import {Button} from "../components/Button/Button";
+import {useMutation} from "@apollo/client";
+import {ADD_WINE} from "../utils/mutations";
 
-class AddWine extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {value: ""};
-
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-    }
-
-    handleChange(e) {
-        this.setState({value: e.target.value});
-    }
-
-    handleSubmit(e) {
-        e.preventDefault();
-    }
-
-    render() {
+const AddWine = () => {
+    const [formState, setFormState] = useState({ wineName: '', wineType: '', wineText: '' });
+    const [addWine, { error }] = useMutation(ADD_WINE, {
+        update(cache, )
+    })
         return (
             <div>
                 <div className="background-bottles">
@@ -49,7 +38,7 @@ class AddWine extends Component {
                                 <textarea className="textarea-add-wine" value={this.state.value} onChange={this.handleChange} />
                             </label>
                             <div className="text-align-center">
-                                <Button className="btn" buttonSize="btn--large" buttonStyle="btn--outline">Add</Button>
+                                <Button className="btn" buttonSizes="btn--large" buttonStyle="btn--outline">Add</Button>
                             </div>
 
                         </form>
@@ -75,7 +64,7 @@ class AddWine extends Component {
                                 <textarea className="textarea-add-wine" value={this.state.value} onChange={this.handleChange} />
                             </label>
                             <div className="text-align-center">
-                                <Button className="btn" buttonSize="btn--large" buttonStyle="btn--dark-red-wine">Add</Button>
+                                <Button className="btn" buttonSizes="btn--large" buttonStyle="btn--dark-red-wine">Add</Button>
                             </div>
                         </form>
                     </div>

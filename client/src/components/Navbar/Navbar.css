@@ -7,6 +7,10 @@
     align-items: center;
 }
 
+.flex {
+    display: flex;
+}
+
 .navbar-logo {
     width: 50px;
     height: auto;

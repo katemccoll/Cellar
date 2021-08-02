@@ -10,19 +10,18 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Home from './pages/Home';
 import SignIn from "./pages/SignIn";
-import AddWine from "./pages/AddWine";
+import AddWine from "./components/WineForm/AddWine";
 import ViewWine from "./pages/ViewWine";
 import Search from "./pages/Search";
-
-// import Navbar from "./components/Navbar/Navbar";
+import Navbar from "./components/Navbar/Navbar";
 
 import './App.css';
-import Navbar from "./components/Navbar/Navbar";
+
 
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
-  uri: '/graphql',
+  uri: 'http://localhost:3001/graphql',
 });
 
 // Construct request middleware that will attach the JWT token to every request as an `authorization` header

@@ -4,13 +4,9 @@ import Signup from "../components/Signup";
 import "./assets/css/SignIn.css";
 
 class SignIn extends Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
+    state = {
             isLoginOpen: true,
-            isSignupOpen: false
-        };
+            isSignupOpen: false,
     }
 
     showSignup() {

@@ -9,8 +9,24 @@ function HeroSection() {
             <h1>Cellar</h1>
             <p>Your Wine Bank</p>
             <div className="hero-btns">
-                <Button className="btn" buttonSize="btn--large" buttonStyle="btn--outline">Add Wine</Button>
-                <Button className="btn" buttonSize="btn--large" buttonStyle="btn--outline">View Wines</Button>
+                <Button
+                    type={"add-wine"}
+                    link={"/add-wine"}
+                    className="btn"
+                    buttonSizes="btn--large"
+                    buttonStyle="btn--outline"
+                >
+                    Add Wine
+                </Button>
+                <Button
+                    type={"view-wine"}
+                    link={"/view-wine"}
+                    className="btn"
+                    buttonSizes="btn--large"
+                    buttonStyle="btn--outline"
+                >
+                    View Wines
+                </Button>
             </div>
         </div>
     );
