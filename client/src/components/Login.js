@@ -1,14 +1,18 @@
 import React, { useState } from 'react';
-
 import "./assets/css/Login.css";
 import logo from "./assets/images/cellar-logo.png";
 import { Button } from "./Button/Button";
+import { LOGIN } from "../utils/mutations";
+import  Auth from "../utils/auth";
+import {useMutation} from "@apollo/client";
+
 
 const Login = (props) => {
     const [formState, setFormState] = useState({ email: '', password: '' });
+    const [login, { error }] = useMutation(LOGIN);
 
-    const handleChange = (e) => {
-        const {name, value} = e.target;
+    const handleChange = (event) => {
+        const {name, value} = event.target;
 
         setFormState({
             ...formState,
@@ -16,13 +20,19 @@ const Login = (props) => {
         });
     };
 
-    const handleFormSubmit = async (e) => {
-        e.preventDefault();
-        setFormState({
-            email: '',
-            password: '',
-        });
-    }
+    const handleFormSubmit = async (event) => {
+        event.preventDefault();
+
+        try {
+            const mutationResponse = await login({
+                variables: { email: formState.email, password: formState.password },
+            });
+            const token = mutationResponse.data.login.token;
+            Auth.login(token);
+        } catch (e) {
+            console.log(e);
+        }
+    };
 
         return (
             <div className="card-h">
@@ -34,7 +44,6 @@ const Login = (props) => {
                             name="email"
                             className="login-input"
                             placeholder="Email"
-                            value={formState.email}
                             onChange={handleChange}
                         />
                         <input
@@ -42,10 +51,14 @@ const Login = (props) => {
                             name="password"
                             className="login-input"
                             placeholder="Password"
-                            value={formState.password}
                             onChange={handleChange}
                         />
-                        <Button className="btn" type="submit" buttonSize="btn--large" buttonStyle="btn--outline">Login</Button>
+                        {error ? (
+                            <div>
+                                <p className="error-text">The provided credentials are incorrect</p>
+                            </div>
+                        ) : null}
+                        <Button className="btn" type="submit" buttonSizes="btn--large" buttonStyle="btn--outline">Login</Button>
                     </form>
                 </div>
 

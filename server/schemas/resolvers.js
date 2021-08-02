@@ -58,33 +58,33 @@ const resolvers = {
             }
             throw new AuthenticationError('You need to be logged in!');
         },
-        updateUser: async (parent, args, context) => {
-            if (context.user) {
-                return await User.findByIdAndUpdate(context.user._id, args, { new: true });
-            }
-
-            throw new AuthenticationError('Not logged in');
-        },
-        updateWine: async (parent, { _id, quantity }) => {
-            const decrement = Math.abs(quantity) * -1;
-
-            return await Wine.findByIdAndUpdate(_id, { $inc: { quantity: decrement } }, { new: true });
-        },
-        removeWine: async (parent, { wineId }, context) => {
-            if (context.user) {
-                const wine = await Wine.findOneAndDelete({
-                    _id: wineId,
-                });
-
-                await User.findOneAndUpdate(
-                    { _id: context.user._id },
-                    { $pull: { wines: wine._id } }
-                );
-
-                return wine;
-            }
-            throw new AuthenticationError('You need to be logged in!');
-        },
+        // updateUser: async (parent, args, context) => {
+        //     if (context.user) {
+        //         return await User.findByIdAndUpdate(context.user._id, args, { new: true });
+        //     }
+        //
+        //     throw new AuthenticationError('Not logged in');
+        // },
+        // updateWine: async (parent, { _id, quantity }) => {
+        //     const decrement = Math.abs(quantity) * -1;
+        //
+        //     return await Wine.findByIdAndUpdate(_id, { $inc: { quantity: decrement } }, { new: true });
+        // },
+        // removeWine: async (parent, { wineId }, context) => {
+        //     if (context.user) {
+        //         const wine = await Wine.findOneAndDelete({
+        //             _id: wineId,
+        //         });
+        //
+        //         await User.findOneAndUpdate(
+        //             { _id: context.user._id },
+        //             { $pull: { wines: wine._id } }
+        //         );
+        //
+        //         return wine;
+        //     }
+        //     throw new AuthenticationError('You need to be logged in!');
+        // },
     },
 };
 

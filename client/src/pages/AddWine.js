@@ -1,4 +1,4 @@
-import React, { Component, useState} from "react";
+import React, { Component } from "react";
 
 import "./assets/css/AddWine.css";
 import {Button} from "../components/Button/Button";
@@ -13,7 +13,9 @@ class AddWine extends Component {
     }
 
     handleChange(e) {
-        this.setState({value: e.target.value});
+        this.setState(() => {
+            [e.target.name]: e.target.value
+        });
     }
 
     handleSubmit(e) {
@@ -49,7 +51,7 @@ class AddWine extends Component {
                                 <textarea className="textarea-add-wine" value={this.state.value} onChange={this.handleChange} />
                             </label>
                             <div className="text-align-center">
-                                <Button className="btn" buttonSize="btn--large" buttonStyle="btn--outline">Add</Button>
+                                <Button className="btn" buttonSizes="btn--large" buttonStyle="btn--outline">Add</Button>
                             </div>
 
                         </form>
@@ -75,7 +77,7 @@ class AddWine extends Component {
                                 <textarea className="textarea-add-wine" value={this.state.value} onChange={this.handleChange} />
                             </label>
                             <div className="text-align-center">
-                                <Button className="btn" buttonSize="btn--large" buttonStyle="btn--dark-red-wine">Add</Button>
+                                <Button className="btn" buttonSizes="btn--large" buttonStyle="btn--dark-red-wine">Add</Button>
                             </div>
                         </form>
                     </div>

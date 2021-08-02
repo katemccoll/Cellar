@@ -1,19 +1,21 @@
 import React, { useState } from 'react';
-
-
+import { useMutation } from "@apollo/client";
+import { ADD_USER } from "../utils/mutations";
+import Auth from '../utils/auth';
 import "./assets/css/Signup.css";
 import logo from "./assets/images/cellar-logo-small.png";
-import {Button} from "./Button/Button";
+// import {Button} from "./Button/Button";
 
-const Signup = () => {
+const Signup = (props) => {
     const [formState, setFormState] = useState({
         username: '',
         email: '',
         password: '',
     });
-    
-    const handleChange = (e) => {
-        const { name, value } = e.target;
+    const [addUser] = useMutation(ADD_USER);
+
+    const handleChange = (event) => {
+        const { name, value } = event.target;
 
         setFormState({
             ...formState,
@@ -21,9 +23,20 @@ const Signup = () => {
         });
     };
 
-    const handleFormSubmit = async (e) => {
-        e.preventDefault();
-    }
+    const handleFormSubmit = async (event) => {
+        event.preventDefault();
+
+        const mutationResponse = await addUser({
+            variables: {
+                firstName: formState.firstName,
+                lastName: formState.lastName,
+                email: formState.email,
+                password: formState.password
+            },
+        });
+        const token = mutationResponse.data.addUser.token;
+        Auth.login(token);
+    };
 
     return (
         <div className="card-h">
@@ -35,7 +48,7 @@ const Signup = () => {
                         name="firstName"
                         className="signup-input"
                         placeholder="First Name"
-                        value={formState.firstName}
+
                         onChange={handleChange}
                     />
                     <input
@@ -43,7 +56,6 @@ const Signup = () => {
                         name="lastName"
                         className="signup-input"
                         placeholder="Last Name"
-                        value={formState.lastName}
                         onChange={handleChange}
                     />
                     <input
@@ -51,7 +63,6 @@ const Signup = () => {
                         name="email"
                         className="signup-input"
                         placeholder="Email"
-                        value={formState.email}
                         onChange={handleChange}
                     />
                     <input
@@ -59,10 +70,9 @@ const Signup = () => {
                         name="password"
                         className="signup-input"
                         placeholder="Password"
-                        value={formState.password}
                         onChange={handleChange}
                     />
-                    <Button className="btn" type="submit" buttonSize="btn--large" buttonStyle="btn--outline">Sign Up</Button>
+                    <button className="btn" type="submit" >Sign Up</button>
                 </form>
             </div>
         </div>
