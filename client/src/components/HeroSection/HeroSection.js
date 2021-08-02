@@ -13,8 +13,8 @@ function HeroSection() {
                     type={"add-wine"}
                     link={"/add-wine"}
                     className="btn"
-                    buttonSizes="btn--large"
-                    buttonStyle="btn--outline"
+                    sizebutton="btn--large"
+                    stylebutton="btn--outline"
                 >
                     Add Wine
                 </Button>
@@ -22,8 +22,8 @@ function HeroSection() {
                     type={"view-wine"}
                     link={"/view-wine"}
                     className="btn"
-                    buttonSizes="btn--large"
-                    buttonStyle="btn--outline"
+                    sizebutton="btn--large"
+                    stylebutton="btn--outline"
                 >
                     View Wines
                 </Button>

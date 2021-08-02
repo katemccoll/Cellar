@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, { useState } from "react";
 import logo from "../assets/images/cellar-logo-small.png"
 import "./Navbar.css"
 import { Button } from "../Button/Button";
@@ -7,23 +7,22 @@ import Auth from "../../utils/auth";
 
 function Navbar() {
     const [click, setClick] = useState(false);
-    const [button, setButton] = useState(true);
+    // const [navbar, setNavbar] = useState(false);
 
     const handleClick = () => setClick(!click);
     const closeMobileMenu = () => setClick(false);
-    const showButton = () => {
-        if(window.innerWidth <= 500) {
-            setButton(false);
-        } else {
-            setButton(true);
-        }
-    };
 
-    useEffect(() => {
-        showButton();
-    }, []);
+    // const changeBackground = () => {
+    //     if(window.location.pathname === "/") {
+    //         setNavbar(true)
+    //     } else {
+    //         setNavbar(false);
+    //     }
+    // };
+    //
+    // window.addEventListener('onload', changeBackground);
 
-    window.addEventListener("resize", showButton);
+
 
     function showNav() {
         if (Auth.loggedIn()) {
@@ -51,12 +50,12 @@ function Navbar() {
                             </Link>
                         </li>
                         <li className="navbar-item">
-                            <Link className="navbar-links-mobile" to="/" onClick={() => Auth.logout()} buttonStyle="btn--outline">
+                            <Link className="navbar-links-mobile" to="/" onClick={() => Auth.logout()} stylebutton="btn--outline">
                                 Logout
                             </Link>
                         </li>
                     </ul>
-                    {button && <Button buttonStyle="btn--outline"  onClick={() => Auth.logout()}><a href="/">Logout</a></Button>}
+
                 </div>
             );
         } else {
@@ -84,12 +83,15 @@ function Navbar() {
                             </Link>
                         </li>
                         <li className="navbar-item">
-                            <Link className="navbar-links-mobile" to="/sign-in" onClick={closeMobileMenu} buttonStyle="btn--outline">
+                            <Button
+                                className="navbar-links-mobile"
+                                link={"/sign-in"}
+                                onClick={closeMobileMenu}
+                                stylebutton="btn--outline">
                                 Sign in
-                            </Link>
+                            </Button>
                         </li>
                     </ul>
-                    {button && <Button buttonStyle="btn--outline">Sign In</Button>}
                 </div>
             )
         }

@@ -58,7 +58,7 @@ const Login = (props) => {
                                 <p className="error-text">The provided credentials are incorrect</p>
                             </div>
                         ) : null}
-                        <Button className="btn" type="submit" buttonSizes="btn--large" buttonStyle="btn--outline">Login</Button>
+                        <Button className="btn" type="submit" sizebutton="btn--large" stylebutton="btn--outline">Login</Button>
                     </form>
                 </div>
 

@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 
-import "./assets/css/AddWine.css";
-import {Button} from "../components/Button/Button";
+import "./AddWine.css";
+import {Button} from "../Button/Button";
 import {useMutation} from "@apollo/client";
 import {ADD_WINE} from "../../utils/mutations";
 import {QUERY_WINES} from "../../utils/queries";
+import Auth from "../../utils/auth";
 
 const AddWine = () => {
     const [formState, setFormState] = useState('');
@@ -77,8 +78,8 @@ const AddWine = () => {
                                               onChange={handleFormChange}/>
                                 </label>
                                 <div className="text-align-center">
-                                    <Button className="btn" buttonSizes="btn--large"
-                                            buttonStyle="btn--outline">Add</Button>
+                                    <Button className="btn" sizebutton="btn--large"
+                                            stylebutton="btn--outline">Add</Button>
                                 </div>
                                 {error && (
                                     <div>
@@ -112,8 +113,8 @@ const AddWine = () => {
                                               onChange={handleFormChange}/>
                                 </label>
                                 <div className="text-align-center">
-                                    <Button className="btn" buttonSizes="btn--large"
-                                            buttonStyle="btn--dark-red-wine">Add</Button>
+                                    <Button className="btn" sizebutton="btn--large"
+                                            stylebutton="btn--dark-red-wine">Add</Button>
                                 </div>
                                 {error && (
                                     <div>
@@ -131,4 +132,6 @@ const AddWine = () => {
             )}
         </div>
     );
-}
+};
+
+export default AddWine;
