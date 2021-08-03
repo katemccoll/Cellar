@@ -1,4 +1,4 @@
-const { AuthenticationError } = require('apollo-server-express');
+const { AuthenticationError, UserInputError } = require('apollo-server-express');
 const { User, Wine } = require('../models');
 const { signToken } = require('../utils/auth');
 
@@ -19,22 +19,33 @@ const resolvers = {
 
     Mutation: {
         addUser: async (parent, args) => {
-            const user = await User.create(args);
-            const token = signToken(user);
+            try {
+                const user = await User.create(args);
+                const token = signToken(user);
 
-            return { token, user };
+                return { token, user };
+            } catch (e) {
+                if (e.name === "MongoError") {
+                    if (e.code === 11000) {
+                        throw new UserInputError("Email address already in use");
+                    }
+                }
+
+                throw e;
+            }
+
         },
         login: async (parent, { email, password }) => {
             const user = await User.findOne({ email });
 
             if (!user) {
-                throw new AuthenticationError('No user found with this email address');
+                throw new AuthenticationError('Invalid email or password');
             }
 
             const correctPw = await user.isCorrectPassword(password);
 
             if (!correctPw) {
-                throw new AuthenticationError('Incorrect credentials');
+                throw new AuthenticationError('Invalid email or password');
             }
 
             const token = signToken(user);
