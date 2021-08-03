@@ -3,7 +3,7 @@ const { User } = require('../models');
 // const wineSeeds = require('./wineSeeds.json');
 
 db.once('open', async () => {
-    await User.deleteMany();
+    await db.db.dropDatabase();
 
     await User.create({
         firstName: 'Kate',
