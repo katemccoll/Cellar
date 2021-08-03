@@ -8,7 +8,7 @@ import {QUERY_WINES} from "../../utils/queries";
 import Auth from "../../utils/auth";
 
 const AddWine = () => {
-    const [formState, setFormState] = useState('');
+    const [formState, setFormState] = useState({ wineName: '', wineType: '', wineText: '' });
     const [addWine, { error }] = useMutation(ADD_WINE, {
         update(cache, { data: { addWine } }) {
             try {
@@ -47,9 +47,8 @@ const AddWine = () => {
         });
     };
     return (
-        <div>
-            {Auth.loggedIn() ? (
                 <>
+
                     <div className="background-bottles">
                         <div className="card-add-wine">
                             <h1>Wine Diary Entry</h1>
@@ -57,12 +56,12 @@ const AddWine = () => {
                             <form onSubmit={handleFormSubmit}>
                                 <label>
                                     Winery Name:
-                                    <input className="input-add-wine" type="text" value={this.state.value}
+                                    <input className="input-add-wine" type="text" name="wineName"
                                            onChange={handleFormChange}/>
                                 </label>
                                 <label>
                                     Type of Wine:
-                                    <select className="select-add-wine" value={this.state.value}
+                                    <select className="select-add-wine" name="wineType"
                                             onChange={handleFormChange}>
                                         <option value="red-wine">Red Wine</option>
                                         <option value="white-wine">White Wine</option>
@@ -74,7 +73,7 @@ const AddWine = () => {
                                 </label>
                                 <label>
                                     Thoughts on the wine?
-                                    <textarea className="textarea-add-wine" value={this.state.value}
+                                    <textarea className="textarea-add-wine" name="wineText"
                                               onChange={handleFormChange}/>
                                 </label>
                                 <div className="text-align-center">
@@ -89,48 +88,10 @@ const AddWine = () => {
                             </form>
                         </div>
                     </div>
-                    <div className="background-white-wine">
-                        <div className="card-add-wine-black">
-                            <form onSubmit={handleFormSubmit}>
-                                <h1>Advance Entry</h1>
-                                <label>
-                                    Year:
-                                    <input className="input-add-wine" type="text" value={this.state.value}
-                                           onChange={handleFormChange}/>
-                                </label>
-                                <label>
-                                    Region:
-                                    <input type="text" className="input-add-wine" value={this.state.value}
-                                           onChange={handleFormChange}/>
-                                </label>
-                                <label>
-                                    Taste:
-                                    <input type="text" className="input-add-wine" value={this.state.value}
-                                           onChange={handleFormChange}/>
-                                </label>
-                                <label>
-                                    <textarea className="textarea-add-wine" value={this.state.value}
-                                              onChange={handleFormChange}/>
-                                </label>
-                                <div className="text-align-center">
-                                    <Button className="btn" sizebutton="btn--large"
-                                            stylebutton="btn--dark-red-wine">Add</Button>
-                                </div>
-                                {error && (
-                                    <div>
-                                        {error.message}
-                                    </div>
-                                )}
-                            </form>
-                        </div>
-                    </div>
+
+
+
                 </>
-            ) : (
-                <p>
-                    You Need to be logged in to use this amazing app.
-                </p>
-            )}
-        </div>
     );
 };
 
