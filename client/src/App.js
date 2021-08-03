@@ -53,7 +53,7 @@ function App() {
             <Route path='/add-wine' component={FormWine}></Route>
             <Route path='/view-wine'  component={WineList}></Route>
             <Route path='/search' component={Search}></Route>
-            <Route path='/sign-up' component={FormSignup}></Route>
+            <Route path='/login' component={FormSignup}></Route>
           </Switch>
 
         </Router>

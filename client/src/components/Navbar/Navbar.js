@@ -80,10 +80,10 @@ function Navbar() {
                         <li className="navbar-item sign">
                             <Button
                                 className="navbar-links-mobile"
-                                link={"/sign-up"}
+                                link={"/login"}
                                 onClick={closeMobileMenu}
                                 stylebutton="btn--outline">
-                                Sign Up
+                                Login
                             </Button>
                         </li>
                     </ul>

@@ -5,8 +5,8 @@ import "./assets/css/FormSignup.css";
 
 class FormSignup extends Component {
     state = {
-            isLoginOpen: false,
-            isSignupOpen: true,
+            isLoginOpen: true,
+            isSignupOpen: false,
     }
 
     showSignup() {
