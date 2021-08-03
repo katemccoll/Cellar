@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import logo from "../assets/images/cellar-logo-small.png"
 import "./Navbar.css"
 import { Button } from "../Button/Button";
@@ -7,10 +7,25 @@ import Auth from "../../utils/auth";
 
 function Navbar() {
     const [click, setClick] = useState(false);
+    const [button, setButton] = useState(true);
     // const [navbar, setNavbar] = useState(false);
 
     const handleClick = () => setClick(!click);
     const closeMobileMenu = () => setClick(false);
+
+    const showButton = () => {
+        if(window.innerWidth <= 960) {
+            setButton(false);
+        } else {
+            setButton(true);
+        }
+    };
+
+    window.addEventListener('resize', showButton);
+
+    useEffect(() => {
+        showButton();
+    }, []);
 
     // const changeBackground = () => {
     //     if(window.location.pathname === "/") {
@@ -55,33 +70,13 @@ function Navbar() {
                             </Link>
                         </li>
                     </ul>
-
+                    {button && <Button stylebutton="btn--outline">Logout</Button>}
                 </div>
             );
         } else {
             return (
-                <div className="flex">
+                <div>
                     <ul className={click ? 'navbar-menu active' : 'navbar-menu'}>
-                        <li className="navbar-item">
-                            <Link className="navbar-links" to="/" onClick={closeMobileMenu}>
-                                Home
-                            </Link>
-                        </li>
-                        <li className="navbar-item">
-                            <Link className="navbar-links" to="/add-wine" onClick={closeMobileMenu}>
-                                Add Wine
-                            </Link>
-                        </li>
-                        <li className="navbar-item">
-                            <Link className="navbar-links" to="/view-wine" onClick={closeMobileMenu}>
-                                Collection
-                            </Link>
-                        </li>
-                        <li className="navbar-item">
-                            <Link className="navbar-links" to="/search" onClick={closeMobileMenu}>
-                                Search
-                            </Link>
-                        </li>
                         <li className="navbar-item sign">
                             <Button
                                 className="navbar-links-mobile"
@@ -99,11 +94,14 @@ function Navbar() {
 
     return(
         <nav className="navbar">
-            <Link to="/"><img src={logo} alt="cellar-logo" className="navbar-logo" /></Link>
-            <div className="menu-icon" onClick={handleClick}>
-                <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
+            <div className="navbar-container">
+                <Link to="/"><img src={logo} alt="cellar-logo" className="navbar-logo" /></Link>
+                <div className="menu-icon" onClick={handleClick}>
+                    <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
+                </div>
+                {showNav()}
             </div>
-            {showNav()}
+
         </nav>
     );
 }

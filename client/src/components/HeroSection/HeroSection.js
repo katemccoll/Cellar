@@ -3,11 +3,18 @@ import {Button} from "../Button/Button";
 import "./HeroSection.css"
 
 function HeroSection() {
+
+
     return (
         <div className="hero-container">
-            <video src="/videos/pexels-kindel-media-8093236.mp4" autoPlay loop muted></video>
-            <h1>Cellar</h1>
-            <p>Your Wine Bank</p>
+            <video
+                src="/videos/wine-video-hd.mp4"
+                autoPlay loop muted></video>
+            <div className="header-container">
+                <h1>Cellar</h1>
+                <p>Your Wine Bank</p>
+            </div>
+
             <div className="hero-btns">
                 <Button
                     type={"add-wine"}
