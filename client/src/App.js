@@ -9,7 +9,7 @@ import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Home from './pages/Home';
-import SignIn from "./pages/SignIn";
+import FormSignup from "./pages/FormSignup";
 import AddWine from "./components/WineForm/AddWine";
 import ViewWine from "./pages/ViewWine";
 import Search from "./pages/Search";
@@ -53,7 +53,7 @@ function App() {
             <Route path='/add-wine' component={AddWine}></Route>
             <Route path='/view-wine'  component={ViewWine}></Route>
             <Route path='/search' component={Search}></Route>
-            <Route path='/sign-in' component={SignIn}></Route>
+            <Route path='/sign-up' component={FormSignup}></Route>
           </Switch>
 
         </Router>

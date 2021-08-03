@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import Login from "../components/Login";
 import Signup from "../components/Signup";
-import "./assets/css/SignIn.css";
+import "./assets/css/FormSignup.css";
 
-class SignIn extends Component {
+class FormSignup extends Component {
     state = {
-            isLoginOpen: true,
-            isSignupOpen: false,
+            isLoginOpen: false,
+            isSignupOpen: true,
     }
 
     showSignup() {
@@ -40,9 +40,10 @@ class SignIn extends Component {
                         { this.state.isLoginOpen && <Login/> }
                         { this.state.isSignupOpen && <Signup/> }
                     </div>
+                    <div className="block"></div>
                 </main>
         );
     }
 }
 
-export default SignIn;
+export default FormSignup;

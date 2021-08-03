@@ -27,7 +27,7 @@
 
 .navbar-menu {
     display: grid;
-    grid-template-columns: repeat(5, auto);
+    grid-template-columns: repeat(6, auto);
     list-style: none;
     justify-content: end;
     margin-right: 2rem;

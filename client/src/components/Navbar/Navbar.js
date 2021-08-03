@@ -50,7 +50,7 @@ function Navbar() {
                             </Link>
                         </li>
                         <li className="navbar-item">
-                            <Link className="navbar-links-mobile" to="/" onClick={() => Auth.logout()} stylebutton="btn--outline">
+                            <Link className="navbar-links-mobile navbar-links" to="/" onClick={() => Auth.logout()} stylebutton="btn--outline">
                                 Logout
                             </Link>
                         </li>
@@ -82,13 +82,13 @@ function Navbar() {
                                 Search
                             </Link>
                         </li>
-                        <li className="navbar-item">
+                        <li className="navbar-item sign">
                             <Button
                                 className="navbar-links-mobile"
-                                link={"/sign-in"}
+                                link={"/sign-up"}
                                 onClick={closeMobileMenu}
                                 stylebutton="btn--outline">
-                                Sign in
+                                Sign Up
                             </Button>
                         </li>
                     </ul>
