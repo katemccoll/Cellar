@@ -7,8 +7,7 @@ import validator from "validator";
 import {Button} from "./Button/Button";
 
 
-
-const Signup = (props) => {
+const Signup = () => {
     const [formState, setFormState] = useState({
         firstName: '',
         lastName: '',
@@ -51,18 +50,18 @@ const Signup = (props) => {
 
     const handleFormSubmit = async (event) => {
         event.preventDefault();
-        setErrors(ValidateInfo(formState));
+        let inputErrors = ValidateInfo(formState);
+        setErrors(inputErrors);
+
+        if (Object.keys(inputErrors).length > 0) {
+            return;
+        }
+
         try {
-            const mutationResponse = await addUser({
-                variables: {
-                    firstName: formState.firstName,
-                    lastName: formState.lastName,
-                    email: formState.email,
-                    password: formState.password
-                },
+            const {data} = await addUser({
+                variables: {...formState},
             });
-            const token = mutationResponse.data.addUser.token;
-            Auth.login(token);
+            Auth.login(data.addUser.token);
         } catch (e) {
             console.log(e);
         }
@@ -87,7 +86,7 @@ const Signup = (props) => {
                         name="firstName"
                         className="signup-input"
                         placeholder="First Name"
-
+                        value={formState.firstName}
                         onChange={handleChange}
                     />
                     {errors.firstName && <p className="error-message">{errors.firstName}</p>}
@@ -96,6 +95,7 @@ const Signup = (props) => {
                         name="lastName"
                         className="signup-input"
                         placeholder="Last Name"
+                        value={formState.lastName}
                         onChange={handleChange}
                     />
                     {errors.lastName && <p className="error-message">{errors.lastName}</p>}
@@ -104,6 +104,7 @@ const Signup = (props) => {
                         name="email"
                         className="signup-input"
                         placeholder="Email"
+                        value={formState.email}
                         onChange={handleChange}
                     />
                     {errors.email && <p className="error-message">{errors.email}</p>}
@@ -112,6 +113,7 @@ const Signup = (props) => {
                         name="password"
                         className="signup-input"
                         placeholder="Password"
+                        value={formState.password}
                         onChange={handleChange}
                     />
                     {errors.password && <p className="error-message">{errors.password}</p>}
