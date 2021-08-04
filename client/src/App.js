@@ -11,7 +11,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from './pages/Home';
 import FormSignup from "./pages/FormSignup";
 import FormWine from "./pages/FormWine";
-import WineList from "./components/WineList/WineList";
+import ViewWine from "./pages/ViewWine";
 import Search from "./pages/Search";
 import Navbar from "./components/Navbar/Navbar";
 
@@ -51,7 +51,7 @@ function App() {
           <Switch>
             <Route path='/' exact component={Home}></Route>
             <Route path='/add-wine' component={FormWine}></Route>
-            <Route path='/view-wine'  component={WineList}></Route>
+            <Route path='/view-wine'  component={ViewWine}></Route>
             <Route path='/search' component={Search}></Route>
             <Route path='/login' component={FormSignup}></Route>
           </Switch>
