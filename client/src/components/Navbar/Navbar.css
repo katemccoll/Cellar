@@ -94,6 +94,8 @@
         height: 80px;
     }
 
+
+
     .navbar-links:hover {
         background-color: var(--dark-red-wine);
         border-radius: 0;

@@ -7,25 +7,25 @@ import Auth from "../../utils/auth";
 
 function Navbar() {
     const [click, setClick] = useState(false);
-    const [button, setButton] = useState(true);
+    // const [button, setButton] = useState(true);
     // const [navbar, setNavbar] = useState(false);
 
     const handleClick = () => setClick(!click);
     const closeMobileMenu = () => setClick(false);
 
-    const showButton = () => {
-        if(window.innerWidth <= 960) {
-            setButton(false);
-        } else {
-            setButton(true);
-        }
-    };
-
-    window.addEventListener('resize', showButton);
-
-    useEffect(() => {
-        showButton();
-    }, []);
+    // const showButton = () => {
+    //     if(window.innerWidth <= 600) {
+    //         setButton(true);
+    //     } else {
+    //         setButton(false);
+    //     }
+    // };
+    //
+    // window.addEventListener('resize', showButton);
+    //
+    // useEffect(() => {
+    //     showButton();
+    // }, []);
 
     // const changeBackground = () => {
     //     if(window.location.pathname === "/") {
@@ -41,6 +41,7 @@ function Navbar() {
         event.preventDefault();
         Auth.logout();
     };
+
 
     function showNav() {
         if (Auth.loggedIn()) {
@@ -73,14 +74,14 @@ function Navbar() {
                             </Link>
                         </li>
                     </ul>
-                    {button && <Button stylebutton="btn--outline">Logout</Button>}
+                    {/*{button && <Button stylebutton="btn--outline">Logout</Button> }*/}
                 </div>
             );
         } else {
             return (
                 <div>
                     <ul className={click ? 'navbar-menu active' : 'navbar-menu'}>
-                        <li className="navbar-item sign">
+                        <li className="navbar-item">
                             <Button
                                 className="navbar-links-mobile"
                                 link={"/login"}
@@ -90,6 +91,7 @@ function Navbar() {
                             </Button>
                         </li>
                     </ul>
+                    {/*{button && <Button stylebutton="btn--outline">Login</Button> }*/}
                 </div>
             )
         }
@@ -102,7 +104,10 @@ function Navbar() {
                 <div className="menu-icon" onClick={handleClick}>
                     <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
                 </div>
-                {showNav()}
+                <nav>
+                    {showNav()}
+                </nav>
+
             </div>
 
         </nav>

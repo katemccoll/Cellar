@@ -29,10 +29,18 @@ export const Button = ({
         <>
             {
               link
-                ? <Link to={`${link}`} className={`btn ${type} ${checkStylebutton} ${checkSizebutton}`}>
+                ? <Link
+                      to={`${link}`}
+                      className={`btn ${type} ${checkStylebutton} ${checkSizebutton}`}
+                      onClick={onClick}
+                  >
                       {children}
                   </Link>
-                : <button className={`btn ${checkStylebutton} ${checkSizebutton}`}>
+                : <button
+                      className={`btn ${checkStylebutton} ${checkSizebutton}`}
+                      onClick={onClick}
+                    type={type}
+                  >
                       {children}
                   </button>
 
