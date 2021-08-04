@@ -39,7 +39,10 @@ export const ADD_WINE = gql`
             wineName
             wineType
             wineText
+            wineImage
             createdAt
+            category {
+                name
         }
     }
 `;

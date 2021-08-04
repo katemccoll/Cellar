@@ -6,10 +6,6 @@ class AuthService {
         return localStorage.getItem('id_token');
     }
 
-    getHome() {
-        return decode(this.getToken());
-    }
-
     isTokenExpired(token) {
         const decoded = decode(token);
         if (decoded.exp < Date.now() / 1000) {

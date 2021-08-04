@@ -19,6 +19,9 @@ const wineSchema = new Schema({
         minlength: 1,
         maxlength: 280,
     },
+    wineImage: {
+        type: String,
+    },
     createdAt: {
         type: Date,
         default: Date.now,
@@ -37,6 +40,12 @@ const wineSchema = new Schema({
     //         },
     //     },
     // ],
+
+    category: {
+        type: Schema.Types.ObjectId,
+        ref: 'Category',
+        required: true
+    }
 });
 
 const Wine = model('Wine', wineSchema);
