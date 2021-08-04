@@ -16,12 +16,12 @@ const typeDefs = gql `
     wineText: String
     wineImage: String
     createdAt: String
-    category: Category
   }
   
   type Category {
     _id: ID
     name: String
+  }
   
   type Auth {
     token: ID!
@@ -30,9 +30,7 @@ const typeDefs = gql `
 
   type Query {
     user(email: String!): User
-    wines(email: String!): [Wine]
     wine(wineId: ID!): Wine
-    categories: [Category]
     wines(category: ID, name: String): [Wine]
   }
 
@@ -40,7 +38,7 @@ const typeDefs = gql `
     addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
     updateUser(firstName: String, lastName: String, email: String, password: String): User
     login(email: String!, password: String!): Auth
-    addWine(wineName: String!, wineType: String!, wineText: String!): Wine
+    addWine(wineName: String!, wineType: String!, wineText: String!, wineImage: String): Wine
     updateWine(_id: ID!, wineName: String!, wineType: String!, wineText: String!): Wine 
     removeWine(wineId: ID!): Wine
   }

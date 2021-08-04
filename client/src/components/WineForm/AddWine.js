@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 
 import "./AddWine.css";
-import {Button} from "../Button/Button";
-import {useMutation} from "@apollo/client";
-import {ADD_WINE} from "../../utils/mutations";
-import {QUERY_WINES} from "../../utils/queries";
-import Auth from "../../utils/auth";
+import { Button } from "../Button/Button";
+import { useMutation } from "@apollo/client";
+import { ADD_WINE } from "../../utils/mutations";
+import { QUERY_WINES } from "../../utils/queries";
+
 
 const AddWine = () => {
-    const [formState, setFormState] = useState({ wineName: '', wineType: '', wineText: '' });
+    const [formState, setFormState] = useState({ wineName: '', wineType: 'red-wine', wineText: '' });
     const [addWine, { error }] = useMutation(ADD_WINE, {
         update(cache, { data: { addWine } }) {
             try {
@@ -27,11 +27,12 @@ const AddWine = () => {
     const handleFormSubmit = async (event) => {
         event.preventDefault();
         try {
-            const {data} = await addWine({
+            const { data } = await addWine({
                 variables: {
                     wineName: formState.wineName,
                     wineType: formState.wineType,
                     wineText: formState.wineText,
+                    wineImage: null, // todo: add image
                 },
             });
             setFormState('');
@@ -63,7 +64,7 @@ const AddWine = () => {
                                     Type of Wine:
                                     <select className="select-add-wine" name="wineType"
                                             onChange={handleFormChange}>
-                                        <option value="red-wine">Red Wine</option>
+                                        <option defaultValue="red-wine">Red Wine</option>
                                         <option value="white-wine">White Wine</option>
                                         <option value="rose-wine">Rosé Wine</option>
                                         <option value="sparkling-wine">Sparkling Wine</option>

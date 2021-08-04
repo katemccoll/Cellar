@@ -2,9 +2,6 @@ const { Schema, model } = require('mongoose');
 const dateFormat = require('../utils/dateFormat');
 
 const wineSchema = new Schema({
-    wineId: {
-
-    },
     wineName: {
         type: String,
         required: 'You need to leave a winery name',
@@ -21,6 +18,7 @@ const wineSchema = new Schema({
     },
     wineImage: {
         type: String,
+        required: false,
     },
     createdAt: {
         type: Date,
@@ -41,11 +39,6 @@ const wineSchema = new Schema({
     //     },
     // ],
 
-    category: {
-        type: Schema.Types.ObjectId,
-        ref: 'Category',
-        required: true
-    }
 });
 
 const Wine = model('Wine', wineSchema);

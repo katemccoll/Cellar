@@ -15,9 +15,7 @@ const resolvers = {
             }
             return user;
         },
-        categories: async () => {
-            return Category.find();
-        },
+
         wines: async (parent, { category, wineName }) => {
             const params = {};
 
@@ -72,12 +70,13 @@ const resolvers = {
 
             return { token, user };
         },
-        addWine: async (parent, { wineName, wineType, wineText }, context) => {
+        addWine: async (parent, { wineName, wineType, wineText, wineImage }, context) => {
             if (context.user) {
                 const wine = await Wine.create({
                     wineName,
                     wineType,
-                    wineText
+                    wineText,
+                    wineImage
                 });
 
                 await User.findOneAndUpdate(
