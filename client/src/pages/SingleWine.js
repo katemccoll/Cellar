@@ -20,14 +20,14 @@ const SingleWine = () => {
             <div className="background-bottles">
                 <div className="card-add-wine">
                     <h1>
-                        {wine.wineName}
+                        {wine.wineryName}
                     </h1>
                     <h2>
                         {wine.wineType}
                     </h2>
                     <div className="upload-image">Upload</div>
                     <div>
-                        {wine.wineText}
+                        {wine.description}
                     </div>
                 </div>
             </div>

@@ -1,7 +1,13 @@
 import React from "react";
 
-export default function ViewWine() {
+import WineList from "../components/WineList/WineList";
+
+const ViewWine = () => {
     return (
-        <div>View Wine</div>
-    )
-}
+        <div>
+            <WineList />
+        </div>
+    );
+};
+
+export default ViewWine;

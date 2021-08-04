@@ -8,10 +8,10 @@ db.once('open', async () => {
     await Wine.deleteMany();
     const wines = await Wine.insertMany([
         {
-            wineName: 'Ned',
+            wineryName: 'Ned',
             wineType: "White Wine",
-            wineText: "Good",
-            wineImage: "ned-wine.jpg"
+            description: "Good",
+            image: "ned-wine.jpg"
         }
         ]
     )

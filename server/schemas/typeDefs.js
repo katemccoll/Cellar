@@ -11,18 +11,14 @@ const typeDefs = gql `
   }
   type Wine {
     _id: ID
-    wineName: String
+    wineryName: String
     wineType: String
-    wineText: String
-    wineImage: String
+    description: String
+    image: String
     createdAt: String
+    rating: Float
   }
-  
-  type Category {
-    _id: ID
-    name: String
-  }
-  
+    
   type Auth {
     token: ID!
     user: User
@@ -31,15 +27,15 @@ const typeDefs = gql `
   type Query {
     user(email: String!): User
     wine(wineId: ID!): Wine
-    wines(category: ID, name: String): [Wine]
+    wines(email: String): [Wine]
   }
 
   type Mutation {
     addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
-    updateUser(firstName: String, lastName: String, email: String, password: String): User
+    updateUser(firstName: String!, lastName: String!, email: String!, password: String!): User
     login(email: String!, password: String!): Auth
-    addWine(wineName: String!, wineType: String!, wineText: String!, wineImage: String): Wine
-    updateWine(_id: ID!, wineName: String!, wineType: String!, wineText: String!): Wine 
+    addWine(wineryName: String!, wineType: String!, description: String!, image: String, rating: Float): Wine
+    updateWine(_id: ID!, wineryName: String!, wineType: String!, description: String!): Wine 
     removeWine(wineId: ID!): Wine
   }
 `

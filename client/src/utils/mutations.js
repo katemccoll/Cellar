@@ -33,17 +33,15 @@ export const LOGIN = gql`
 `;
 
 export const ADD_WINE = gql`
-    mutation addWine($wineName: String!, $wineType: String!, $wineText: String!, $wineImage: String) {
-        addWine(wineName: $wineName, wineType: $wineType, wineText: $wineText, wineImage: $wineImage) {
+    mutation addWine($wineryName: String!, $wineType: String!, $description: String!, $image: String, $rating: Float) {
+        addWine(wineryName: $wineryName, wineType: $wineType, description: $description, image: $image, rating: $rating) {
             _id
-            wineName
+            wineryName
             wineType
-            wineText
-            wineImage
+            description
+            image
+            rating
             createdAt
-            category {
-                name
-            }
         }
     }
 `;

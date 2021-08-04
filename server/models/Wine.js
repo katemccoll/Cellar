@@ -2,7 +2,7 @@ const { Schema, model } = require('mongoose');
 const dateFormat = require('../utils/dateFormat');
 
 const wineSchema = new Schema({
-    wineName: {
+    wineryName: {
         type: String,
         required: 'You need to leave a winery name',
         trim: true,
@@ -10,13 +10,13 @@ const wineSchema = new Schema({
     wineType: {
         type: String,
     },
-    wineText: {
+    description: {
         type: String,
         required: true,
         minlength: 1,
         maxlength: 280,
     },
-    wineImage: {
+    image: {
         type: String,
         required: false,
     },
@@ -25,20 +25,9 @@ const wineSchema = new Schema({
         default: Date.now,
         get: (timestamp) => dateFormat(timestamp),
     },
-
-    // ratings: [
-    //     {
-    //         rateWine: {
-    //             type: Number,
-    //             default: 0,
-    //         },
-    //         rateValue: {
-    //             type: Number,
-    //             default: 0,
-    //         },
-    //     },
-    // ],
-
+    rating: {
+        type: Number,
+    }
 });
 
 const Wine = model('Wine', wineSchema);

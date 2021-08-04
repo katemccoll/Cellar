@@ -9,10 +9,11 @@ export const QUERY_USER = gql`
             email
             wines {
                 _id
-                wineName
+                wineryName
                 wineType
-                wineText
-                wineImage
+                description
+                image
+                rating
                 createdAt
             }
         }  
@@ -20,25 +21,16 @@ export const QUERY_USER = gql`
    
 `;
 
-export const QUERY_CATEGORIES = gql `
-    {
-        categories {
-        _id
-        name
-    }
-`
-
 export const QUERY_WINES = gql`
-    query getWines($category: ID) {
-        wines(category: $category) {
+    query getWines {
+        wines {
             _id
-            wineName
+            wineryName
             wineType
-            wineText
-            wineImage
+            description
+            image
+            rating
             createdAt
-            category {
-                _id
         }
     }
 `;
@@ -47,26 +39,12 @@ export const QUERY_SINGLE_WINE = gql`
     query getSingleWine($wineID: ID!) {
         wine(wineId: $wineId) {
             _id
-            wineName
+            wineryName
             wineType
-            wineText
+            description
+            image
+            rating
             createdAt
         }
     }
 `;
-
-export const QUERY_ALL_WINES = gql`
-    {
-        wines {
-            _id
-            wineName
-            wineType
-            wineText
-            wineImage
-            createdAt
-            category {
-                name
-        }
-    }
-`
-
