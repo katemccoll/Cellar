@@ -37,7 +37,10 @@ function Navbar() {
     //
     // window.addEventListener('onload', changeBackground);
 
-
+    const logout = (event) => {
+        event.preventDefault();
+        Auth.logout();
+    };
 
     function showNav() {
         if (Auth.loggedIn()) {
@@ -65,7 +68,7 @@ function Navbar() {
                             </Link>
                         </li>
                         <li className="navbar-item">
-                            <Link className="navbar-links-mobile navbar-links" to="/" onClick={() => Auth.logout()} stylebutton="btn--outline">
+                            <Link className="navbar-links-mobile navbar-links" to="/" onClick={logout} stylebutton="btn--outline">
                                 Logout
                             </Link>
                         </li>
