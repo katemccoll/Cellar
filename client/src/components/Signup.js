@@ -80,7 +80,7 @@ const Signup = () => {
         <div className="card-h">
 
             <div className="input-group">
-                <form onSubmit={handleFormSubmit}>
+                <form className="signup" onSubmit={handleFormSubmit}>
                     <input
                         type="text"
                         name="firstName"
@@ -89,7 +89,7 @@ const Signup = () => {
                         value={formState.firstName}
                         onChange={handleChange}
                     />
-                    {errors.firstName && <p className="error-message">{errors.firstName}</p>}
+                    {errors.firstName && <p className="error-signup-message">{errors.firstName}</p>}
                     <input
                         type="text"
                         name="lastName"
@@ -98,7 +98,7 @@ const Signup = () => {
                         value={formState.lastName}
                         onChange={handleChange}
                     />
-                    {errors.lastName && <p className="error-message">{errors.lastName}</p>}
+                    {errors.lastName && <p className="error-signup-message">{errors.lastName}</p>}
                     <input
                         type="email"
                         name="email"
@@ -107,7 +107,7 @@ const Signup = () => {
                         value={formState.email}
                         onChange={handleChange}
                     />
-                    {errors.email && <p className="error-message">{errors.email}</p>}
+                    {errors.email && <p className="error-signup-message">{errors.email}</p>}
                     <input
                         type="password"
                         name="password"
@@ -116,7 +116,7 @@ const Signup = () => {
                         value={formState.password}
                         onChange={handleChange}
                     />
-                    {errors.password && <p className="error-message">{errors.password}</p>}
+                    {errors.password && <p className="error-signup-message">{errors.password}</p>}
                     <input
                         type="password"
                         name="confirmPassword"
@@ -124,7 +124,7 @@ const Signup = () => {
                         placeholder="Confirm Password"
                         onChange={handleChange}
                     />
-                    {errors.confirmPassword && <p className="error-message">{errors.confirmPassword}</p>}
+                    {errors.confirmPassword && <p className="error-signup-message">{errors.confirmPassword}</p>}
                     <Button
                         type={"submit"}
                         className="btn"

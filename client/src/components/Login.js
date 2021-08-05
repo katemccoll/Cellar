@@ -38,7 +38,7 @@ const Login = (props) => {
             <div className="card-h">
                 <div className="t-a-center"><img src={logo} alt="cellar-logo" className="logo" /></div>
                 <div className="input-group">
-                    <form onSubmit={handleFormSubmit}>
+                    <form className="login" onSubmit={handleFormSubmit}>
                         <input
                             type="email"
                             name="email"
@@ -54,9 +54,9 @@ const Login = (props) => {
                             onChange={handleChange}
                         />
                         {error ? (
-                            <div>
-                                <p className="error-text">The provided credentials are incorrect</p>
-                            </div>
+                            <>
+                                <p className="error-login-message">The provided credentials are incorrect</p>
+                            </>
                         ) : null}
                         <Button
                             className="btn"

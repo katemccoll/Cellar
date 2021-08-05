@@ -15,7 +15,7 @@
 }
 
 .navbar-logo {
-    width: 50px;
+    width: 40px;
     height: auto;
     text-align: center;
     justify-self: start;
@@ -94,7 +94,9 @@
         height: 80px;
     }
 
-
+    .navbar-logo {
+        width: 60px;
+    }
 
     .navbar-links:hover {
         background-color: var(--dark-red-wine);

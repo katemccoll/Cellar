@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import logo from "../assets/images/cellar-logo-small.png"
+import logo from "../assets/images/logo-cellar-small.png"
 import "./Navbar.css"
 import { Button } from "../Button/Button";
 import { Link } from "react-router-dom";
@@ -74,7 +74,6 @@ function Navbar() {
                             </Link>
                         </li>
                     </ul>
-                    {/*{button && <Button stylebutton="btn--outline">Logout</Button> }*/}
                 </div>
             );
         } else {
@@ -85,6 +84,7 @@ function Navbar() {
                             <Button
                                 className="navbar-links-mobile"
                                 link={"/login"}
+                                type="login"
                                 onClick={closeMobileMenu}
                                 stylebutton="btn--outline">
                                 Login
