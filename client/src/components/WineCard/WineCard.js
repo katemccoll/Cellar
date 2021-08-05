@@ -1,24 +1,8 @@
 import React from 'react';
-import {Link, useParams} from 'react-router-dom'
-
-import {useQuery} from "@apollo/client";
-import {QUERY_SINGLE_WINE} from "../../utils/queries";
+import {Link } from 'react-router-dom'
 
 
-const WineCard = () => {
-    const { wineId } = useParams();
-
-    const { loading, data } = useQuery(QUERY_SINGLE_WINE, {
-        variables: { wineId: wineId },
-    });
-
-    const wine = data?.wine || {};
-
-    if (loading) {
-        return <div>Loading</div>;
-    }
-
-
+const WineCard = ({ wine }) => {
     return (
             <div className="cardItem">
                 <Link to={`/wines/${wine._id}`}>
