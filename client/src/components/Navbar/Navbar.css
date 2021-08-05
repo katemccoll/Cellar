@@ -59,6 +59,10 @@
     display: none;
 }
 
+.navbar-item Button {
+    margin: 10px;
+}
+
 
 @media screen and (max-width: 600px) {
     .navbar {

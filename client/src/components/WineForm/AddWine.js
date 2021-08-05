@@ -80,7 +80,7 @@ const AddWine = () => {
                                 <option value="fortified-wine">Fortified Wine</option>
                             </select>
                         </label>
-                        <div>
+                            <label>Rating:
                             <Rating name="rating"
                                     className="rating"
                                     size="large"
@@ -89,7 +89,7 @@ const AddWine = () => {
                                     emptyIcon={<StarBorderIcon fontSize="inherit" />}
                                     onChange={handleFormChange}
                                     />
-                        </div>
+                            </label>
                         <label>
                             Thoughts on the wine?
                             <textarea className="textarea-add-wine" name="description"

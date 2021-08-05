@@ -71,7 +71,6 @@ function Navbar() {
                         <li className="navbar-item">
                             <Button
                                 className="navbar-links-mobile navbar-links"
-                                link={"/"}
                                 type="logout"
                                 onClick={logout}
                                 stylebutton="btn--outline">
