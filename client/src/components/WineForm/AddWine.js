@@ -22,6 +22,8 @@ const AddWine = () => {
                     query: QUERY_WINES,
                     data: { wines: [addWine, ...wines ] },
                 });
+
+                window.location = "/";
             } catch (e) {
                 console.error(e);
             }
@@ -94,7 +96,7 @@ const AddWine = () => {
                                       onChange={handleFormChange}/>
                         </label>
                         <div className="text-align-center">
-                            <Button className="btn" sizebutton="btn--large"
+                            <Button type="submit" className="btn" sizebutton="btn--large"
                                     stylebutton="btn--outline">Add</Button>
                         </div>
                         {error && (
