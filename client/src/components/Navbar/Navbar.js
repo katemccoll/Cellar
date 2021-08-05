@@ -69,9 +69,17 @@ function Navbar() {
                             </Link>
                         </li>
                         <li className="navbar-item">
-                            <Link className="navbar-links-mobile navbar-links" to="/" onClick={logout} stylebutton="btn--outline">
+                            <Button
+                                className="navbar-links-mobile navbar-links"
+                                link={"/"}
+                                type="logout"
+                                onClick={logout}
+                                stylebutton="btn--outline">
                                 Logout
-                            </Link>
+                            </Button>
+                            {/*// <Link className="navbar-links-mobile  to="/" onClick={logout} stylebutton="btn--outline">*/}
+                            {/*//     Logout*/}
+                            {/*// </Link>*/}
                         </li>
                     </ul>
                 </div>
