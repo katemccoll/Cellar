@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-
+import Rating from '@material-ui/lab/Rating';
+import StarBorderIcon from '@material-ui/icons/StarBorder';
 import "./AddWine.css";
 import { Button } from "../Button/Button";
 import { useMutation } from "@apollo/client";
@@ -12,8 +13,11 @@ const AddWine = () => {
     const [addWine, { error }] = useMutation(ADD_WINE, {
         update(cache, { data: { addWine } }) {
             try {
-                const { wines } = cache.readQuery({ query: QUERY_WINES });
-
+                const result = cache.readQuery({ query: QUERY_WINES });
+                let wines = [];
+                if (result) {
+                    wines = result.wines;
+                }
                 cache.writeQuery({
                     query: QUERY_WINES,
                     data: { wines: [addWine, ...wines ] },
@@ -33,9 +37,9 @@ const AddWine = () => {
                     wineType: formState.wineType,
                     description: formState.description,
                     image: null, // todo: add image
+                    rating: parseInt(formState.rating)/5,
                 },
             });
-            setFormState('');
         } catch (e) {
             console.error(e);
         }
@@ -47,12 +51,15 @@ const AddWine = () => {
             [name]: value,
         });
     };
+
+
     return (
         <>
             <div className="background-bottles">
                 <div className="card-add-wine">
                     <h1>Wine Diary Entry</h1>
                     <div className="upload-image">Upload</div>
+                    <input type="file" />
                     <form onSubmit={handleFormSubmit}>
                         <label>
                             Winery Name:
@@ -72,18 +79,14 @@ const AddWine = () => {
                             </select>
                         </label>
                         <div>
-                            <label>Rate this wine:</label>
-                            <div className="rating">
-                                <input type="radio" name="rating" id="rating-5" />
-                                <label htmlFor="rating-5">GREAT</label>
-                                <input type="radio" name="rating" id="rating-4" />
-                                <label htmlFor="rating-4"></label>
-                                <input type="radio" name="rating" id="rating-3" />
-                                <label htmlFor="rating-3"></label>
-                                <input type="radio" name="rating" id="rating-2" />
-                                <label htmlFor="rating-2"></label>
-                                <input type="radio" name="rating" id="rating-1" />
-                            </div>
+                            <Rating name="rating"
+                                    className="rating"
+                                    size="large"
+                                    defaultValue={2}
+                                    precision={0.5}
+                                    emptyIcon={<StarBorderIcon fontSize="inherit" />}
+                                    onChange={handleFormChange}
+                                    />
                         </div>
                         <label>
                             Thoughts on the wine?

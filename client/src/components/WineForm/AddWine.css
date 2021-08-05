@@ -69,3 +69,16 @@
 .text-align-center {
     text-align-last: center;
 }
+
+.rating {
+    margin: 10px 0;
+}
+
+.rating label {
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.rating label .MuiRating-iconEmpty {
+        color: rgb(255 180 27);
+    }
