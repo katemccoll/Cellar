@@ -14,6 +14,16 @@
     align-items: center;
 }
 
+.navbar-container a {
+    border-radius: 50px;
+}
+
+.logo-title {
+    font-family: var(--Spectral-SC);
+    color: var(--white);
+    padding-left: 10px;
+}
+
 .navbar-logo {
     width: 40px;
     height: auto;

@@ -107,7 +107,12 @@ function Navbar() {
     return(
         <nav className="navbar">
             <div className="navbar-container">
-                <Link to="/"><img src={logo} alt="cellar-logo" className="navbar-logo" /></Link>
+                <div>
+                    <Link to="/">
+                        <h2 className="logo-title">Cellar</h2>
+                        {/*<img src={logo} alt="cellar-logo" className="navbar-logo" />*/}
+                    </Link>
+                </div>
                 <div className="menu-icon" onClick={handleClick}>
                     <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
                 </div>

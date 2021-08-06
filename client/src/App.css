@@ -5,12 +5,19 @@
 }
 
 :root {
-    --white-wine: #eedac0;
+    --white-wine: #f4efe7;
     --dark-white-wine: #c49254;
-    --red-wine: #9E2A2B;
+    --red-wine: #d53132;
     --dark-red-wine: #540B0E;
     --white: #FFF;
     --black: #000;
-    --dark-grey: #22262a;
+    --dark-grey: #404040;
+    --light-grey-green: #4c6156;
     --deep-green: #081C15;
+    --Alegreya-SC: 'Alegreya SC', serif;
+    --Charmonman: 'Charmonman', cursive;
+    --Poppins: 'Poppins', sans-serif;
+    --Spectral-SC: 'Spectral SC', serif;
+    --STIX-Two-Tex: 'STIX Two Text', serif;
 }
+

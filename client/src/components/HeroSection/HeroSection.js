@@ -7,34 +7,23 @@ function HeroSection() {
 
     return (
         <div className="hero-container">
-            <video
-                src="/videos/wine-video-hd.mp4"
-                autoPlay loop muted></video>
             <div className="header-container">
-                <h1>Cellar</h1>
-                <p>Your Wine Bank</p>
-            </div>
-
-            <div className="hero-btns">
-                <Button
+                <h2>Build your online wine cellar</h2>
+                <p>Add wines you love and the ones to avoid!</p>
+                <div>
+                    <Button
                     type={"add-wine"}
                     link={"/add-wine"}
                     className="btn"
                     sizebutton="btn--large"
                     stylebutton="btn--outline"
                 >
-                    Add Wine
+                    Get Started
                 </Button>
-                <Button
-                    type={"view-wine"}
-                    link={"/view-wine"}
-                    className="btn"
-                    sizebutton="btn--large"
-                    stylebutton="btn--outline"
-                >
-                    View Wines
-                </Button>
+                </div>
+
             </div>
+
         </div>
     );
 }
