@@ -4,7 +4,8 @@
     background-size: cover;
     height: 400px;
     width: 100%;
-
+    padding-top: 80px;
+    background-position-y: center;
 }
 
 .header-container {
@@ -25,14 +26,24 @@
 }
 
 .header-container div {
-
     margin: 40px 0 0 20px;
 }
 .header-container a {
     border-radius: 50px;
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 426px) {
+    .hero-container {
+        height: 500px;
+    }
+
+}
+
+@media screen and (min-width: 768px) {
+    .hero-container {
+        height: 600px;
+    }
+
     .hero-btns {
         display: block;
         margin: 40px auto;
@@ -44,19 +55,66 @@
         object-fit: none;
     }
 
-    .hero-container h1 {
-        padding-top: 150px;
+    .header-container {
+        width: 60%;
     }
 
     .hero-btns .btn {
         margin: 20px;
     }
 
-    .hero-container h1 {
-        font-size: 110px;
+    .header-container h2 {
+        font-size: 50px;
     }
 
-    .hero-container p {
-        font-size: 46px;
+    .header-container p {
+        font-size: 24px;
     }
+}
+
+@media screen and (min-width: 1024px) {
+    .hero-container {
+        height: 900px;
+    }
+    .header-container h2 {
+        font-size: 60px;
+        padding: 50px 0 0 20px;
+    }
+
+}
+@media screen and (min-width: 1440px) {
+    .hero-container {
+        height: 1200px;
+    }
+
+    .header-container h2 {
+        font-size: 60px;
+        padding: 100px 0 0 20px;
+    }
+
+}
+
+@media screen and (min-width: 2560px) {
+    .hero-container {
+        height: 1200px;
+    }
+
+    .header-container h2 {
+        font-size: 110px;
+        padding: 130px 0 0 60px;
+    }
+    .header-container p {
+        font-size: 70px;
+        padding-left: 60px;
+    }
+
+    .hero-container div {
+        margin: 130px 0 0 60px;
+    }
+
+    .hero-container div a {
+        padding: 30px 50px;
+        font-size: 50px;
+    }
+
 }

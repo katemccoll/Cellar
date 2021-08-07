@@ -1,0 +1,16 @@
+.cellar-info {
+    background-color: var(--white-wine);
+    color: var(--dark-grey);
+    font-family: var(--Alegreya-SC);
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.about-container {
+
+}
+
+.about-container p {
+    font-family: var(--Poppins);
+    padding: 20px 0;
+}
