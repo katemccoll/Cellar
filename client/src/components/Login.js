@@ -36,9 +36,9 @@ const Login = (props) => {
 
         return (
             <div className="card-h">
-                <div className="t-a-center"><img src={logo} alt="cellar-logo" className="logo" /></div>
+                <h1>Welcome Back!</h1>
                 <div className="input-group">
-                    <form className="login" onSubmit={handleFormSubmit}>
+                    <form className="login-form" onSubmit={handleFormSubmit}>
                         <input
                             type="email"
                             name="email"

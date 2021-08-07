@@ -20,27 +20,38 @@ class FormSignup extends Component {
     render() {
 
         return (
-                <main className="background-cellar">
+                <main>
                     <div className="block"></div>
-                    <div className="controller-container">
-                        <div className={"controller-" + (this.state.isLoginOpen ? "selected-controller" : "")}
-                             onClick={this
-                                 .showLogin
-                                 .bind(this)}>
-                            Login
-                        </div>
-                        <div className={"controller-" + (this.state.isSignupOpen ? "selected-controller" : "")}
-                             onClick={this
-                                 .showSignup
-                                 .bind(this)}>
-                            Sign Up
-                        </div>
-                    </div>
-                    <div>
-                        { this.state.isLoginOpen && <Login/> }
-                        { this.state.isSignupOpen && <Signup/> }
-                    </div>
-                    <div className="block"></div>
+                        <section className="background-colour">
+                            <div className="box-shadow">
+                                <div className="betty">
+                                    Placeholder
+                                </div>
+                                <div>
+                                    <div className="controller-container">
+
+                                        <div className={"controller-" + (this.state.isLoginOpen ? "selected-controller" : "")}
+                                             onClick={this
+                                                 .showLogin
+                                                 .bind(this)}>
+                                            Login
+                                        </div>
+                                        <div className={"controller-" + (this.state.isSignupOpen ? "selected-controller" : "")}
+                                             onClick={this
+                                                 .showSignup
+                                                 .bind(this)}>
+                                            Sign Up
+                                        </div>
+                                    </div>
+                                    <div>
+                                        { this.state.isLoginOpen && <Login/> }
+                                        { this.state.isSignupOpen && <Signup/> }
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </section>
                 </main>
         );
     }

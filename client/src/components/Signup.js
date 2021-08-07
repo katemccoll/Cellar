@@ -78,7 +78,6 @@ const Signup = () => {
 
     return (
         <div className="card-h">
-
             <div className="input-group">
                 <form className="signup" onSubmit={handleFormSubmit}>
                     <input
