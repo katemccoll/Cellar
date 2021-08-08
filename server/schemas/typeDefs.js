@@ -16,7 +16,9 @@ const typeDefs = gql `
     description: String
     image: String
     createdAt: String
-    rating: Float
+    rating: Float,
+    region: String,
+    year: Int
   }
     
   type Auth {
@@ -34,7 +36,8 @@ const typeDefs = gql `
     addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
     updateUser(firstName: String!, lastName: String!, email: String!, password: String!): User
     login(email: String!, password: String!): Auth
-    addWine(wineryName: String!, wineType: String!, description: String!, image: String, rating: Float): Wine
+    addWine(wineryName: String!, wineType: String!, description: String, image: String, rating: Float, 
+            region: String, year: Int): Wine
     updateWine(_id: ID!, wineryName: String!, wineType: String!, description: String!): Wine 
     removeWine(wineId: ID!): Wine
   }

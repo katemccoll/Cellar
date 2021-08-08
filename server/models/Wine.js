@@ -4,7 +4,7 @@ const dateFormat = require('../utils/dateFormat');
 const wineSchema = new Schema({
     wineryName: {
         type: String,
-        required: 'You need to leave a winery name',
+        required: 'You need to enter a winery name',
         trim: true,
     },
     wineType: {
@@ -12,8 +12,6 @@ const wineSchema = new Schema({
     },
     description: {
         type: String,
-        required: true,
-        minlength: 1,
         maxlength: 280,
     },
     image: {
@@ -27,6 +25,15 @@ const wineSchema = new Schema({
     },
     rating: {
         type: Number,
+        default: 0,
+    },
+    region: {
+        type: String,
+        required: false,
+    },
+    year: {
+        type: Number,
+        required: false,
     }
 });
 

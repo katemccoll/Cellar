@@ -30,6 +30,8 @@ export const QUERY_WINES = gql`
             description
             image
             rating
+            region
+            year
             createdAt
         }
     }
@@ -44,6 +46,8 @@ export const QUERY_SINGLE_WINE = gql`
             description
             image
             rating
+            region
+            year
             createdAt
         }
     }

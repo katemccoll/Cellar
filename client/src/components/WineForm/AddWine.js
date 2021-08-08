@@ -8,6 +8,7 @@ import { ADD_WINE } from "../../utils/mutations";
 import { QUERY_WINES } from "../../utils/queries";
 
 const IMGUR_CLIENT_ID = '7f33f8df973fbc1';
+const RATING_STARS = 5;
 
 const UploadImage = async (imageData) => {
     const formData = new FormData();
@@ -40,7 +41,11 @@ const AddWine = () => {
         wineryName: '',
         wineType: 'red-wine',
         description: '',
-        image: null });
+        image: null,
+        rating: 0,
+        year: '',
+        region: ''
+    });
 
     const [addWine, { error }] = useMutation(ADD_WINE, {
         update(cache, { data: { addWine } }) {
@@ -66,23 +71,20 @@ const AddWine = () => {
         event.preventDefault();
         try {
 
-            // todo: validate form has all the data we need
-
             let imageUrl = null;
-
             if (formState.image) {
                 imageUrl = await UploadImage(formState.image)
             }
 
-            const { data } = await addWine({
+            await addWine({
                 variables: {
                     wineryName: formState.wineryName,
                     wineType: formState.wineType,
-                    year: formState.year,
+                    year: parseInt(formState.year) || null,
                     region: formState.region,
                     description: formState.description,
                     image: imageUrl,
-                    rating: parseInt(formState.rating)/5,
+                    rating: parseInt(formState.rating)/RATING_STARS,
                 },
             });
         } catch (e) {
@@ -96,6 +98,8 @@ const AddWine = () => {
             // We can't access the value form a file picker form, so we need to convert it with
             // this function.
             value = URL.createObjectURL(event.target.files[0]);
+        } else {
+            value = event.target.validity.valid ? value : formState[name];
         }
 
         setFormState({
@@ -129,12 +133,12 @@ const AddWine = () => {
                             <label>
                                 Winery Name:
                                 <input className="input-add-wine" type="text" name="wineryName"
-                                       onChange={handleFormChange}/>
+                                       onChange={handleFormChange} value={formState.wineryName} required/>
                             </label>
                             <label>
                                 Type of Wine:
                                 <select className="select-add-wine" name="wineType"
-                                        onChange={handleFormChange}>
+                                        onChange={handleFormChange} value={formState.wineType}>
                                     <option defaultValue="red-wine">Red Wine</option>
                                     <option value="white-wine">White Wine</option>
                                     <option value="rose-wine">Rosé Wine</option>
@@ -146,10 +150,11 @@ const AddWine = () => {
                             <label>
                                 Year:
                                 <input
-                                    className="input-add-wine"
                                     type="text"
+                                    className="input-add-wine"
+                                    pattern="[0-9]*"
                                     name="year"
-                                       onChange={handleFormChange}/>
+                                    onChange={handleFormChange} value={formState.year}/>
                             </label>
                             <label>
                                 Region:
@@ -157,7 +162,7 @@ const AddWine = () => {
                                     className="input-add-wine"
                                     type="text"
                                     name="region"
-                                       onChange={handleFormChange}/>
+                                    onChange={handleFormChange} value={formState.region}/>
                             </label>
                         </div>
                         <div className="wine-text-container">
@@ -165,8 +170,8 @@ const AddWine = () => {
                             <Rating name="rating"
                                     className="rating"
                                     size="large"
-                                    defaultValue={2}
-                                    precision={0.5}
+                                    defaultValue={0}
+                                    precision={1}
                                     emptyIcon={<StarBorderIcon fontSize="inherit" />}
                                     onChange={handleFormChange}
                                     />
@@ -174,7 +179,7 @@ const AddWine = () => {
                         <label>
                             Thoughts on the wine?
                             <textarea className="textarea-add-wine" name="description"
-                                      onChange={handleFormChange}/>
+                                      onChange={handleFormChange} value={formState.description}/>
                         </label>
                         <div className="text-align-center">
                             <Button type="submit" className="btn" sizebutton="btn--large"

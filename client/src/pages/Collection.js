@@ -9,7 +9,7 @@ const Collection = () => {
     const wines = data?.wines || [];
 
     return (
-        <di >
+        <div>
             <div className="image-bottles">
                 <h1>Welcome to your cellar door!</h1>
             </div>
@@ -22,7 +22,7 @@ const Collection = () => {
                 className="wineList"
                 />
             )}
-        </di>
+        </div>
     );
 };
 

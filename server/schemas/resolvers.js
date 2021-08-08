@@ -53,7 +53,8 @@ const resolvers = {
             return { token, user };
         },
         addWine: async (parent, payload , context) => {
-            let { wineryName, wineType, description, image, rating } = payload;
+            let { wineryName, wineType, description, image, rating, region, year } = payload;
+
             if (context.user) {
                 const wine = await Wine.create({
                     wineryName,
@@ -61,6 +62,8 @@ const resolvers = {
                     description,
                     image,
                     rating,
+                    region,
+                    year
                 });
 
                 await User.findOneAndUpdate(
