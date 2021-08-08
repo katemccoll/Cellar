@@ -1,6 +1,9 @@
 import React from 'react';
 import WineCard from "../WineCard/WineCard";
 import "./WineList.css"
+import Search from "../Search";
+import SortByRating from "../SortByRating";
+import SortByWine from "../SortByWine";
 
 const WineList = ({ wines }) => {
     const renderedList = wines.map((wine) => {
@@ -15,7 +18,11 @@ const WineList = ({ wines }) => {
 
     return (
         <div className="text-align-center">
-            <h2>Your Cellar:</h2>
+            <div>
+                <Search />
+                <SortByRating />
+                <SortByWine />
+            </div>
             <div>{renderedList}</div>
         </div>
     );
