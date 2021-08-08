@@ -8,6 +8,7 @@
     padding: 6px;
     width: 95%;
     margin: 16px 0;
+    border-radius: 4px;
 }
 
 .signup-btn {
@@ -44,5 +45,8 @@
 
 .signup Button {
     margin: 10px;
+    background-color: #61bd2f;
+    border-radius: 10px;
+    color: white;
 }
 

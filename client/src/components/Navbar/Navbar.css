@@ -23,7 +23,7 @@
 
 .logo-title {
     font-family: var(--Spectral-SC);
-    color: var(--dark-grey);
+    color: var(--black);
     padding-left: 20px;
     font-size: 40px;
 }
@@ -46,16 +46,18 @@
     margin-right: 2rem;
     text-align: center;
     grid-gap: 10px;
+    align-items: center;
 }
 
 .navbar-links {
-    color: var(--light-grey-green);
+    color: var(--black);
     text-decoration: none;
     padding: 0.5rem 1rem;
 }
 
 .navbar-links:hover {
-    background-color: var(--dark-red-wine);
+    background-color: var(--red-wine);
+    color: var(--white);
     border-radius: 4px;
     transition: all 0.2s ease-out;
 }
@@ -66,7 +68,7 @@
 
 
 .fa-bars {
-    color: var(--dark-grey);
+    color: var(--black);
 }
 
 .menu-icon {
@@ -102,9 +104,17 @@
         padding: 2rem;
         width: 100%;
         display: table;
+
     }
     .navbar-item {
         height: 80px;
+        font-size: 22px;
+    }
+
+    .navbar-item a {
+        padding: 12px 26px;
+        border-radius: 4px;
+        font-size: 20px;
     }
 
     .logo-title {
@@ -116,8 +126,9 @@
     }
 
     .navbar-links:hover {
-        background-color: var(--dark-red-wine);
+        background-color: var(--red-wine);
         border-radius: 0;
+        color: var(--white);
     }
 
     .navbar-logo {
@@ -137,7 +148,7 @@
     }
 
     .fa-times {
-        color: var(--white);
+        color: var(--black);
         font-size: 2rem;
     }
 
@@ -151,7 +162,7 @@
         color: var(--white);
         width: 80%;
         border: 1px solid var(--white);
-        font-size: 1.5rem;
+        font-size: 22px;
         background: transparent;
     }
 
@@ -162,16 +173,31 @@
     }
 }
 
+@media screen and (min-width: 1024px) {
+    .logo-title {
+        font-size: 40px;
+        padding-left: 40px;
+    }
+    .navbar-item a {
+        margin: 30px 40px;
+        font-size: 40px;
+    }
+
+}
+
 @media screen and (min-width: 1440px) {
     .logo-title {
-        font-size: 50px;
+        font-size: 60px;
+        padding-left: 60px;
     }
 
 }
 
 @media screen and (min-width: 2560px) {
     .logo-title {
-        padding-left: 60px;
+        font-size: 80px;
+        padding-top: 20px;
+        padding-left: 80px;
     }
 
 }

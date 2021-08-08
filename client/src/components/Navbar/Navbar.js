@@ -73,7 +73,7 @@ function Navbar() {
                                 className="navbar-links-mobile navbar-links"
                                 type="logout"
                                 onClick={logout}
-                                stylebutton="btn--outline">
+                                stylebutton="btn--green">
                                 Logout
                             </Button>
                             {/*// <Link className="navbar-links-mobile  to="/" onClick={logout} stylebutton="btn--outline">*/}
@@ -93,7 +93,7 @@ function Navbar() {
                                 link={"/login"}
                                 type="login"
                                 onClick={closeMobileMenu}
-                                stylebutton="btn--outline">
+                                stylebutton="btn--green">
                                 Login
                             </Button>
                         </li>
