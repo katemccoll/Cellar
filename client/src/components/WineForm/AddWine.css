@@ -1,9 +1,9 @@
 .image-bottles {
-    background-image: url("../../assets/images/chuttersnap-eKlezhItE5U-unsplash.jpg");
-    height: 300px;
+    background-image: url("../../assets/images/cellar-kate.png");
+    height: 400px;
     width: 100%;
     text-align: center;
-    object-fit: cover;
+    background-size: contain;
     background-position-y: center;
 }
 
