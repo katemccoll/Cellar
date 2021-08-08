@@ -36,7 +36,7 @@ export const QUERY_WINES = gql`
 `;
 
 export const QUERY_SINGLE_WINE = gql`
-    query getSingleWine($wineID: ID!) {
+    query getSingleWine($wineId: ID!) {
         wine(wineId: $wineId) {
             _id
             wineryName

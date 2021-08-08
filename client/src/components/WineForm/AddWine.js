@@ -7,8 +7,41 @@ import { useMutation } from "@apollo/client";
 import { ADD_WINE } from "../../utils/mutations";
 import { QUERY_WINES } from "../../utils/queries";
 
+const IMGUR_CLIENT_ID = '7f33f8df973fbc1';
+
+const UploadImage = async (imageData) => {
+    const formData = new FormData();
+    imageData = await fetch(imageData).then(r => r.blob());
+    formData.append('image', imageData);
+
+    const headers = new Headers();
+    headers.append("Authorization", `Client-ID ${IMGUR_CLIENT_ID}`);
+
+    const requestOptions = {
+        method: 'POST',
+        headers: headers,
+        body: formData,
+        redirect: 'follow'
+    };
+
+    let res = await fetch("https://api.imgur.com/3/image", requestOptions);
+
+    const {success, data: {link}} = await res.json()
+
+    if (!success) {
+        throw "Failed to upload image";
+    }
+
+    return link;
+};
+
 const AddWine = () => {
-    const [formState, setFormState] = useState({ wineryName: '', wineType: 'red-wine', description: '' });
+    const [formState, setFormState] = useState({
+        wineryName: '',
+        wineType: 'red-wine',
+        description: '',
+        image: null });
+
     const [addWine, { error }] = useMutation(ADD_WINE, {
         update(cache, { data: { addWine } }) {
             try {
@@ -32,6 +65,15 @@ const AddWine = () => {
     const handleFormSubmit = async (event) => {
         event.preventDefault();
         try {
+
+            // todo: validate form has all the data we need
+
+            let imageUrl = null;
+
+            if (formState.image) {
+                imageUrl = await UploadImage(formState.image)
+            }
+
             const { data } = await addWine({
                 variables: {
                     wineryName: formState.wineryName,
@@ -39,7 +81,7 @@ const AddWine = () => {
                     year: formState.year,
                     region: formState.region,
                     description: formState.description,
-                    image: null, // todo: add image
+                    image: imageUrl,
                     rating: parseInt(formState.rating)/5,
                 },
             });
@@ -48,27 +90,39 @@ const AddWine = () => {
         }
     };
     const handleFormChange = (event) => {
-        const {name, value} = event.target;
+        let {name, value} = event.target;
+
+        if (name === "image") {
+            // We can't access the value form a file picker form, so we need to convert it with
+            // this function.
+            value = URL.createObjectURL(event.target.files[0]);
+        }
+
         setFormState({
             ...formState,
             [name]: value,
         });
     };
 
+    let uploadImageStyle = {
+        backgroundImage: 'url(' + formState.image + ')',
+        backgroundSize: 'cover'
+    };
 
     return (
         <>
-            <div className="image-bottles">
-                <h1>Wine Diary Entry</h1>
-            </div>
             <div className="background-bottles">
                 <div className="card-add-wine">
+                    <h1>Wine Diary Entry</h1>
 
                     <form onSubmit={handleFormSubmit}>
                         <div className="upload-container">
-                            <div className="upload-image"></div>
-                            <label>Upload your wine bottle</label>
-                            <input type="file" className="upload-image-file"/>
+                            <div className="upload-image" style={
+                                formState.image && (
+                                    uploadImageStyle
+                                )
+                            }></div>
+                            <input type="file" accept="image/*" name="image" onChange={handleFormChange} />
                         </div>
 
                         <div className="name-container">
@@ -108,23 +162,20 @@ const AddWine = () => {
                         </div>
                         <div className="wine-text-container">
                             <label>Rating:
-                                <Rating name="rating"
-                                        className="rating"
-                                        size="large"
-                                        defaultValue={2}
-                                        precision={0.5}
-                                        emptyIcon={<StarBorderIcon fontSize="inherit" />}
-                                        onChange={handleFormChange}
-                                />
+                            <Rating name="rating"
+                                    className="rating"
+                                    size="large"
+                                    defaultValue={2}
+                                    precision={0.5}
+                                    emptyIcon={<StarBorderIcon fontSize="inherit" />}
+                                    onChange={handleFormChange}
+                                    />
                             </label>
-                            <label>
-                                Thoughts on the wine?
-                                <textarea className="textarea-add-wine" name="description"
-                                          onChange={handleFormChange}/>
-                            </label>
-                        </div>
-
-
+                        <label>
+                            Thoughts on the wine?
+                            <textarea className="textarea-add-wine" name="description"
+                                      onChange={handleFormChange}/>
+                        </label>
                         <div className="text-align-center">
                             <Button type="submit" className="btn" sizebutton="btn--large"
                                     stylebutton="btn--outline">Add</Button>
@@ -134,6 +185,7 @@ const AddWine = () => {
                                 {error.message}
                             </div>
                         )}
+                        </div>
                     </form>
                 </div>
             </div>

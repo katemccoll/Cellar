@@ -16,6 +16,12 @@ const SingleWine = () => {
     if (loading) {
         return <div>Loading...</div>
     }
+
+    let imageStyle = wine.image ? {
+        backgroundImage: 'url(' + wine.image + ')',
+        backgroundSize: 'cover'
+    } : {};
+
     return (
         <>
             <div className="image-bottles">
@@ -23,8 +29,7 @@ const SingleWine = () => {
             </div>
             <div className="background-bottles">
                 <div className="card-add-wine">
-                    <div className="upload-image">
-                        {wine.image}
+                    <div className="upload-image" style={imageStyle}>
                     </div>
                     <h1>
                         {wine.wineryName}
