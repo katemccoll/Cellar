@@ -1,21 +1,52 @@
-.background-bottles {
-    background: linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6) ), url(./biljana-martinic-IGJ_21drT3g-unsplash.jpg) no-repeat center center;
-    background-size: cover;
+.image-bottles {
+    background-image: url("../../assets/images/chuttersnap-eKlezhItE5U-unsplash.jpg");
+    height: 300px;
     width: 100%;
+    text-align: center;
+    object-fit: cover;
+    background-position-y: center;
+}
+
+.image-bottles h1 {
+    color: var(--dark-white-wine);
+    padding-top: 150px;
+    font-size: 40px;
+}
+
+.background-bottles {
     height: 100%;
-    padding: 40px;
+    padding: 40px 40px;
 }
 
 .card-add-wine {
-    border: 1px solid var(--dark-white-wine);
     padding: 40px;
-    color: var(--white-wine);
+    color: var(--black);
+    background: linear-gradient(182deg, #f4efe7, #f2d184, #f5e2b4);
+    background-size: 600% 600%;
+    -webkit-box-shadow: 0px 22px 30px -5px rgba(0,0,0,0.4);
+    box-shadow: 0px 22px 30px -5px rgba(0,0,0,0.4);
+    -webkit-animation: AnimationName 30s ease infinite;
+    -moz-animation: AnimationName 30s ease infinite;
+    animation: AnimationName 30s ease infinite;
+    border-radius: 10px;
 }
 
-.card-add-wine h1 {
-    color: var(--dark-white-wine);
-    padding-bottom: 40px;
+@-webkit-keyframes AnimationName {
+    0%{background-position:51% 0%}
+    50%{background-position:50% 100%}
+    100%{background-position:51% 0%}
 }
+@-moz-keyframes AnimationName {
+    0%{background-position:51% 0%}
+    50%{background-position:50% 100%}
+    100%{background-position:51% 0%}
+}
+@keyframes AnimationName {
+    0%{background-position:51% 0%}
+    50%{background-position:50% 100%}
+    100%{background-position:51% 0%}
+}
+
 
 .upload-image {
     width: 150px;
@@ -23,7 +54,7 @@
     height: 150px;
     background-color: grey;
     text-align: center;
-    border-radius: 100%;
+    border-radius: 30px;
 }
 
 .background-white-wine {
@@ -47,7 +78,8 @@
     padding: 6px;
     width: 100%;
     margin: 16px 0;
-    border: 1px solid black;
+    border: 1px solid var(--white);
+    border-radius: 4px;
 }
 
 .textarea-add-wine {
@@ -55,7 +87,9 @@
     padding: 6px;
     width: 100%;
     margin: 16px 0;
-    border: 1px solid black;
+    border: 1px solid var(--white);
+    height: 150px;
+    border-radius: 4px;
 }
 
 .select-add-wine {
@@ -63,7 +97,8 @@
     padding: 6px;
     width: 100%;
     margin: 16px 0;
-    border: 1px solid black;
+    border: 1px solid var(--white);
+    border-radius: 4px;
 }
 
 .text-align-center {
@@ -83,3 +118,71 @@
 .rating label .MuiRating-iconEmpty {
         color: rgb(255 180 27);
     }
+
+
+@media screen and (min-width: 768px) {
+    .background-bottles {
+        font-size: 28px;
+    }
+    .card-add-wine {
+        padding: 50px;
+    }
+
+    .card-add-wine form {
+        display: flex;
+        flex-flow: wrap;
+    }
+    .upload-image {
+        height: 200px;
+        width: 200px;
+        margin-bottom: 20px;
+    }
+    .upload-image-file {
+        text-align-last: center;
+        font-size: 24px;
+        width: 100%;
+    }
+
+    .upload-container {
+        width: 50%;
+        align-self: center;
+        margin-bottom: 50px;
+    }
+    .name-container {
+        width: 50%;
+    }
+    .wine-text-container {
+        text-align: center;
+        width: 100%;
+    }
+    .text-align-center {
+        margin: 20px auto;
+    }
+
+    .text-align-center button {
+        font-size: 36px;
+        border-radius: 10px;
+    }
+
+    .wine-text-container label span {
+        font-size: 80px;
+        place-content: center;
+    }
+
+    .rating {
+        margin-bottom: 20px;
+    }
+
+    .input-add-wine,
+    .select-add-wine,
+    .textarea-add-wine{
+        font-size: 24px;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .background-bottles {
+        width: 970px;
+        margin: auto;
+    }
+}
