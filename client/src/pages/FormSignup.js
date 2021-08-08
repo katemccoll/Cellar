@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Login from "../components/Login";
 import Signup from "../components/Signup";
 import "./assets/css/FormSignup.css";
+import Betty from "../assets/images/Betty-kate.png";
 
 class FormSignup extends Component {
     state = {
@@ -24,8 +25,8 @@ class FormSignup extends Component {
                     <div className="block"></div>
                         <section className="background-colour">
                             <div className="box-shadow">
-                                <div className="betty">
-                                    Placeholder
+                                <div className="betty-container">
+                                    <img src={Betty} alt={"Friends drinking wine"}/>
                                 </div>
                                 <div>
                                     <div className="controller-container">

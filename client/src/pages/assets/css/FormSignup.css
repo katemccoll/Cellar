@@ -35,7 +35,8 @@
 
 }
 
-.betty {
+.betty-container,
+.betty-container img {
     display: none;
 }
 
@@ -74,25 +75,32 @@
 @media screen and (min-width: 768px) {
 
     .background-colour {
-        padding-top: 80px;
+        padding: 100px 0;
         display: flex;
     }
 
     .box-shadow {
         display: flex;
-        -webkit-box-shadow: 0px 22px 30px -5px rgba(0,0,0,0.4);
-        box-shadow: 0px 22px 30px -5px rgba(0,0,0,0.4);
+        -webkit-box-shadow: 0px 4px 31px 0px rgba(0,0,0,0.81);
+        box-shadow: 0px 4px 31px 0px rgba(0,0,0,0.81);
     }
 
     .block {
         display: none;
     }
 
-    .betty {
+    .betty-container {
         display: flex;
-        height: 552px;
+        height: 632px;
         width: 350px;
         background-color: white;
+    }
+
+    .betty-container img {
+        display: flex;
+        width: 350px;
+        height: 350px;
+        margin: auto;
     }
 
     .controller-container {
@@ -101,39 +109,68 @@
 
     .controller- {
         background: none;
+        -webkit-box-shadow: inset 9px -3px 31px -9px rgba(0,0,0,0.52);
+        box-shadow: inset 9px -3px 31px -9px rgba(0,0,0,0.52);
     }
     .controller-selected-controller {
         background-color: var(--white);
+        text-decoration: underline;
     }
 
     .card-h {
         width: 350px;
-        height: 500px;
+        height: 580px;
         background-color: var(--white);
+    }
+    .card-h h1 {
+        padding-top: 100px;
+        font-size: 40px;
     }
 }
 
 @media screen and (min-width: 1024px) {
-    .betty,
+    .betty-container,
     .controller-container,
     .card-h {
         width: 400px;
     }
+    .betty-container img {
+        width: 400px;
+        height: 400px;
+    }
+    .background-colour {
+        padding: 140px 0;
+    }
+
 }
 
 @media screen and (min-width: 1440px) {
-    .betty,
+    .betty-container,
     .controller-container,
     .card-h {
         width: 500px;
     }
+    .betty-container img {
+        width: 500px;
+        height: 500px;
+    }
+
 }
 
 @media screen and (min-width: 2560px) {
-.betty,
-.controller-container,
-.card-h {
-    width: 600px;
-}
+    .betty-container,
+    .controller-container,
+    .card-h {
+        width: 600px;
+    }
+    .betty-container img {
+        width: 600px;
+        height: 600px;
+    }
+
+    .background-colour {
+        padding: 200px 0;
+    }
+
 }
 

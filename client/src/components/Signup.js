@@ -80,6 +80,7 @@ const Signup = () => {
         <div className="card-h">
             <div className="input-group">
                 <form className="signup" onSubmit={handleFormSubmit}>
+
                     <input
                         type="text"
                         name="firstName"
