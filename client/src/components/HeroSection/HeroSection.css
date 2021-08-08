@@ -1,28 +1,30 @@
 .hero-container {
-    color: var(--dark-grey);
-    background-image: url("./placeholderwinery.jpg");
+    color: var(--black);
+    background-image: url("./vineyard-kate.png");
     background-size: cover;
     height: 400px;
     width: 100%;
-    padding-top: 80px;
+    padding-top: 70px;
     background-position-y: center;
+    background-color: var(--white-wine);
 }
 
 .header-container {
     width: 80%;
+
 }
 
 .header-container h2 {
     font-family: var(--STIX-Two-Tex);
     padding: 20px 0 0 20px;
-    font-size: 36px;
+    font-size: 32px;
 }
 
 .header-container p {
     padding-left: 20px;
-    font-size: 18px;
+    font-size: 24px;
     font-family: var(--Poppins);
-    text-shadow: 5px 0px 5px #fff, 5px 0px 5px #fff;
+
 }
 
 .header-container div {
@@ -49,12 +51,6 @@
         margin: 40px auto;
     }
 
-    video {
-        top: 0;
-        background-color: var(--black);
-        object-fit: none;
-    }
-
     .header-container {
         width: 60%;
     }
@@ -68,52 +64,69 @@
     }
 
     .header-container p {
-        font-size: 24px;
+        font-size: 28px;
     }
 }
 
 @media screen and (min-width: 1024px) {
     .hero-container {
         height: 900px;
+        padding-top: 0;
     }
     .header-container h2 {
         font-size: 60px;
-        padding: 50px 0 0 20px;
+        padding: 100px 0 0 40px;
+    }
+    .header-container p {
+        font-size: 40px;
+        padding-left: 40px;
+    }
+    .hero-container div a {
+        margin: 30px 40px;
+        font-size: 40px;
     }
 
 }
 @media screen and (min-width: 1440px) {
     .hero-container {
-        height: 1200px;
+        height: 1400px;
     }
 
     .header-container h2 {
-        font-size: 60px;
-        padding: 100px 0 0 20px;
+        font-size: 75px;
+        padding: 140px 0 0 60px;
+    }
+
+    .header-container p {
+        font-size: 40px;
+        padding-left: 60px;
+    }
+    .hero-container div a {
+        margin: 30px 40px;
+        font-size: 40px;
     }
 
 }
 
 @media screen and (min-width: 2560px) {
     .hero-container {
-        height: 1200px;
+        height: 2000px;
     }
-
     .header-container h2 {
-        font-size: 110px;
-        padding: 130px 0 0 60px;
+        font-size: 100px;
+        padding: 250px 0 0 80px;
     }
     .header-container p {
-        font-size: 70px;
-        padding-left: 60px;
+        font-size: 50px;
+        padding-left: 80px;
     }
 
     .hero-container div {
-        margin: 130px 0 0 60px;
+        margin: 130px 0 0 80px;
     }
 
     .hero-container div a {
-        padding: 30px 50px;
+        margin: 30px 80px;
         font-size: 50px;
     }
 

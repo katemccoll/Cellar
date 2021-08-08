@@ -16,7 +16,7 @@ function HeroSection() {
                     link={"/add-wine"}
                     className="btn"
                     sizebutton="btn--large"
-                    stylebutton="btn--outline"
+                    stylebutton="btn--green"
                 >
                     Get Started
                 </Button>
