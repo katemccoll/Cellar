@@ -11,9 +11,10 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from './pages/Home';
 import FormSignup from "./pages/FormSignup";
 import FormWine from "./pages/FormWine";
-import ViewWine from "./pages/ViewWine";
+import Collection from "./pages/Collection";
 import Search from "./pages/Search";
 import Navbar from "./components/Navbar/Navbar";
+import SingleWine from "./pages/SingleWine";
 
 import './App.css';
 
@@ -51,9 +52,12 @@ function App() {
           <Switch>
             <Route path='/' exact component={Home}></Route>
             <Route path='/add-wine' component={FormWine}></Route>
-            <Route path='/view-wine'  component={ViewWine}></Route>
+            <Route path='/collection'  component={Collection}></Route>
             <Route path='/search' component={Search}></Route>
             <Route path='/login' component={FormSignup}></Route>
+            <Route exact path="/wines/:wineId">
+              <SingleWine />
+            </Route>
           </Switch>
 
         </Router>
