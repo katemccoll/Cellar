@@ -1,10 +1,11 @@
 import React from "react";
 import {Button} from "./Button/Button";
+import "./assets/css/Search.css";
 
 const Search = () => {
 
     return (
-        <div>
+        <div className="search-container">
             <form>
                 <input
                 type="text"
@@ -14,8 +15,11 @@ const Search = () => {
                 />
                 <Button
                 type="submit"
+                className="btn"
+                sizebutton="btn--medium"
+                stylebutton="btn--outline"
                 >
-                    Search
+                    <i className="fas fa-search"></i>
                 </Button>
             </form>
         </div>

@@ -1,0 +1,11 @@
+.search-container {
+    padding: 20px 0;
+}
+
+#search {
+    font-size: 18px;
+    padding: 6px;
+    margin: 16px 0;
+    border-radius: 20px;
+    width: 250px;
+}

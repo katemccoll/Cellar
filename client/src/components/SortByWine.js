@@ -1,10 +1,11 @@
 import React from "react";
+import "./assets/css/SortByWine.css"
 
 const SortByWine = () => {
 
     return (
-        <div>
-            <label>Sort By Rating:</label>
+        <div className="sort-by-wine-container">
+            <label>Sort By Wine:</label>
             <select className="sort-by-wine">
                 <option defaultValue="red-wine">Red Wine</option>
                 <option value="white-wine">White Wine</option>

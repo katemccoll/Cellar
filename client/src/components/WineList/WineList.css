@@ -1,3 +1,11 @@
 .text-align-center {
     text-align: center;
 }
+.filter-container {
+    margin: 20px;
+    flex-flow: wrap;
+    display: inline-flex;
+    place-content: center;
+    width: 80%;
+    justify-content: space-evenly;
+}

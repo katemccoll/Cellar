@@ -18,7 +18,7 @@ const WineList = ({ wines }) => {
 
     return (
         <div className="text-align-center">
-            <div>
+            <div className="filter-container">
                 <Search />
                 <SortByRating />
                 <SortByWine />

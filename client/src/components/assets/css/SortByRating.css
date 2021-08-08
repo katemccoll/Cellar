@@ -1,0 +1,17 @@
+.sort-by-rating-container {
+    padding: 20px 0;
+}
+
+.sort-by-rating-container label {
+    font-size: 18px;
+    padding: 6px;
+}
+
+.sort-by-rating {
+    font-size: 18px;
+    padding: 6px;
+    margin: 16px 0;
+    border-radius: 20px;
+    width: 200px;
+    background-color: white;
+}
