@@ -47,14 +47,20 @@
     100%{background-position:51% 0%}
 }
 
+.upload-container {
+    text-align: center;
+}
 
 .upload-image {
     width: 150px;
     margin: 0 auto 20px;
     height: 150px;
-    background-color: grey;
+    background-color: var(--white);
     text-align: center;
     border-radius: 30px;
+    background-image: url("../../assets/images/placeholder-image-kate.png");
+    background-size: cover;
+
 }
 
 .background-white-wine {
@@ -147,6 +153,7 @@
         width: 50%;
         align-self: center;
         margin-bottom: 50px;
+        text-align: center;
     }
     .name-container {
         width: 50%;

@@ -64,11 +64,6 @@ function Navbar() {
                             </Link>
                         </li>
                         <li className="navbar-item">
-                            <Link className="navbar-links" to="/search" onClick={closeMobileMenu}>
-                                Search
-                            </Link>
-                        </li>
-                        <li className="navbar-item">
                             <Button
                                 className="navbar-links-mobile navbar-links"
                                 type="logout"
@@ -76,9 +71,6 @@ function Navbar() {
                                 stylebutton="btn--green">
                                 Logout
                             </Button>
-                            {/*// <Link className="navbar-links-mobile  to="/" onClick={logout} stylebutton="btn--outline">*/}
-                            {/*//     Logout*/}
-                            {/*// </Link>*/}
                         </li>
                     </ul>
                 </div>
@@ -98,7 +90,6 @@ function Navbar() {
                             </Button>
                         </li>
                     </ul>
-                    {/*{button && <Button stylebutton="btn--outline">Login</Button> }*/}
                 </div>
             )
         }
@@ -110,7 +101,6 @@ function Navbar() {
                 <div>
                     <Link to="/">
                         <h2 className="logo-title">Cellar</h2>
-                        {/*<img src={logo} alt="cellar-logo" className="navbar-logo" />*/}
                     </Link>
                 </div>
                 <div className="menu-icon" onClick={handleClick}>

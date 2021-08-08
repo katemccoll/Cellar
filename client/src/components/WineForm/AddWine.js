@@ -64,8 +64,9 @@ const AddWine = () => {
 
                     <form onSubmit={handleFormSubmit}>
                         <div className="upload-container">
-                            <div className="upload-image">Upload</div>
-                            <input type="file" className="upload-image-file" />
+                            <div className="upload-image"></div>
+                            <label>Upload your wine bottle</label>
+                            <input type="file" className="upload-image-file"/>
                         </div>
 
                         <div className="name-container">
