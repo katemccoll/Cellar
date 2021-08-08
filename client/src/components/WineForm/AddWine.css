@@ -85,7 +85,7 @@
     width: 100%;
     margin: 16px 0;
     border: 1px solid var(--white);
-    border-radius: 4px;
+    border-radius: 8px;
 }
 
 .textarea-add-wine {
@@ -95,7 +95,7 @@
     margin: 16px 0;
     border: 1px solid var(--white);
     height: 150px;
-    border-radius: 4px;
+    border-radius: 8px;
 }
 
 .select-add-wine {
@@ -104,7 +104,7 @@
     width: 100%;
     margin: 16px 0;
     border: 1px solid var(--white);
-    border-radius: 4px;
+    border-radius: 8px;
 }
 
 .text-align-center {
@@ -139,20 +139,21 @@
         flex-flow: wrap;
     }
     .upload-image {
-        height: 200px;
-        width: 200px;
+        height: 300px;
+        width: 300px;
         margin-bottom: 20px;
     }
     .upload-image-file {
         text-align-last: center;
         font-size: 24px;
         width: 100%;
+        padding: 8px;
     }
 
     .upload-container {
         width: 50%;
         align-self: center;
-        margin-bottom: 50px;
+        margin: 40px 0;
         text-align: center;
     }
     .name-container {

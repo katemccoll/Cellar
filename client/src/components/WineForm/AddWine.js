@@ -36,6 +36,8 @@ const AddWine = () => {
                 variables: {
                     wineryName: formState.wineryName,
                     wineType: formState.wineType,
+                    year: formState.year,
+                    region: formState.region,
                     description: formState.description,
                     image: null, // todo: add image
                     rating: parseInt(formState.rating)/5,
@@ -86,6 +88,22 @@ const AddWine = () => {
                                     <option value="dessert-wine">Dessert Wine</option>
                                     <option value="fortified-wine">Fortified Wine</option>
                                 </select>
+                            </label>
+                            <label>
+                                Year:
+                                <input
+                                    className="input-add-wine"
+                                    type="text"
+                                    name="year"
+                                       onChange={handleFormChange}/>
+                            </label>
+                            <label>
+                                Region:
+                                <input
+                                    className="input-add-wine"
+                                    type="text"
+                                    name="region"
+                                       onChange={handleFormChange}/>
                             </label>
                         </div>
                         <div className="wine-text-container">
