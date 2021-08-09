@@ -1,9 +1,11 @@
 import React from "react";
 import {Button} from "../Button/Button";
 import "./HeroSection.css"
+import Auth from "../../utils/auth";
 
 function HeroSection() {
 
+    let getStartedLink = Auth.loggedIn() ? "/collection" : "/login";
 
     return (
         <div className="hero-container">
@@ -12,8 +14,7 @@ function HeroSection() {
                 <p>Add wines you love and the ones to avoid!</p>
                 <div>
                     <Button
-                    type={"add-wine"}
-                    link={"/add-wine"}
+                    link={getStartedLink}
                     className="btn"
                     sizebutton="btn--large"
                     stylebutton="btn--green"
