@@ -111,6 +111,7 @@
     }
     .navbar-item {
         height: 80px;
+        padding: 24px;
         font-size: 22px;
     }
 
@@ -159,7 +160,7 @@
         display: block;
         text-align: center;
         padding: 1.5rem;
-        margin: 2rem auto;
+        margin: 10px;
         border-radius: 4px;
         text-decoration: none;
         color: var(--white);
