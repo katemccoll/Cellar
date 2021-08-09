@@ -8,6 +8,15 @@ function ensureLoggedIn(context) {
     }
 }
 
+async function findWineById(context, wineId) {
+    const user = await User.findById(context.user._id).populate({
+        path: 'wines',
+        match: {_id: wineId}
+    });
+
+    return user.wines.id(wineId);
+}
+
 const resolvers = {
     Query: {
 
@@ -57,13 +66,7 @@ const resolvers = {
         },
         wine: async (parent, { wineId }, context) => {
             ensureLoggedIn(context);
-
-            const user = await User.findById(context.user._id).populate({
-                path: 'wines',
-                match: {_id: wineId}
-            });
-
-            return user.wines.id(wineId);
+            return findWineById(context, wineId);
         },
     },
 
@@ -129,21 +132,22 @@ const resolvers = {
         //
         //     return await Wine.findByIdAndUpdate(_id, { $inc: { quantity: decrement } }, { new: true });
         // },
-        // removeWine: async (parent, { wineId }, context) => {
-        //     if (context.user) {
-        //         const wine = await Wine.findOneAndDelete({
-        //             _id: wineId,
-        //         });
-        //
-        //         await User.findOneAndUpdate(
-        //             { _id: context.user._id },
-        //             { $pull: { wines: wine._id } }
-        //         );
-        //
-        //         return wine;
-        //     }
-        //     throw new AuthenticationError('You need to be logged in!');
-        // },
+        removeWine: async (parent, { wineId }, context) => {
+            ensureLoggedIn(context);
+            let wine = await findWineById(context, wineId);
+
+            if (!wine) {
+                throw new UserInputError("Unknown wine");
+            }
+
+            await User.findOneAndUpdate(
+                { _id: context.user._id },
+                { $pull: { wines: wine } }
+            );
+
+            await Wine.findByIdAndDelete(wine._id);
+            return wine;
+        },
     },
 };
 

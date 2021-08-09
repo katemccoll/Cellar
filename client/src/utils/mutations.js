@@ -49,3 +49,11 @@ export const ADD_WINE = gql`
         }
     }
 `;
+
+export const REMOVE_WINE = gql`
+    mutation removeWine($wineId: ID!) {
+        removeWine(wineId: $wineId) {
+            _id
+        }
+    }
+`;

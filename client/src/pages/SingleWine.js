@@ -1,10 +1,12 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import {QUERY_SINGLE_WINE} from "../utils/queries";
+import {QUERY_SINGLE_WINE, QUERY_WINES} from "../utils/queries";
 import StarBorderIcon from '@material-ui/icons/StarBorder';
-import { useQuery } from '@apollo/client';
+import {useMutation, useQuery} from '@apollo/client';
 import {Button} from "../components/Button/Button";
 import "./assets/css/SingleWine.css";
+import {REMOVE_WINE} from "../utils/mutations";
+import Auth from "../utils/auth";
 
 const SingleWine = () => {
     const { wineId } = useParams();
@@ -12,6 +14,38 @@ const SingleWine = () => {
     const { loading, data } = useQuery(QUERY_SINGLE_WINE, {
         variables: { wineId: wineId },
     });
+
+    const [removeWine, { removeError }] = useMutation(REMOVE_WINE, {
+        update(cache, { data: { removeWine } }) {
+            try {
+                const result = cache.readQuery({ query: QUERY_WINES });
+                let wines = [];
+                if (result) {
+                    wines = result.wines.filter((a) => a._id !== removeWine._id);
+                }
+                cache.writeQuery({
+                    query: QUERY_WINES,
+                    data: { wines: wines },
+                });
+
+                window.location = "/collection";
+            } catch (e) {
+                console.error(e);
+            }
+        },
+    });
+
+    const handleRemove = async (event) => {
+        event.preventDefault();
+
+        try {
+            const mutationResponse = await removeWine({
+                variables: {wineId: wineId}
+            });
+        } catch (e) {
+            console.log(e);
+        }
+    };
 
     const wine = data?.wine || {};
     if (loading) {
@@ -54,7 +88,7 @@ const SingleWine = () => {
                         {wine.description}
                     </div>
                     <Button>Edit</Button>
-                    <Button>Delete</Button>
+                    <Button onClick={handleRemove}>Delete</Button>
                 </div>
             </div>
         </>
