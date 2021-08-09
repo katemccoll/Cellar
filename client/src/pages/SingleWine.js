@@ -4,6 +4,7 @@ import {QUERY_SINGLE_WINE} from "../utils/queries";
 import StarBorderIcon from '@material-ui/icons/StarBorder';
 import { useQuery } from '@apollo/client';
 import {Button} from "../components/Button/Button";
+import "./assets/css/SingleWine.css";
 
 const SingleWine = () => {
     const { wineId } = useParams();
@@ -26,7 +27,7 @@ const SingleWine = () => {
         <>
             <div className="image-bottles">
                 <div className="padding-top">
-                    <h1>{wine.wineryName}</h1>
+                    <h1 className="single-wine-title">{wine.wineryName}</h1>
                 </div>
             </div>
             <div className="background-bottles">
@@ -36,7 +37,7 @@ const SingleWine = () => {
                     <h1>
 
                     </h1>
-                    <h2>
+                    <h2 className="capitalize">
                         {wine.wineType}
                     </h2>
                     <div>

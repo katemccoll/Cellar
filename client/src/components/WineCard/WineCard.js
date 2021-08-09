@@ -17,7 +17,7 @@ const WineCard = ({ wine }) => {
 
                     </div>
                     <div className="wine-card-name">
-                        <p>{wine.wineryName}</p>
+                        <p className="capitalize">{wine.wineryName}</p>
                     </div>
                 </Link>
             </div>
