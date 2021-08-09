@@ -14,13 +14,13 @@
 .image-bottles h1 {
     color: var(--white-wine);
     font-size: 40px;
-    background: rgba( 255, 255, 255, 0.25 );
-    box-shadow: 0 8px 32px 0 rgba(9, 9, 33, 0.37);
-    backdrop-filter: blur( 6px );
-    -webkit-backdrop-filter: blur( 6px );
-    border-radius: 10px;
-    border: 1px solid rgba( 255, 255, 255, 0.18 );
     width: fit-content;
     padding: 4px 24px;
     margin: auto;
+    background: rgba( 255, 255, 255, 0.30 );
+    box-shadow: 0 8px 32px 0 rgba(6, 6, 24, 0.37);
+    backdrop-filter: blur( 10px );
+    -webkit-backdrop-filter: blur( 10px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
