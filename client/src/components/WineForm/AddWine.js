@@ -117,8 +117,6 @@ const AddWine = () => {
         <>
             <div className="background-bottles">
                 <div className="card-add-wine">
-                    <h1>Wine Diary Entry</h1>
-
                     <form onSubmit={handleFormSubmit}>
                         <div className="upload-container">
                             <div className="upload-image" style={

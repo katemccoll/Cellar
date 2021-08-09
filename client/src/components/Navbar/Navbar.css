@@ -1,5 +1,4 @@
 .navbar {
-    background-color: transparent;
     height: 80px;
     display: flex;
     font-size: 1.2rem;
@@ -7,6 +6,10 @@
     align-items: center;
     position: absolute;
     width: -webkit-fill-available;
+    background: rgba( 255, 255, 255, 0.10 );
+    backdrop-filter: blur( 2px );
+    -webkit-backdrop-filter: blur( 2px );
+
 }
 
 .navbar-container {

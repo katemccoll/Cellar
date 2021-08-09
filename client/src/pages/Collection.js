@@ -12,7 +12,10 @@ const Collection = () => {
     return (
         <div>
             <div className="image-bottles">
-                <h1>Welcome to your cellar door!</h1>
+                <div className="padding-top">
+                    <h1>Welcome to your cellar door!</h1>
+                </div>
+
             </div>
 
             {loading ? (

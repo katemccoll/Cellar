@@ -25,14 +25,16 @@ const SingleWine = () => {
     return (
         <>
             <div className="image-bottles">
-                <h1>Wine Diary Entry</h1>
+                <div className="padding-top">
+                    <h1>{wine.wineryName}</h1>
+                </div>
             </div>
             <div className="background-bottles">
                 <div className="card-add-wine">
                     <div className="upload-image" style={imageStyle}>
                     </div>
                     <h1>
-                        {wine.wineryName}
+
                     </h1>
                     <h2>
                         {wine.wineType}
