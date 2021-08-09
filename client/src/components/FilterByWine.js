@@ -10,7 +10,7 @@ const FilterByWine = () => {
                 <option defaultValue="all-wines">All Wines</option>
                 <option value="red-wine">Red Wine</option>
                 <option value="white-wine">White Wine</option>
-                <option value="rose-wine">Rosé Wine</option>
+                <option value="Rosé Wine">Rosé Wine</option>
                 <option value="sparkling-wine">Sparkling Wine</option>
                 <option value="dessert-wine">Dessert Wine</option>
                 <option value="fortified-wine">Fortified Wine</option>

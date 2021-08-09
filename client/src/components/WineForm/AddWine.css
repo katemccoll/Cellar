@@ -92,6 +92,7 @@
     margin: 16px 0;
     border: 1px solid var(--white);
     border-radius: 8px;
+    background-color: var(--white);
 }
 
 .text-align-center {
@@ -144,7 +145,8 @@
         text-align: center;
     }
     .name-container {
-        width: 50%;
+        width: 45%;
+        margin-left: 15px;
     }
     .wine-text-container {
         text-align: center;

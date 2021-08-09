@@ -19,7 +19,7 @@ const Home = () => {
                     <p>
                         Are you also taking way too long looking at wine trying to remember which one you tried and liked?
                         Or which one your mother hated so you don't take that one to Sunday night dinner? Or even scrolling through your photos to find that wine you tried at
-                        that restaurant that one  We have all been there!
+                        that restaurant! We have all been there!
                     </p>
                 </div>
                 <div className="about-icons">
@@ -36,7 +36,7 @@ const Home = () => {
                     <div>
                         <img src={BottleIcon} alt={"bottle"}/>
                         <h4>Time Saver!</h4>
-                        <p>Quickly find the wine you want to try the nect time you are at the supermarket or liquor store.</p>
+                        <p>Quickly find the wine you really liked the next time you are at the liquor store.</p>
                     </div>
                 </div>
 

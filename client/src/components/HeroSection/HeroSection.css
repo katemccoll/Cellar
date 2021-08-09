@@ -88,7 +88,8 @@
 }
 @media screen and (min-width: 1440px) {
     .hero-container {
-        height: 1400px;
+         height: 1100px;
+         background-position: bottom;
     }
 
     .header-container h2 {
@@ -104,12 +105,27 @@
         margin: 30px 40px;
         font-size: 40px;
     }
+}
 
+@media screen and (min-width: 2000px) {
+    .hero-container {
+        height: 1200px;
+    }
+}
+@media screen and (min-width: 2200px) {
+    .hero-container {
+        height: 1300px;
+    }
+}
+@media screen and (min-width: 2450px) {
+    .hero-container {
+        height: 1400px;
+    }
 }
 
 @media screen and (min-width: 2560px) {
     .hero-container {
-        height: 2000px;
+        background-position: bottom;
     }
     .header-container h2 {
         font-size: 100px;
@@ -118,10 +134,6 @@
     .header-container p {
         font-size: 50px;
         padding-left: 80px;
-    }
-
-    .hero-container div {
-        margin: 130px 0 0 80px;
     }
 
     .hero-container div a {

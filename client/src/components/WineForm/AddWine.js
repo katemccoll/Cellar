@@ -124,7 +124,8 @@ const AddWine = () => {
                                     uploadImageStyle
                                 )
                             }></div>
-                            <input type="file" accept="image/*" name="image" onChange={handleFormChange} />
+                            <label>Upload your photo:</label>
+                            <input className="choose-file" type="file" accept="image/*" name="image" onChange={handleFormChange} />
                         </div>
 
                         <div className="name-container">
@@ -139,7 +140,7 @@ const AddWine = () => {
                                         onChange={handleFormChange} value={formState.wineType}>
                                     <option defaultValue="red-wine">Red Wine</option>
                                     <option value="white-wine">White Wine</option>
-                                    <option value="rose-wine">Rosé Wine</option>
+                                    <option value="Rosé Wine">Rosé Wine</option>
                                     <option value="sparkling-wine">Sparkling Wine</option>
                                     <option value="dessert-wine">Dessert Wine</option>
                                     <option value="fortified-wine">Fortified Wine</option>
