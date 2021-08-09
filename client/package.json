@@ -4,8 +4,8 @@
   "private": true,
   "dependencies": {
     "@apollo/client": "^3.3.21",
+    "@material-ui/core": "^4.11.2",
     "@material-ui/icons": "^4.11.2",
-    "@material-ui/core/utils": "^4.11.2",
     "@material-ui/lab": "*",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
