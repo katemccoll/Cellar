@@ -60,7 +60,7 @@ const AddWine = () => {
                     data: { wines: [addWine, ...wines ] },
                 });
 
-                window.location = "/";
+                window.location = "/collection";
             } catch (e) {
                 console.error(e);
             }
