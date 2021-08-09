@@ -180,7 +180,7 @@ const AddWine = () => {
                                       onChange={handleFormChange} value={formState.description}/>
                         </label>
                         <div className="text-align-center">
-                            <Button type="submit" className="btn" sizebutton="btn--large"
+                            <Button type="submit" className="btn add-wine-button" sizebutton="btn--large"
                                     stylebutton="btn--outline">Add</Button>
                         </div>
                         {error && (

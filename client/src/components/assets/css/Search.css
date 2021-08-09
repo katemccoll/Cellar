@@ -1,11 +1,18 @@
 .search-container {
     padding: 20px 0;
 }
-
-#search {
+.search {
     font-size: 18px;
     padding: 6px;
     margin: 16px 0;
     border-radius: 20px;
     width: 250px;
+}
+
+.search-form button {
+    font-size: 26px;
+}
+
+.search-form button:hover {
+    font-size: 26px;
 }

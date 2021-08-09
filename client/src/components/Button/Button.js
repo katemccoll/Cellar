@@ -8,12 +8,15 @@ const STYLES = [
     'btn--primary',
     'btn--outline',
     'btn--dark-red-wine',
-    'btn--green'
+    'btn--green',
+    'btn--icon-red'
 ]
 
 const SIZES = [
+    'btn--small',
     'btn--medium',
     'btn--large'
+
 ]
 
 export const Button = ({
