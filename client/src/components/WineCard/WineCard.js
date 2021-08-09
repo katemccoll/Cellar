@@ -1,18 +1,13 @@
 import React from 'react';
 import {Link } from 'react-router-dom'
 import './WineCard.css';
-
-const MAX_STARS = 5;
-
+import {getStarRatingString} from '../../utils/ratings'
 
 const WineCard = ({ wine }) => {
 
     const wineImage = wine.image == null ? {} :  {
         backgroundImage: 'url(' + wine.image + ')'
     };
-
-    const numberStars = wine.rating > 0 && wine.rating <= MAX_STARS ? Math.floor(MAX_STARS * wine.rating) : 0;
-    const ratingString = numberStars > 0 ? '★'.repeat(numberStars) : '-';
 
     return (
         <div className="wine-card-container">
@@ -25,7 +20,7 @@ const WineCard = ({ wine }) => {
                         <p className="capitalize">{wine.wineryName}</p>
                     </div>
                     <div>
-                        {ratingString}
+                        {getStarRatingString(wine.rating)}
                     </div>
                 </Link>
             </div>

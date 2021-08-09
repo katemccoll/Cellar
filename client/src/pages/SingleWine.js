@@ -7,6 +7,7 @@ import {Button} from "../components/Button/Button";
 import "./assets/css/SingleWine.css";
 import {REMOVE_WINE} from "../utils/mutations";
 import Auth from "../utils/auth";
+import {getStarRatingString} from "../utils/ratings";
 
 const SingleWine = () => {
     const { wineId } = useParams();
@@ -81,7 +82,7 @@ const SingleWine = () => {
                             className="rating"
                             emptyIcon={<StarBorderIcon fontSize="inherit" />}
                         >
-                            {wine.rating}
+                            {getStarRatingString(wine.rating)}
                         </div>
                     </div>
                     <div className="description-single-wine">
