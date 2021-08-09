@@ -2,8 +2,9 @@ import React from 'react';
 import WineCard from "../WineCard/WineCard";
 import "./WineList.css"
 import Search from "../Search";
-import SortByRating from "../SortByRating";
-import SortByWine from "../SortByWine";
+import FilterByRating from "../FilterByRating";
+import FilterByWine from "../FilterByWine";
+import SortBy from "../Sort-By";
 
 const WineList = ({ wines }) => {
     const renderedList = wines.map((wine) => {
@@ -20,8 +21,9 @@ const WineList = ({ wines }) => {
         <div className="text-align-center">
             <div className="filter-container">
                 <Search />
-                <SortByRating />
-                <SortByWine />
+                <SortBy />
+                <FilterByRating />
+                <FilterByWine />
             </div>
             <div>{renderedList}</div>
         </div>

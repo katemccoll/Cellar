@@ -16,9 +16,8 @@ const WineCard = ({ wine }) => {
                     <div className="placeholder-image-wine" style={wineImage} >
 
                     </div>
-                    <div>
+                    <div className="wine-card-name">
                         <p>{wine.wineryName}</p>
-                        <p>{wine.rating}</p>
                     </div>
                 </Link>
             </div>

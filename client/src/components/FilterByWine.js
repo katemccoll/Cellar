@@ -1,13 +1,14 @@
 import React from "react";
-import "./assets/css/SortByWine.css"
+import "./assets/css/FilterByWine.css"
 
-const SortByWine = () => {
+const FilterByWine = () => {
 
     return (
-        <div className="sort-by-wine-container">
-            <label>Sort By Wine:</label>
-            <select className="sort-by-wine">
-                <option defaultValue="red-wine">Red Wine</option>
+        <div className="filter-by-wine-container">
+            <label>Filter By Wine:</label>
+            <select className="filter-by-wine">
+                <option defaultValue="all-wines">All Wines</option>
+                <option value="red-wine">Red Wine</option>
                 <option value="white-wine">White Wine</option>
                 <option value="rose-wine">Rosé Wine</option>
                 <option value="sparkling-wine">Sparkling Wine</option>
@@ -19,4 +20,4 @@ const SortByWine = () => {
     )
 };
 
-export default SortByWine;
+export default FilterByWine;

@@ -1,13 +1,13 @@
-.sort-by-wine-container {
+.filter-by-rating-container {
     padding: 20px 0;
 }
 
-.sort-by-wine-container label {
+.filter-by-rating-container label {
     font-size: 18px;
     padding: 6px;
 }
 
-.sort-by-wine {
+.filter-by-rating {
     font-size: 18px;
     padding: 6px;
     margin: 16px 0;
