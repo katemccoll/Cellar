@@ -31,11 +31,11 @@ const SingleWine = () => {
                 </div>
             </div>
             <div className="background-bottles">
-                <div className="card-add-wine">
+                <div className="card-single-wine">
                     <div className="upload-image" style={imageStyle}>
                     </div>
-                    <h1>
-
+                    <h1 className="capitalize">
+                        {wine.wineryName}
                     </h1>
                     <h2 className="capitalize">
                         {wine.wineType}
@@ -50,7 +50,7 @@ const SingleWine = () => {
                             {wine.rating}
                         </div>
                     </div>
-                    <div>
+                    <div className="description-single-wine">
                         {wine.description}
                     </div>
                     <Button>Edit</Button>

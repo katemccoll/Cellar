@@ -6,3 +6,54 @@
 .capitalize {
     text-transform: capitalize;
 }
+
+.card-single-wine {
+    padding: 40px;
+    color: var(--white);
+    background-size: 600% 600%;
+    -webkit-box-shadow: 0 22px 30px -5px rgba(0,0,0,0.4);
+    box-shadow: 0 22px 30px -5px rgba(0,0,0,0.4);
+    border-radius: 10px;
+    text-align: center;
+    background: linear-gradient(177deg, #f57070, #c84545, #8c1414);
+    background-size: 600% 600%;
+
+    -webkit-animation: AnimationName 35s ease infinite;
+    -moz-animation: AnimationName 35s ease infinite;
+    animation: AnimationName 35s ease infinite;
+}
+
+@-webkit-keyframes AnimationName {
+    0%{background-position:49% 0%}
+    50%{background-position:52% 100%}
+    100%{background-position:49% 0%}
+}
+@-moz-keyframes AnimationName {
+    0%{background-position:49% 0%}
+    50%{background-position:52% 100%}
+    100%{background-position:49% 0%}
+}
+@keyframes AnimationName {
+    0%{background-position:49% 0%}
+    50%{background-position:52% 100%}
+    100%{background-position:49% 0%}
+}
+
+.card-single-wine h1,
+.card-single-wine h2 {
+    padding: 10px;
+}
+
+.description-single-wine {
+    background-color: var(--white);
+    color: var(--black);
+    border-radius: 16px;
+    margin: 10px auto;
+    width: 80%;
+    padding: 8px 12px;
+}
+
+.card-single-wine Button {
+    margin: 10px;
+    width: 94px;
+}
