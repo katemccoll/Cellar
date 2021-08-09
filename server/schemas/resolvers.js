@@ -1,39 +1,88 @@
-const { AuthenticationError } = require('apollo-server-express');
+const { AuthenticationError, UserInputError} = require('apollo-server-express');
 const { User, Wine } = require('../models');
 const { signToken } = require('../utils/auth');
+
+function ensureLoggedIn(context) {
+    if (!context.user) {
+        throw new AuthenticationError('You need to be logged in!');
+    }
+}
 
 const resolvers = {
     Query: {
 
         user: async (parent, args, context) => {
-            if (context.user) {
-                return User.findOne({ _id: context.user._id }).populate('wines');
+            ensureLoggedIn(context);
+            return User.findOne({ _id: context.user._id }).populate('wines');
+        },
+        wines: async (parent, { filters }, context) => {
+            ensureLoggedIn(context);
+
+            if (!filters) {
+                filters = {};
             }
-            throw new AuthenticationError('You need to be logged in!');
+
+            const user = await User.findById(context.user._id).populate({
+                    path: 'wines',
+                }
+            );
+
+            let wines = user.wines.filter((wine) => {
+                let matches = true;
+
+                if (filters.rating) {
+                    matches &= wine.rating === filters.rating;
+                }
+
+                if (filters.wineType) {
+                    matches &= wine.wineType === filters.wineType;
+                }
+
+                if (filters.searchWineryName) {
+                    matches &= wine.wineryName.contains(filter.searchWineryName);
+                }
+
+                return matches;
+            });
+
+            if (filters.sortBy) {
+                wines.sort((a, b) => {
+                    a = a[filters.sortBy];
+                    b = b[filters.sortBy];
+                    return (a < b) ? -1 : (a > b) ? 1 : 0
+                })
+            }
+
+            return wines;
         },
-        wines: async (parent, { email }) => {
-            const params = email ? { email } : {};
-            return Wine.find(params).sort({ createdAt: -1 });
-        },
-        wine: async (parent, { wineId }) => {
-            return Wine.findById({ _id: wineId });
+        wine: async (parent, { wineId }, context) => {
+            ensureLoggedIn(context);
+
+            const user = await User.findById(context.user._id).populate({
+                path: 'wines',
+                match: {_id: wineId}
+            });
+
+            return user.wines.id(wineId);
         },
     },
 
     Mutation: {
         addUser: async (parent, payload) => {
-            let { firstName, lastName, email, password } = payload;
-            const user = await User.create({ firstName, lastName, email, password });
-            const token = signToken(user);
-            return { token, user };
-            // if (e.name === "MongoError") {
-            //         if (e.code === 11000) {
-            //             throw new UserInputError("Email address already in use");
-            //         }
-            //     }
-            //
-            //     throw e;
-            // }
+            try {
+                let {firstName, lastName, email, password} = payload;
+                const user = await User.create({firstName, lastName, email, password});
+                const token = signToken(user);
+                return {token, user};
+            } catch (e) {
+                if (e.name === "MongoError") {
+                    if (e.code === 11000) {
+                        throw new UserInputError("Email address already in use");
+                    }
+                }
+
+                throw e;
+            }
         },
         login: async (parent, { email, password }) => {
             const user = await User.findOne({ email });
@@ -53,35 +102,28 @@ const resolvers = {
             return { token, user };
         },
         addWine: async (parent, payload , context) => {
+            ensureLoggedIn(context);
+
             let { wineryName, wineType, description, image, rating, region, year } = payload;
+            const wine = await Wine.create({
+                wineryName,
+                wineType,
+                description,
+                image,
+                rating,
+                region,
+                year
+            });
 
-            if (context.user) {
-                const wine = await Wine.create({
-                    wineryName,
-                    wineType,
-                    description,
-                    image,
-                    rating,
-                    region,
-                    year
-                });
+            await User.findOneAndUpdate(
+                { _id: context.user._id },
+                { $push: { wines: [wine] } }
+            );
 
-                await User.findOneAndUpdate(
-                    { _id: context.user._id },
-                    { $addToSet: { wines: wine._id } }
-                );
+            return wine;
 
-                return wine;
-            }
-            throw new AuthenticationError('You need to be logged in!');
         },
-        // updateUser: async (parent, args, context) => {
-        //     if (context.user) {
-        //         return await User.findByIdAndUpdate(context.user._id, args, { new: true });
-        //     }
-        //
-        //     throw new AuthenticationError('Not logged in');
-        // },
+
         // updateWine: async (parent, { _id, quantity }) => {
         //     const decrement = Math.abs(quantity) * -1;
         //

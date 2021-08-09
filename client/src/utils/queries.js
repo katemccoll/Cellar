@@ -22,8 +22,8 @@ export const QUERY_USER = gql`
 `;
 
 export const QUERY_WINES = gql`
-    query getWines {
-        wines {
+    query getWines($filters: WineFilters) {
+        wines(filters: $filters) {
             _id
             wineryName
             wineType
@@ -34,6 +34,7 @@ export const QUERY_WINES = gql`
             year
             createdAt
         }
+        
     }
 `;
 
