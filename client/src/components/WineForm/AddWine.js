@@ -138,12 +138,12 @@ const AddWine = () => {
                                 Type of Wine:
                                 <select className="select-add-wine" name="wineType"
                                         onChange={handleFormChange} value={formState.wineType}>
-                                    <option defaultValue="red-wine">Red Wine</option>
-                                    <option value="white-wine">White Wine</option>
+                                    <option defaultValue="Red Wine">Red Wine</option>
+                                    <option value="White Wine">White Wine</option>
                                     <option value="Rosé Wine">Rosé Wine</option>
-                                    <option value="sparkling-wine">Sparkling Wine</option>
-                                    <option value="dessert-wine">Dessert Wine</option>
-                                    <option value="fortified-wine">Fortified Wine</option>
+                                    <option value="Sparkling Wine">Sparkling Wine</option>
+                                    <option value="Dessert Wine">Dessert Wine</option>
+                                    <option value="Fortified Wine">Fortified Wine</option>
                                 </select>
                             </label>
                             <label>
