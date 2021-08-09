@@ -28,7 +28,7 @@
     font-family: var(--Spectral-SC);
     color: var(--black);
     padding-left: 20px;
-    font-size: 40px;
+    font-size: 30px;
 }
 
 .navbar-logo {
@@ -107,6 +107,7 @@
         padding: 2rem;
         width: 100%;
         display: table;
+        color: var(--white);
 
     }
     .navbar-item {
@@ -179,12 +180,10 @@
 
 @media screen and (min-width: 1024px) {
     .logo-title {
-        font-size: 40px;
         padding-left: 40px;
     }
     .navbar-item a {
-        margin: 30px 40px;
-        font-size: 28px;
+        font-size: 18px;
     }
 
 
@@ -192,7 +191,7 @@
 
 @media screen and (min-width: 1440px) {
     .logo-title {
-        font-size: 60px;
+        font-size: 40px;
         padding-left: 60px;
     }
 
@@ -200,7 +199,6 @@
 
 @media screen and (min-width: 2560px) {
     .logo-title {
-        font-size: 80px;
         padding-top: 20px;
         padding-left: 80px;
     }
