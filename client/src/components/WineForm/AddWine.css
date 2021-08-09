@@ -1,17 +1,4 @@
-.image-bottles {
-    background-image: url("../../assets/images/cellar-kate.png");
-    height: 400px;
-    width: 100%;
-    text-align: center;
-    background-size: contain;
-    background-position-y: center;
-}
 
-.image-bottles h1 {
-    color: var(--dark-white-wine);
-    padding-top: 150px;
-    font-size: 40px;
-}
 
 .background-bottles {
     height: 100%;

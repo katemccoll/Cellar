@@ -1,4 +1,5 @@
 import React from "react";
+import "./assets/css/Collection.css"
 
 import WineList from "../components/WineList/WineList";
 import {useQuery} from "@apollo/client";
