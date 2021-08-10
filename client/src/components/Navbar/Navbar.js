@@ -7,40 +7,28 @@ import Auth from "../../utils/auth";
 
 function Navbar() {
     const [click, setClick] = useState(false);
-    // const [button, setButton] = useState(true);
-    // const [navbar, setNavbar] = useState(false);
 
     const handleClick = () => setClick(!click);
     const closeMobileMenu = () => setClick(false);
 
-    // const showButton = () => {
-    //     if(window.innerWidth <= 600) {
-    //         setButton(true);
-    //     } else {
-    //         setButton(false);
-    //     }
-    // };
-    //
-    // window.addEventListener('resize', showButton);
-    //
-    // useEffect(() => {
-    //     showButton();
-    // }, []);
 
-    // const changeBackground = () => {
-    //     if(window.location.pathname === "/") {
-    //         setNavbar(true)
-    //     } else {
-    //         setNavbar(false);
-    //     }
-    // };
-    //
-    // window.addEventListener('onload', changeBackground);
 
     const logout = (event) => {
         event.preventDefault();
         Auth.logout();
     };
+
+
+    // const nav = document.getElementsByClassName("navbar");
+    // const sticky = nav.offsetTop;
+    // const stickyNav = () => {
+    //     if (window.pageYOffset >= sticky) {
+    //         nav.classList.add("sticky")
+    //     } else {
+    //         nav.classList.remove("sticky")
+    //     }
+    // }
+    // window.onscroll = function () {stickyNav()};
 
 
     function showNav() {

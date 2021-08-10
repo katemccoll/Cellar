@@ -7,15 +7,6 @@ export const QUERY_USER = gql`
             firstName
             lastName
             email
-            wines {
-                _id
-                wineryName
-                wineType
-                description
-                image
-                rating
-                createdAt
-            }
         }  
     }
    

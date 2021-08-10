@@ -4,11 +4,13 @@
     font-size: 1.2rem;
     justify-content: space-between;
     align-items: center;
-    position: absolute;
+    position: fixed;
     width: 100%;
-    background: rgba( 255, 255, 255, 0.10 );
-    backdrop-filter: blur( 2px );
-    -webkit-backdrop-filter: blur( 2px );
+    background: rgba( 255, 255, 255, 0.60 );
+    box-shadow: 0 8px 32px 0 rgba(10, 12, 40, 0.24);
+    backdrop-filter: blur( 3px );
+    -webkit-backdrop-filter: blur( 3px );
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
 
 }
 
@@ -67,6 +69,8 @@
 .navbar-links-mobile {
     display: none;
 }
+
+
 
 
 .fa-bars {

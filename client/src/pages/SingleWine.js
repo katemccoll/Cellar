@@ -75,6 +75,10 @@ const SingleWine = () => {
                     <h2 className="capitalize">
                         {wine.wineType}
                     </h2>
+                    <h2>
+                        {wine.year}
+                    </h2>
+                    <h2>{wine.region}</h2>
                     <div>
                         <h2>Rating</h2>
                         <div

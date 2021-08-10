@@ -34,7 +34,7 @@ const typeDefs = gql `
   } 
   
   type Query {
-    user(email: String!): User
+    user: User
     wine(wineId: ID!): Wine
     wines(filters: WineFilters): [Wine]
   }
