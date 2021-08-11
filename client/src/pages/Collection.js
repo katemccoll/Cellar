@@ -6,7 +6,7 @@ import {useQuery} from "@apollo/client";
 import {QUERY_WINES} from "../utils/queries";
 import CircularStatic from "../components/Loading";
 
-const Collection = () => {
+const Collection = ({ client }) => {
     const { loading, data } = useQuery(QUERY_WINES);
     const wines = data?.wines || [];
 
@@ -23,8 +23,9 @@ const Collection = () => {
                 <CircularStatic />
             ) : (
                 <WineList
-                wines={ wines}
-                className="wineList"
+                    wines={wines}
+                    client={client}
+                    className="wineList"
                 />
             )}
         </div>

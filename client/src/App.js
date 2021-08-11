@@ -51,7 +51,7 @@ function App() {
           <Switch>
             <Route path='/' exact component={Home}></Route>
             <Route path='/add-wine' component={FormWine}></Route>
-            <Route path='/collection'  component={Collection}></Route>
+            <Route path='/collection'  component={() => <Collection client={client}/>}></Route>
             <Route path='/login' component={FormSignup}></Route>
             <Route exact path="/wines/:wineId">
               <SingleWine />

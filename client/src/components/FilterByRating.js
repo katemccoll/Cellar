@@ -1,19 +1,18 @@
 import React from "react";
 import "./assets/css/FilterByRating.css";
 
-const FilterByRating = () => {
-
+const FilterByRating = ({ handleChange }) => {
     return (
         <div className="filter-by-rating-container">
             <label>Filter By Rating:</label>
-            <select className="filter-by-rating">
+            <select className="filter-by-rating" name="rating" onChange={handleChange}>
                 <option defaultValue="all-ratings" data-content="">All Ratings</option>
-                <option value="five-Star">★★★★★</option>
-                <option value="four-Star">★★★★</option>
-                <option value="three-Star">★★★</option>
-                <option value="two-Star">★★</option>
-                <option value="one-star">★</option>
-                <option value="unrated">Yet to be rated</option>
+                <option name="rating" value="1">★★★★★</option>
+                <option name="rating" value="0.8">★★★★</option>
+                <option name="rating" value="0.6">★★★</option>
+                <option name="rating" value="0.4">★★</option>
+                <option name="rating" value="0.2">★</option>
+                <option name="rating" value="unrated">Yet to be rated</option>
             </select>
         </div>
 
