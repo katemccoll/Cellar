@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import logo from "../assets/images/logo-cellar-small.png"
+
 import "./Navbar.css"
 import { Button } from "../Button/Button";
 import { Link } from "react-router-dom";
@@ -17,19 +17,6 @@ function Navbar() {
         event.preventDefault();
         Auth.logout();
     };
-
-
-    // const nav = document.getElementsByClassName("navbar");
-    // const sticky = nav.offsetTop;
-    // const stickyNav = () => {
-    //     if (window.pageYOffset >= sticky) {
-    //         nav.classList.add("sticky")
-    //     } else {
-    //         nav.classList.remove("sticky")
-    //     }
-    // }
-    // window.onscroll = function () {stickyNav()};
-
 
     function showNav() {
         if (Auth.loggedIn()) {
