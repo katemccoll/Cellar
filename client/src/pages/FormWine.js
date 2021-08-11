@@ -9,7 +9,7 @@ const FormWine = () => {
         <div>
             {Auth.loggedIn() ? (
                 <>
-                <div className="image-bottles">
+                <div className="image-wine-glasses">
                     <div className="padding-top">
                         <h1>Add Wine</h1>
                     </div>

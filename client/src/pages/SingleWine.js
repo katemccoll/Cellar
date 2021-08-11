@@ -6,7 +6,6 @@ import {useMutation, useQuery} from '@apollo/client';
 import {Button} from "../components/Button/Button";
 import "./assets/css/SingleWine.css";
 import {REMOVE_WINE} from "../utils/mutations";
-import Auth from "../utils/auth";
 import {getStarRatingString} from "../utils/ratings";
 
 const SingleWine = () => {
@@ -60,7 +59,7 @@ const SingleWine = () => {
 
     return (
         <>
-            <div className="image-bottles">
+            <div className="image-wine-glasses">
                 <div className="padding-top">
                     <h1 className="single-wine-title">{wine.wineryName}</h1>
                 </div>

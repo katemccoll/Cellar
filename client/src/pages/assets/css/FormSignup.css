@@ -91,7 +91,7 @@
 
     .betty-container {
         display: flex;
-        height: 632px;
+        height: 100%;
         width: 350px;
         background-color: white;
     }
@@ -119,7 +119,7 @@
 
     .card-h {
         width: 350px;
-        height: 580px;
+        height: 635px;
         background-color: var(--white);
     }
     .card-h h1 {

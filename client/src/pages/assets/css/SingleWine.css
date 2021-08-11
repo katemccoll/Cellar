@@ -7,6 +7,28 @@
     text-transform: capitalize;
 }
 
+.image-wine-glasses {
+    background-image: url("../../../assets/images/wine-glasses.png");
+    height: 400px;
+    width: 100%;
+    text-align: center;
+    background-size: cover;
+    background-position: center;
+}
+
+.image-wine-glasses h1 {
+    color: var(--white-wine);
+    font-size: 30px;
+    width: fit-content;
+    padding: 4px 24px;
+    margin: auto;
+    background: rgb(88, 12, 12, 0.4);
+    box-shadow: 0 8px 32px 0 rgba(6, 6, 24, 0.37);
+    backdrop-filter: blur( 10px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
 .card-single-wine {
     padding: 40px;
     color: var(--white);
@@ -24,19 +46,19 @@
 }
 
 @-webkit-keyframes AnimationName {
-    0%{background-position:49% 0%}
+    0%{background-position:49% 0}
     50%{background-position:52% 100%}
-    100%{background-position:49% 0%}
+    100%{background-position:49% 0}
 }
 @-moz-keyframes AnimationName {
-    0%{background-position:49% 0%}
+    0%{background-position:49% 0}
     50%{background-position:52% 100%}
-    100%{background-position:49% 0%}
+    100%{background-position:49% 0}
 }
 @keyframes AnimationName {
-    0%{background-position:49% 0%}
+    0%{background-position:49% 0}
     50%{background-position:52% 100%}
-    100%{background-position:49% 0%}
+    100%{background-position:49% 0}
 }
 
 .card-single-wine h1,
@@ -56,4 +78,12 @@
 .card-single-wine Button {
     margin: 10px;
     width: 94px;
+}
+
+
+
+@media screen and (min-width: 768px) {
+    .image-wine-glasses {
+        background-size: contain;
+    }
 }
