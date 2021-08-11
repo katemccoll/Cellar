@@ -1,32 +1,40 @@
 import React from "react";
-import {Button} from "../Button/Button";
+
+import { Button } from "../Button/Button";
 import "./HeroSection.css"
+import Loading from "../Loading";
 import Auth from "../../utils/auth";
-import {useQuery} from "@apollo/client";
+
+import { useQuery } from "@apollo/client";
 import { useParams } from 'react-router-dom';
-import {QUERY_USER} from "../../utils/queries";
-import CircularStatic from "../Loading";
-
-
+import { QUERY_USER } from "../../utils/queries";
 
 function HeroSection() {
     const { firstName: userParam } = useParams();
+
     const { loading, data } = useQuery(QUERY_USER, {
         variables: { firstName: userParam },
     });
+
     const user = data?.user || {};
 
     let getStartedLink = Auth.loggedIn() ? "/add-wine" : "/login";
+
     let headerTitle = Auth.loggedIn() ? `Hi ${(user.firstName)}!` : "Build your online wine cellar";
 
     if (loading) {
-        return <CircularStatic />
+        return <Loading />
     }
+
     return (
         <div className="hero-container">
             <div className="header-container">
-                <h2>{headerTitle}</h2>
-                <p>Add the wines you love and the ones to avoid!</p>
+                <h2>
+                    {headerTitle}
+                </h2>
+                <p>
+                    Add the wines you love and the ones to avoid!
+                </p>
                 <div>
                     <Button
                     link={getStartedLink}
@@ -37,9 +45,7 @@ function HeroSection() {
                     Get Started
                 </Button>
                 </div>
-
             </div>
-
         </div>
     );
 }

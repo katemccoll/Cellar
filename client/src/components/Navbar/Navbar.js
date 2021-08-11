@@ -9,9 +9,8 @@ function Navbar() {
     const [click, setClick] = useState(false);
 
     const handleClick = () => setClick(!click);
+
     const closeMobileMenu = () => setClick(false);
-
-
 
     const logout = (event) => {
         event.preventDefault();
@@ -84,9 +83,7 @@ function Navbar() {
                 <nav>
                     {showNav()}
                 </nav>
-
             </div>
-
         </nav>
     );
 }

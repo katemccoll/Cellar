@@ -1,5 +1,5 @@
 import React from "react";
-import "./assets/css/FilterByRating.css";
+import "./FilterByRating.css";
 
 const FilterByRating = ({ handleChange }) => {
     return (
@@ -15,7 +15,6 @@ const FilterByRating = ({ handleChange }) => {
                 <option name="rating" value="0">Yet to be rated</option>
             </select>
         </div>
-
     )
 };
 

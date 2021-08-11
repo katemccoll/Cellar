@@ -1,6 +1,6 @@
 .hero-container {
     color: var(--black);
-    background-image: url("./vineyard-kate.png");
+    background-image: url("../assets/images/vineyard-kate.png");
     background-size: cover;
     height: 400px;
     width: 100%;
@@ -11,7 +11,6 @@
 
 .header-container {
     width: 80%;
-
 }
 
 .header-container h2 {
@@ -24,7 +23,6 @@
     padding-left: 20px;
     font-size: 24px;
     font-family: var(--Poppins);
-
 }
 
 .header-container div {
@@ -35,6 +33,7 @@
 }
 
 @media screen and (min-width: 426px) {
+
     .hero-container {
         height: 500px;
     }
@@ -42,6 +41,7 @@
 }
 
 @media screen and (min-width: 768px) {
+
     .hero-container {
         height: 600px;
     }
@@ -69,17 +69,21 @@
 }
 
 @media screen and (min-width: 1024px) {
+
     .hero-container {
         height: 900px;
     }
+
     .header-container h2 {
         font-size: 60px;
         padding: 100px 0 0 40px;
     }
+
     .header-container p {
         font-size: 40px;
         padding-left: 40px;
     }
+
     .hero-container div a {
         margin: 30px 40px;
         font-size: 40px;
@@ -87,6 +91,7 @@
 
 }
 @media screen and (min-width: 1440px) {
+
     .hero-container {
          height: 1100px;
          background-position: bottom;
@@ -101,6 +106,7 @@
         font-size: 40px;
         padding-left: 60px;
     }
+
     .hero-container div a {
         margin: 30px 40px;
         font-size: 40px;
@@ -108,29 +114,35 @@
 }
 
 @media screen and (min-width: 2000px) {
+
     .hero-container {
         height: 1200px;
     }
 }
 @media screen and (min-width: 2200px) {
+
     .hero-container {
         height: 1300px;
     }
 }
 @media screen and (min-width: 2450px) {
+
     .hero-container {
         height: 1400px;
     }
 }
 
 @media screen and (min-width: 2560px) {
+
     .hero-container {
         background-position: bottom;
     }
+
     .header-container h2 {
         font-size: 100px;
         padding: 250px 0 0 80px;
     }
+
     .header-container p {
         font-size: 50px;
         padding-left: 80px;
@@ -140,5 +152,4 @@
         margin: 30px 80px;
         font-size: 50px;
     }
-
 }

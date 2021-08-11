@@ -1,13 +1,13 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import {QUERY_SINGLE_WINE, QUERY_WINES} from "../utils/queries";
+import { QUERY_SINGLE_WINE, QUERY_WINES } from "../utils/queries";
 import StarBorderIcon from '@material-ui/icons/StarBorder';
-import {useMutation, useQuery} from '@apollo/client';
-import {Button} from "../components/Button/Button";
+import { useMutation, useQuery } from '@apollo/client';
+import { Button } from "../components/Button/Button";
 import "./assets/css/SingleWine.css";
-import {REMOVE_WINE} from "../utils/mutations";
-import {getStarRatingString} from "../utils/ratings";
-import CircularStatic from "../components/Loading";
+import { REMOVE_WINE } from "../utils/mutations";
+import { getStarRatingString } from "../utils/ratings";
+import Loading from "../components/Loading";
 
 const SingleWine = () => {
     const { wineId } = useParams();
@@ -20,7 +20,9 @@ const SingleWine = () => {
         update(cache, { data: { removeWine } }) {
             try {
                 const result = cache.readQuery({ query: QUERY_WINES });
+
                 let wines = [];
+
                 if (result) {
                     wines = result.wines.filter((a) => a._id !== removeWine._id);
                 }
@@ -28,7 +30,6 @@ const SingleWine = () => {
                     query: QUERY_WINES,
                     data: { wines: wines },
                 });
-
                 window.location = "/collection";
             } catch (e) {
                 console.error(e);
@@ -49,8 +50,9 @@ const SingleWine = () => {
     };
 
     const wine = data?.wine || {};
+
     if (loading) {
-        return <CircularStatic />
+        return <Loading />
     }
 
     let imageStyle = wine.image ? {
@@ -62,7 +64,9 @@ const SingleWine = () => {
         <>
             <div className="image-wine-glasses">
                 <div className="padding-top">
-                    <h1 className="single-wine-title">{wine.wineryName}</h1>
+                    <h1 className="single-wine-title">
+                        {wine.wineryName}
+                    </h1>
                 </div>
             </div>
             <div className="background-bottles">
@@ -78,9 +82,13 @@ const SingleWine = () => {
                     <h2>
                         {wine.year}
                     </h2>
-                    <h2>{wine.region}</h2>
+                    <h2>
+                        {wine.region}
+                    </h2>
                     <div>
-                        <h2>Rating</h2>
+                        <h2>
+                            Rating
+                        </h2>
                         <div
                             defaultValue={wine.rating}
                             className="rating"
@@ -92,8 +100,12 @@ const SingleWine = () => {
                     <div className="description-single-wine">
                         {wine.description}
                     </div>
-                    <Button>Edit</Button>
-                    <Button onClick={handleRemove}>Delete</Button>
+                    <Button>
+                        Edit
+                    </Button>
+                    <Button onClick={handleRemove}>
+                        Delete
+                    </Button>
                 </div>
             </div>
         </>

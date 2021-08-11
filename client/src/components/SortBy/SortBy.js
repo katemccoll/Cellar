@@ -1,5 +1,5 @@
 import React from "react";
-import "./assets/css/SortBy.css";
+import "./SortBy.css";
 
 const SortBy = ({ handleChange }) => {
 
@@ -14,7 +14,6 @@ const SortBy = ({ handleChange }) => {
                 <option value="wineType">Wine Type</option>
             </select>
         </div>
-
     )
 };
 

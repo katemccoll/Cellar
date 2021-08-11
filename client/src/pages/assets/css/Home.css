@@ -16,7 +16,6 @@
 
 .about-icons div img {
     height: 60px;
-
 }
 
 .about-container p {
@@ -25,53 +24,68 @@
 }
 
 @media screen and (min-width: 768px) {
+
     .about-icons div {
         width: 30%;
     }
+
     .about-icons {
         display: inline-flex;
         justify-content: center;
     }
+
     .wine-icon {
         padding: 0 20px;
     }
+
     .about-icons div img {
         height: 100px;
     }
+
     .about-container h2 {
         font-size: 28px;
     }
+
     .about-container p {
         font-size: 22px;
     }
+
     .about-icons h4 {
         font-size: 24px;
     }
+
     .about-icons p {
         font-size: 22px;
     }
 }
 
 @media screen and (min-width: 1024px) {
+
     .about-icons {
         display: inline-flex;
         justify-content: center;
     }
+
     .wine-icon {
         padding: 0 20px;
     }
+
     .about-icons div img {
         height: 140px;
     }
+
     .about-container h2 {
         font-size: 36px;
     }
+
     .about-container p {
         font-size: 28px;
     }
+
     .about-icons h4 {
         font-size: 32px;
     }
+
     .about-icons p {
         font-size: 28px;
     }

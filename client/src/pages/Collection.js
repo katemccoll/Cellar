@@ -2,12 +2,13 @@ import React from "react";
 import "./assets/css/Collection.css"
 
 import WineList from "../components/WineList/WineList";
-import {useQuery} from "@apollo/client";
-import {QUERY_WINES} from "../utils/queries";
+import { useQuery } from "@apollo/client";
+import { QUERY_WINES } from "../utils/queries";
 import Loading from "../components/Loading";
 
 const Collection = ( { client }) => {
     const { loading, data } = useQuery(QUERY_WINES);
+
     const wines = data?.wines || [];
 
     return (
@@ -16,9 +17,7 @@ const Collection = ( { client }) => {
                 <div className="padding-top">
                     <h1>Welcome to your cellar door!</h1>
                 </div>
-
             </div>
-
             {loading ? (
                 <Loading />
             ) : (

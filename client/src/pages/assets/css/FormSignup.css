@@ -6,33 +6,30 @@
     padding-bottom: 80px;
     background: linear-gradient(8deg, #ee7483, #f3d6b5);
     background-size: 400% 400%;
-
     -webkit-animation: AnimationName 40s ease infinite;
     -moz-animation: AnimationName 40s ease infinite;
     animation: AnimationName 40s ease infinite;
 }
 
 @-webkit-keyframes AnimationName {
-    0%{background-position:50% 0%}
+    0%{background-position:50% 0}
     50%{background-position:51% 100%}
-    100%{background-position:50% 0%}
+    100%{background-position:50% 0}
 }
 @-moz-keyframes AnimationName {
-    0%{background-position:50% 0%}
+    0%{background-position:50% 0}
     50%{background-position:51% 100%}
-    100%{background-position:50% 0%}
+    100%{background-position:50% 0}
 }
 @keyframes AnimationName {
-    0%{background-position:50% 0%}
+    0%{background-position:50% 0}
     50%{background-position:51% 100%}
-    100%{background-position:50% 0%}
+    100%{background-position:50% 0}
 }
-
 
 .block {
     height: 80px;
     background-color: var(--white);
-
 }
 
 .betty-container,
@@ -44,7 +41,6 @@
     display: flex;
     text-align: center;
     color: var(--black);
-
 }
 
 .controller- {
@@ -53,15 +49,12 @@
     padding: 10px;
     color: var(--black);
     background-color: var(--white);
-
 }
 
 .controller-selected-controller {
     width: 50%;
     font-size: 24px;
     padding: 10px;
-
-
 }
 
 .card-h h1 {
@@ -81,8 +74,8 @@
 
     .box-shadow {
         display: flex;
-        -webkit-box-shadow: 0px 4px 31px 0px rgba(0,0,0,0.81);
-        box-shadow: 0px 4px 31px 0px rgba(0,0,0,0.81);
+        -webkit-box-shadow: 0 4px 31px 0 rgba(0,0,0,0.81);
+        box-shadow: 0 4px 31px 0 rgba(0,0,0,0.81);
     }
 
     .block {
@@ -112,6 +105,7 @@
         -webkit-box-shadow: inset 9px -3px 31px -9px rgba(0,0,0,0.52);
         box-shadow: inset 9px -3px 31px -9px rgba(0,0,0,0.52);
     }
+
     .controller-selected-controller {
         background-color: var(--white);
         text-decoration: underline;
@@ -129,22 +123,25 @@
 }
 
 @media screen and (min-width: 1024px) {
+
     .betty-container,
     .controller-container,
     .card-h {
         width: 400px;
     }
+
     .betty-container img {
         width: 400px;
         height: 400px;
     }
+
     .background-colour {
         padding: 140px 0;
     }
-
 }
 
 @media screen and (min-width: 1440px) {
+
     .betty-container,
     .controller-container,
     .card-h {
@@ -154,15 +151,16 @@
         width: 500px;
         height: 500px;
     }
-
 }
 
 @media screen and (min-width: 2560px) {
+
     .betty-container,
     .controller-container,
     .card-h {
         width: 600px;
     }
+
     .betty-container img {
         width: 600px;
         height: 600px;
@@ -171,6 +169,5 @@
     .background-colour {
         padding: 200px 0;
     }
-
 }
 

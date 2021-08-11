@@ -5,10 +5,9 @@
     background-color: var(--dark-red-wine);
     text-decoration: none;
     color: var(--white);
-    -webkit-box-shadow: 0px 22px 30px -5px rgba(0,0,0,0.4);
-    box-shadow: 0px 22px 30px -5px rgba(0,0,0,0.4);
+    -webkit-box-shadow: 0 22px 30px -5px rgba(0,0,0,0.4);
+    box-shadow: 0 22px 30px -5px rgba(0,0,0,0.4);
     border-radius: 10px;
-
 }
 
 .cardItem a {

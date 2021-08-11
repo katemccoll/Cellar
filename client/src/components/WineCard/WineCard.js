@@ -13,11 +13,12 @@ const WineCard = ({ wine }) => {
         <div className="wine-card-container">
             <div className="cardItem">
                 <Link to={`/wines/${wine._id}`}>
-                    <div className="placeholder-image-wine" style={wineImage} >
-
+                    <div className="placeholder-image-wine" style={wineImage}>
                     </div>
                     <div className="wine-card-name">
-                        <p className="capitalize">{wine.wineryName}</p>
+                        <p className="capitalize">
+                            {wine.wineryName}
+                        </p>
                     </div>
                     <div>
                         {getStarRatingString(wine.rating)}

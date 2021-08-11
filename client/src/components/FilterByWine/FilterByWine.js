@@ -1,5 +1,5 @@
 import React from "react";
-import "./assets/css/FilterByWine.css"
+import "./FilterByWine.css"
 
 const FilterByWine = ({ handleChange }) => {
 
@@ -16,7 +16,6 @@ const FilterByWine = ({ handleChange }) => {
                 <option value="Fortified Wine">Fortified Wine</option>
             </select>
         </div>
-
     )
 };
 

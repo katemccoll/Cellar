@@ -14,7 +14,9 @@ const Signup = () => {
         email: '',
         password: '',
     });
+
     const [addUser] = useMutation(ADD_USER);
+
     const [errors, setErrors] = useState({});
 
     const ValidateInfo = (values) => {
@@ -50,6 +52,7 @@ const Signup = () => {
 
     const handleFormSubmit = async (event) => {
         event.preventDefault();
+
         let inputErrors = ValidateInfo(formState);
         setErrors(inputErrors);
 

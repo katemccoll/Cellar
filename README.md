@@ -1,11 +1,12 @@
 # Cellar
 
 ## Description
-This workout tracker will help a consumer reach their fitness goals. The consumer will be able to create workout plans
-and has a page to view their progress.
+Cellar privately tracks the wines that you like and dislike, which helps you buy the wines you love and avoid the ones you don’t.
+
+Cellar is your personal wine diary where you can upload photos, comment and rate the wines. With special features like geotags, cellar makes it easy to find your saved wines when you are in a rush at the liquor store.
 
 ### Live Link:
-https://scenic-voyageurs-87933.herokuapp.com/?id=60e279ad18009e0015544582
+
 
 
 ## Table of Contents
@@ -35,7 +36,14 @@ npm install
 npm start
 
 ## Results
-![photo](./public/images/results.JPG)
+
+Mobile view of the home page:
+
+![photo](./client/src/assets/images/homepage-moblie.JPG)
+
+Desktop view of the home page:
+
+![photo](./client/src/assets/images/homepage-computer.JPG)
 
 ## License
 MIT License

@@ -1,12 +1,12 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import WineCard from "../WineCard/WineCard";
 import "./WineList.css"
-import Search from "../Search";
-import FilterByRating from "../FilterByRating";
-import FilterByWine from "../FilterByWine";
-import SortBy from "../Sort-By";
-import CircularStatic from "../Loading";
-import {QUERY_WINES} from "../../utils/queries";
+import Search from "../Search/Search";
+import FilterByRating from "../FilterByRating/FilterByRating";
+import FilterByWine from "../FilterByWine/FilterByWine";
+import SortBy from "../SortBy/SortBy";
+
+import { QUERY_WINES } from "../../utils/queries";
 
 
 export default class WineList extends Component {

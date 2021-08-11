@@ -1,14 +1,14 @@
-import React, {Component} from "react";
-import {Button} from "./Button/Button";
-import "./assets/css/Search.css";
-import WineCard from "./WineCard/WineCard";
+import React, { Component } from "react";
+import { Button } from "../Button/Button";
+import "./Search.css";
+
 
 class Search extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            search: ''
+            search: '',
         }
 
         this.props = props;
@@ -42,13 +42,13 @@ class Search extends Component {
                         stylebutton="btn--icon-red"
                         sizebutton="btn--small"
                     >
-                        <i className="fas fa-search"></i>
+                        <i className="fas fa-search"> </i>
                     </Button>
 
                 </form>
             </div>
         )
-    }
+    };
 }
 
 export default Search;

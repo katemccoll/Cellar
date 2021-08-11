@@ -1,8 +1,7 @@
 import React from "react";
 import './Button.css';
 
-import {Link} from "react-router-dom";
-
+import { Link } from "react-router-dom";
 
 const STYLES = [
     'btn--primary',
@@ -16,7 +15,6 @@ const SIZES = [
     'btn--medium',
     'btn--large',
     'btn--small'
-
 ]
 
 export const Button = ({
@@ -47,7 +45,6 @@ export const Button = ({
                   >
                       {children}
                   </button>
-
             }
         </>
     );
