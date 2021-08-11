@@ -5,6 +5,7 @@ import Search from "../Search";
 import FilterByRating from "../FilterByRating";
 import FilterByWine from "../FilterByWine";
 import SortBy from "../Sort-By";
+import CircularStatic from "../Loading";
 import {QUERY_WINES} from "../../utils/queries";
 
 
@@ -13,12 +14,14 @@ export default class WineList extends Component {
         super(props);
 
         this.state = {
-            isLoading: false,
+            loading: true,
             rating: 0,
-            wines: props.wines
+            wines: [],
+            filters: {}
         }
 
-        this.client = props.client
+        this.client = props.client;
+        this.loadWines();
     }
 
     renderedList() {
@@ -26,7 +29,7 @@ export default class WineList extends Component {
             <>
                 {
                     this.state.wines.map((wine) => {
-                        if (!this.props.wines.length) {
+                        if (!this.state.wines.length) {
                             return <h3>
                                 Better start building your wine cellar!
                                 Don't want to be caught out buying a shit wine!
@@ -39,8 +42,20 @@ export default class WineList extends Component {
         )
     }
 
-    handleChange = (e) => {
+    loadWines() {
+        this.client.query({query: QUERY_WINES, fetchPolicy: 'no-cache',
+            variables: { filters: this.state.filters}
+        }).then((res) => {
 
+            this.setState(prevState => ({
+                ...prevState,
+                loading: false,
+                wines: res.data.wines,
+            }));
+        });
+    }
+
+    handleChange = (e) => {
         let newValue = e.target.value;
         let name = e.target.name;
 
@@ -48,27 +63,33 @@ export default class WineList extends Component {
             newValue = Number(newValue);
         }
 
-        this.client.query({query: QUERY_WINES, fetchPolicy: 'no-cache',
-            variables: { filters: { [e.target.name]: newValue }}
-        }).then((res) => {
-            this.setState(prevState => ({
-                ...prevState,
-                wines: res.data.wines,
-            }));
-        });
+        this.setState(prevState => ({
+            ...prevState,
+            filters: {
+                ...prevState.filters,
+                [name]: newValue
+            }
+        }));
     }
 
     render() {
         return (
-            <div className="text-align-center">
-                <div className="filter-container">
-                    <Search/>
-                    <SortBy/>
-                    <FilterByRating handleChange={this.handleChange}/>
-                    <FilterByWine/>
+            <>
+            {
+                this.state.loading ? (
+                <CircularStatic />
+            ) : (
+                <div className="text-align-center">
+                    <div className="filter-container">
+                        <Search/>
+                        <SortBy/>
+                        <FilterByRating handleChange={this.handleChange}/>
+                        <FilterByWine/>
+                    </div>
+                    <div>{this.renderedList()}</div>
                 </div>
-                <div>{this.renderedList()}</div>
-            </div>
+            )}
+            </>
         );
     }
 }
