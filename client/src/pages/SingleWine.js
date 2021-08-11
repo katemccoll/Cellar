@@ -100,9 +100,6 @@ const SingleWine = () => {
                     <div className="description-single-wine">
                         {wine.description}
                     </div>
-                    <Button>
-                        Edit
-                    </Button>
                     <Button onClick={handleRemove}>
                         Delete
                     </Button>

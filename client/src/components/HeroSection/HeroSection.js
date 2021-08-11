@@ -29,7 +29,7 @@ function HeroSection() {
     return (
         <div className="hero-container">
             <div className="header-container">
-                <h2>
+                <h2 className="capitalize">
                     {headerTitle}
                 </h2>
                 <p>
