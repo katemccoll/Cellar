@@ -14,14 +14,11 @@ export default class WineList extends Component {
         super(props);
 
         this.state = {
-            loading: true,
-            rating: 0,
-            wines: [],
-            filters: {}
+            wines: props.wines,
         }
 
         this.client = props.client;
-        this.loadWines();
+        this.filters = {};
     }
 
     renderedList() {
@@ -44,12 +41,11 @@ export default class WineList extends Component {
 
     loadWines() {
         this.client.query({query: QUERY_WINES, fetchPolicy: 'no-cache',
-            variables: { filters: this.state.filters}
+            variables: { filters: this.filters}
         }).then((res) => {
 
             this.setState(prevState => ({
                 ...prevState,
-                loading: false,
                 wines: res.data.wines,
             }));
         });
@@ -63,33 +59,22 @@ export default class WineList extends Component {
             newValue = Number(newValue);
         }
 
-        this.setState(prevState => ({
-            ...prevState,
-            filters: {
-                ...prevState.filters,
-                [name]: newValue
-            }
-        }));
+        this.filters[name] = newValue;
+
+        this.loadWines();
     }
 
     render() {
         return (
-            <>
-            {
-                this.state.loading ? (
-                <CircularStatic />
-            ) : (
-                <div className="text-align-center">
-                    <div className="filter-container">
-                        <Search/>
-                        <SortBy/>
-                        <FilterByRating handleChange={this.handleChange}/>
-                        <FilterByWine/>
-                    </div>
-                    <div>{this.renderedList()}</div>
+            <div className="text-align-center">
+                <div className="filter-container">
+                    <Search/>
+                    <SortBy/>
+                    <FilterByRating handleChange={this.handleChange}/>
+                    <FilterByWine/>
                 </div>
-            )}
-            </>
+                <div>{this.renderedList()}</div>
+            </div>
         );
     }
 }
