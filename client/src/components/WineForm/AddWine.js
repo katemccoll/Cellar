@@ -166,14 +166,17 @@ const AddWine = () => {
                         </div>
                         <div className="wine-text-container">
                             <label>Rating:
-                            <Rating name="rating"
-                                    className="rating"
-                                    size="large"
-                                    defaultValue={0}
-                                    precision={1}
-                                    emptyIcon={<StarBorderIcon fontSize="inherit" />}
-                                    onChange={handleFormChange}
+                                <div>
+                                    <Rating name="rating"
+                                            className="rating"
+                                            size="large"
+                                            defaultValue={0}
+                                            precision={1}
+                                            emptyIcon={<StarBorderIcon fontSize="inherit" />}
+                                            onChange={handleFormChange}
                                     />
+                                </div>
+
                             </label>
                         <label>
                             Thoughts on the wine?
