@@ -59,6 +59,7 @@
     color: var(--black);
     text-decoration: none;
     padding: 0.5rem 1rem;
+    font-weight: 600;
 }
 
 .navbar-links:hover {
@@ -82,10 +83,6 @@
     display: none;
 }
 
-.navbar-item Button {
-    margin: 10px;
-}
-
 @media screen and (max-width: 768px) {
     .navbar-menu {
         display: flex;
@@ -99,11 +96,15 @@
     }
 
     .navbar-menu.active {
-        background: var(--black);
         left: 0;
         opacity: 1;
         transition: all 0.5s ease;
         z-index: 1;
+        background: rgba( 255, 255, 255, 0.60 );
+        box-shadow: 0 8px 32px 0 rgba(10, 12, 40, 0.24);
+        backdrop-filter: blur( 3px );
+        -webkit-backdrop-filter: blur( 3px );
+        border: 1px solid rgba( 255, 255, 255, 0.18 );
     }
 
     .navbar-links {
@@ -112,12 +113,23 @@
         width: 100%;
         display: table;
         color: var(--white);
-
     }
     .navbar-item {
-        height: 90px;
-        padding: 24px;
+        padding: 18px;
         font-size: 22px;
+        width: 100%;
+    }
+
+    .home {
+        background-color: var(--purple);
+    }
+
+    .add-wine {
+        background-color: var(--blue);
+    }
+
+    .collection{
+        background-color: var(--pink);
     }
 
     .navbar-item a {
@@ -134,9 +146,25 @@
         width: 50px;
     }
 
-    .navbar-links:hover {
-        background-color: var(--red-wine);
-        color: var(--white);
+    .home:hover,
+    .add-wine:hover,
+    .collection:hover {
+        background-color: var(--white);
+    }
+
+    .home .navbar-links:hover {
+        background-color: var(--white);
+        color: var(--purple);
+    }
+
+    .add-wine .navbar-links:hover {
+        background-color: var(--white);
+        color: var(--blue);
+    }
+
+    .collection .navbar-links:hover {
+        background-color: var(--white);
+        color: var(--pink);
     }
 
     .navbar-logo {

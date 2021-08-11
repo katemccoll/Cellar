@@ -23,17 +23,17 @@ function Navbar() {
             return (
                 <div className="flex">
                     <ul className={click ? 'navbar-menu active' : 'navbar-menu'}>
-                        <li className="navbar-item">
+                        <li className="navbar-item home">
                             <Link className="navbar-links" to="/" onClick={closeMobileMenu}>
                                 Home
                             </Link>
                         </li>
-                        <li className="navbar-item">
+                        <li className="navbar-item add-wine">
                             <Link className="navbar-links" to="/add-wine" onClick={closeMobileMenu}>
                                 Add Wine
                             </Link>
                         </li>
-                        <li className="navbar-item">
+                        <li className="navbar-item collection">
                             <Link className="navbar-links" to="/collection" onClick={closeMobileMenu}>
                                 Collection
                             </Link>
