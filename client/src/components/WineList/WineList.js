@@ -56,7 +56,12 @@ export default class WineList extends Component {
         let name = e.target.name;
 
         if (name === "rating") {
-            newValue = Number(newValue);
+            if (newValue === "all") {
+                newValue = undefined;
+            } else {
+                newValue = Number(newValue);
+            }
+
         }
 
         this.filters[name] = newValue;
@@ -64,14 +69,20 @@ export default class WineList extends Component {
         this.loadWines();
     }
 
+    handleSearch = (searchString) => {
+        this.filters.searchWineryName = searchString;
+        this.loadWines();
+
+    }
+
     render() {
         return (
             <div className="text-align-center">
                 <div className="filter-container">
-                    <Search/>
-                    <SortBy/>
+                    <Search handleSearch={this.handleSearch}/>
+                    <SortBy handleChange={this.handleChange}/>
                     <FilterByRating handleChange={this.handleChange}/>
-                    <FilterByWine/>
+                    <FilterByWine handleChange={this.handleChange}/>
                 </div>
                 <div>{this.renderedList()}</div>
             </div>

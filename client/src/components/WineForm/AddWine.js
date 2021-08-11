@@ -39,7 +39,7 @@ const UploadImage = async (imageData) => {
 const AddWine = () => {
     const [formState, setFormState] = useState({
         wineryName: '',
-        wineType: 'red-wine',
+        wineType: 'Red Wine',
         description: '',
         image: null,
         rating: 0,
@@ -110,7 +110,8 @@ const AddWine = () => {
 
     let uploadImageStyle = {
         backgroundImage: 'url(' + formState.image + ')',
-        backgroundSize: 'cover'
+        backgroundSize: 'cover',
+        backgroundPosition: 'center'
     };
 
     return (

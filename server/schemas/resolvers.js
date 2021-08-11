@@ -36,10 +36,11 @@ const resolvers = {
                 }
             );
 
+
             let wines = user.wines.filter((wine) => {
                 let matches = true;
 
-                if (filters.rating) {
+                if ('rating' in filters) {
                     matches &= wine.rating === filters.rating;
                 }
 
@@ -48,7 +49,7 @@ const resolvers = {
                 }
 
                 if (filters.searchWineryName) {
-                    matches &= wine.wineryName.contains(filter.searchWineryName);
+                    matches &= wine.wineryName.toLowerCase().includes(filters.searchWineryName.toLowerCase());
                 }
 
                 return matches;

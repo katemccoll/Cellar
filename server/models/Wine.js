@@ -25,6 +25,7 @@ const wineSchema = new Schema({
     },
     rating: {
         type: Number,
+        required: true,
         default: 0,
     },
     region: {

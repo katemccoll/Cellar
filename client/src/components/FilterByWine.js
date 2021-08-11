@@ -1,13 +1,13 @@
 import React from "react";
 import "./assets/css/FilterByWine.css"
 
-const FilterByWine = () => {
+const FilterByWine = ({ handleChange }) => {
 
     return (
         <div className="filter-by-wine-container">
             <label>Filter By Wine:</label>
-            <select className="filter-by-wine">
-                <option defaultValue="all-wines">All Wines</option>
+            <select className="filter-by-wine" name="wineType" onChange={handleChange}>
+                <option value="">All Wines</option>
                 <option value="Red Wine">Red Wine</option>
                 <option value="White Wine">White Wine</option>
                 <option value="Rosé Wine">Rosé Wine</option>

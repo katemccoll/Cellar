@@ -4,40 +4,37 @@ import "./assets/css/Search.css";
 import WineCard from "./WineCard/WineCard";
 
 class Search extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
+
         this.state = {
             search: ''
         }
+
+        this.props = props;
     }
 
-    updateSearch(event) {
+    updateSearch = (event) => {
         this.setState({search: event.target.value.substr(0, 20)});
+
+    }
+
+    onSubmit = (e) =>{
+        e.preventDefault();
+        this.props.handleSearch(this.state.search);
     }
 
     render() {
-        // let searchWines = this.props.wines.filter(
-        //     (wine) => {
-        //         return wine.wineryName.indexOf(this.state.search) !== -1;
-        //     }
-        // )
         return (
             <div className="search-container">
-                <form className="search-form">
-                    {/*<ul>*/}
-                    {/*    {searchWines.map((wine) => {*/}
-                    {/*        return <WineCard*/}
-                    {/*            wine={wine}*/}
-                    {/*            key={wine._id} />*/}
-                    {/*    })}*/}
-                    {/*</ul>*/}
+                <form className="search-form" onSubmit={this.onSubmit}>
                     <input
                         value={this.state.search}
                         type="text"
                         className="search"
                         placeholder="Search for your wine"
                         name="search"
-                        onChange={this.updateSearch.bind(this)}
+                        onChange={this.updateSearch}
                     />
                     <Button
                         type="submit"
