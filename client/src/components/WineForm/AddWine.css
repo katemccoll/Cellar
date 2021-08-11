@@ -99,11 +99,6 @@
     text-align-last: center;
 }
 
-.rating {
-    margin: 10px 0;
-    width: 100%;
-}
-
 .rating label {
     cursor: pointer;
     transition: 0.3s;
@@ -164,10 +159,6 @@
     .wine-text-container label span {
         font-size: 80px;
         place-content: center;
-    }
-
-    .rating {
-        margin-bottom: 20px;
     }
 
     .input-add-wine,

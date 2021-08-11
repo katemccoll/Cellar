@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import "./assets/css/Login.css";
-import logo from "./assets/images/cellar-logo.png";
 import { Button } from "./Button/Button";
 import { LOGIN } from "../utils/mutations";
 import  Auth from "../utils/auth";
