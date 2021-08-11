@@ -5,6 +5,7 @@ import Auth from "../../utils/auth";
 import {useQuery} from "@apollo/client";
 import { useParams } from 'react-router-dom';
 import {QUERY_USER} from "../../utils/queries";
+import CircularStatic from "../Loading";
 
 
 
@@ -15,11 +16,11 @@ function HeroSection() {
     });
     const user = data?.user || {};
 
-    let getStartedLink = Auth.loggedIn() ? "/collection" : "/login";
+    let getStartedLink = Auth.loggedIn() ? "/add-wine" : "/login";
     let headerTitle = Auth.loggedIn() ? `Hi ${(user.firstName)}!` : "Build your online wine cellar";
 
     if (loading) {
-        return <div>Loading....</div>
+        return <CircularStatic />
     }
     return (
         <div className="hero-container">

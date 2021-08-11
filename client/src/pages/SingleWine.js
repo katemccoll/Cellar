@@ -7,6 +7,7 @@ import {Button} from "../components/Button/Button";
 import "./assets/css/SingleWine.css";
 import {REMOVE_WINE} from "../utils/mutations";
 import {getStarRatingString} from "../utils/ratings";
+import CircularStatic from "../components/Loading";
 
 const SingleWine = () => {
     const { wineId } = useParams();
@@ -49,7 +50,7 @@ const SingleWine = () => {
 
     const wine = data?.wine || {};
     if (loading) {
-        return <div>Loading...</div>
+        return <CircularStatic />
     }
 
     let imageStyle = wine.image ? {

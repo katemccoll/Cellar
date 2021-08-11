@@ -4,6 +4,7 @@ import "./assets/css/Collection.css"
 import WineList from "../components/WineList/WineList";
 import {useQuery} from "@apollo/client";
 import {QUERY_WINES} from "../utils/queries";
+import CircularStatic from "../components/Loading";
 
 const Collection = () => {
     const { loading, data } = useQuery(QUERY_WINES);
@@ -19,7 +20,7 @@ const Collection = () => {
             </div>
 
             {loading ? (
-                <div>Loading...</div>
+                <CircularStatic />
             ) : (
                 <WineList
                 wines={ wines}
