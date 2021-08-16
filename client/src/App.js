@@ -14,12 +14,10 @@ import FormWine from "./pages/FormWine";
 import Collection from "./pages/Collection";
 import Navbar from "./components/Navbar/Navbar";
 import SingleWine from "./pages/SingleWine";
-
 import './App.css';
-// import ErrorPage from "./components/ErrorPage/ErrorPage";
 
 const httpLink = createHttpLink({
-  uri: process.env.DEV_GRAPHQL_API || '/graphql',
+  uri: process.env.REACT_APP_DEV_GRAPHQL_API || '/graphql',
 });
 
 
@@ -46,14 +44,13 @@ function App() {
         <Router>
           <Navbar />
           <Switch>
-            <Route path='/' exact component={Home}></Route>
-            <Route path='/add-wine' component={FormWine}></Route>
-            <Route path='/collection'  component={() => <Collection client={client}/>}></Route>
-            <Route path='/login' component={FormSignup}></Route>
+            <Route path='/' exact component={Home}/>
+            <Route path='/add-wine' component={FormWine}/>
+            <Route path='/collection'  component={() => <Collection client={client}/>}/>
+            <Route path='/login' component={FormSignup}/>
             <Route exact path="/wines/:wineId">
               <SingleWine />
             </Route>
-            {/*<Route component={ErrorPage}></Route>*/}
           </Switch>
 
         </Router>

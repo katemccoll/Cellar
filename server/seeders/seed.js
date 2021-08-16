@@ -1,6 +1,5 @@
 const db = require('../config/connection');
 const { User, Wine } = require('../models');
-// const wineSeeds = require('./wineSeeds.json');
 
 db.once('open', async () => {
     await db.db.dropDatabase();

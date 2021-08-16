@@ -21,7 +21,7 @@ class FormSignup extends Component {
     render() {
         return (
             <main>
-                <div className="block"></div>
+                <div className="block" />
                 <section className="background-colour">
                     <div className="box-shadow">
                         <div className="betty-container">
