@@ -1,54 +1,44 @@
-import React, { Component } from "react";
-import { Button } from "../Button/Button";
+import React, {useState} from "react";
+import {Button} from "../Button/Button";
 import "./Search.css";
 
 
-class Search extends Component {
-    constructor(props) {
-        super(props);
+const Search = ({handleSearch}) => {
+    const [search, setSearch] = useState('');
 
-        this.state = {
-            search: '',
-        }
-
-        this.props = props;
-    }
-
-    updateSearch = (event) => {
-        this.setState({search: event.target.value.substr(0, 20)});
+    const updateSearch = (event) => {
+        setSearch(event.target.value.substr(0, 20));
 
     }
 
-    onSubmit = (e) =>{
+    const onSubmit = (e) => {
         e.preventDefault();
-        this.props.handleSearch(this.state.search);
+        handleSearch(search);
     }
 
-    render() {
-        return (
-            <div className="search-container">
-                <form className="search-form" onSubmit={this.onSubmit}>
-                    <input
-                        value={this.state.search}
-                        type="text"
-                        className="search"
-                        placeholder="Search for your wine"
-                        name="search"
-                        onChange={this.updateSearch}
-                    />
-                    <Button
-                        type="submit"
-                        className="btn searchButton"
-                        stylebutton="btn--icon-red"
-                        sizebutton="btn--small"
-                    >
-                        <i className="fas fa-search"> </i>
-                    </Button>
+    return (
+        <div className="search-container">
+            <form className="search-form" onSubmit={onSubmit}>
+                <input
+                    value={search}
+                    type="text"
+                    className="search"
+                    placeholder="Search for your wine"
+                    name="search"
+                    onChange={updateSearch}
+                />
+                <Button
+                    type="submit"
+                    className="btn searchButton"
+                    stylebutton="btn--icon-red"
+                    sizebutton="btn--small"
+                >
+                    <i className="fas fa-search"> </i>
+                </Button>
 
-                </form>
-            </div>
-        )
-    };
+            </form>
+        </div>
+    )
 }
 
 export default Search;

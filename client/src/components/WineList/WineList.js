@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {useState} from 'react';
 import WineCard from "../WineCard/WineCard";
 import "./WineList.css"
 import Search from "../Search/Search";
@@ -6,27 +6,22 @@ import FilterByRating from "../FilterByRating/FilterByRating";
 import FilterByWine from "../FilterByWine/FilterByWine";
 import SortBy from "../SortBy/SortBy";
 
-import { QUERY_WINES } from "../../utils/queries";
+import {QUERY_WINES} from "../../utils/queries";
 
 
-export default class WineList extends Component {
-    constructor(props) {
-        super(props);
+const WineList = (props) => {
 
-        this.state = {
-            wines: props.wines,
-        }
+    const [wines, setWines] = useState(props.wines);
+    const {client} = props;
 
-        this.client = props.client;
-        this.filters = {};
-    }
+    let filters = {};
 
-    renderedList() {
+    function renderedList() {
         return (
             <>
                 {
-                    this.state.wines.map((wine) => {
-                        if (!this.state.wines.length) {
+                    wines.map((wine) => {
+                        if (!wines.length) {
                             return <h3>
                                 Better start building your wine cellar!
                                 Don't want to be caught out buying a shit wine!
@@ -36,22 +31,20 @@ export default class WineList extends Component {
                     })
                 }
             </>
-        )
+        );
     }
 
-    loadWines() {
-        this.client.query({query: QUERY_WINES, fetchPolicy: 'no-cache',
-            variables: { filters: this.filters}
+    const loadWines = () => {
+        client.query({
+            query: QUERY_WINES, fetchPolicy: 'no-cache',
+            variables: {filters: filters}
         }).then((res) => {
 
-            this.setState(prevState => ({
-                ...prevState,
-                wines: res.data.wines,
-            }));
+            setWines(res.data.wines);
         });
     }
 
-    handleChange = (e) => {
+    const handleChange = (e) => {
         let newValue = e.target.value;
         let name = e.target.name;
 
@@ -61,31 +54,29 @@ export default class WineList extends Component {
             } else {
                 newValue = Number(newValue);
             }
-
         }
 
-        this.filters[name] = newValue;
+        filters[name] = newValue;
 
-        this.loadWines();
-    }
+        loadWines();
+    };
 
-    handleSearch = (searchString) => {
-        this.filters.searchWineryName = searchString;
-        this.loadWines();
+    const handleSearch = (searchString) => {
+        filters.searchWineryName = searchString;
+        loadWines();
+    };
 
-    }
-
-    render() {
-        return (
-            <div className="text-align-center">
-                <div className="filter-container">
-                    <Search handleSearch={this.handleSearch}/>
-                    <SortBy handleChange={this.handleChange}/>
-                    <FilterByRating handleChange={this.handleChange}/>
-                    <FilterByWine handleChange={this.handleChange}/>
-                </div>
-                <div>{this.renderedList()}</div>
+    return (
+        <div className="text-align-center">
+            <div className="filter-container">
+                <Search handleSearch={handleSearch}/>
+                <SortBy handleChange={handleChange}/>
+                <FilterByRating handleChange={handleChange}/>
+                <FilterByWine handleChange={handleChange}/>
             </div>
-        );
-    }
+            <div>{renderedList()}</div>
+        </div>
+    );
 }
+
+export default WineList;
