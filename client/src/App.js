@@ -20,7 +20,6 @@ const httpLink = createHttpLink({
   uri: process.env.REACT_APP_DEV_GRAPHQL_API || '/graphql',
 });
 
-
 const authLink = setContext((_, { headers }) => {
 
   const token = localStorage.getItem('id_token');
@@ -52,9 +51,7 @@ function App() {
               <SingleWine />
             </Route>
           </Switch>
-
         </Router>
-
       </ApolloProvider>
   );
 }

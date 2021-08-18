@@ -38,7 +38,7 @@ const Search = ({handleSearch}) => {
 
             </form>
         </div>
-    )
-}
+    );
+};
 
 export default Search;

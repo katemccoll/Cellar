@@ -128,11 +128,6 @@ const resolvers = {
 
         },
 
-        // updateWine: async (parent, { _id, quantity }) => {
-        //     const decrement = Math.abs(quantity) * -1;
-        //
-        //     return await Wine.findByIdAndUpdate(_id, { $inc: { quantity: decrement } }, { new: true });
-        // },
         removeWine: async (parent, { wineId }, context) => {
             ensureLoggedIn(context);
             let wine = await findWineById(context, wineId);
