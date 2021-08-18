@@ -95,8 +95,7 @@ const AddWine = () => {
         let {name, value} = event.target;
 
         if (name === "image") {
-            // We can't access the value form a file picker form, so we need to convert it with
-            // this function.
+            
             value = URL.createObjectURL(event.target.files[0]);
         } else {
             value = event.target.validity.valid ? value : formState[name];
